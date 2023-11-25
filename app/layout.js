@@ -4,8 +4,8 @@ import './globals.css'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata = {
-  title: 'Mário Kart',
-  description: 'Projeto de cadastro de mapas do jogo Mário Kard',
+  title: 'Mario Kart',
+  description: 'Projeto de cadastro de mapas do jogo Mario Kary',
 }
 
 export default function RootLayout({ children }) {
