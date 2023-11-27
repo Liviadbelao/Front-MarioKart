@@ -1,6 +1,7 @@
 'use client'
 import axios from "axios"
 import { useEffect, useState } from "react";
+import style from './page.module.css'
 
 export default function SobreNos() {
     const [usuarios, setUsuarios] = useState([]);
@@ -23,11 +24,17 @@ export default function SobreNos() {
 
 
   return (
-    <main >
+    <main className={style.divMain}>
       {usuarios ? (
         usuarios.map((usuario) => (
-          <div key={usuario.id}>
-            <h1>{usuario.id}</h1>
+        <div className={style.container}>
+          <div key={usuario.id} className={style.content} >
+         
+            <h1 className={style.h1}>{usuario.nome} </h1>
+            <h1 className={style.h1}>{usuario.idade} </h1>
+            <h1  className={style.h1}>{usuario.descricao} </h1>
+            <h1  className={style.h1}>{usuario.tipo} </h1>
+          </div>
           </div>
         ))
       ) : (

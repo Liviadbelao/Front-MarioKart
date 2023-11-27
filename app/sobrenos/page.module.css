@@ -1,7 +1,25 @@
 .h1{
-    color: blueviolet;
+    color: white;
 }
 
-.div1{
-    background-color: brown;
+.divMain{
+    display: flex;
+    background-color: rgb(151, 227, 151);
+    margin: 1%;
+
+}
+
+.content{
+    -webkit-box-shadow: 4px 0px 21px -2px rgba(0,0,0,0.87);
+    -moz-box-shadow: 4px 0px 21px -2px rgba(0,0,0,0.87);
+    box-shadow: 4px 0px 21px -2px rgba(0,0,0,0.87);
+    background-color: red;
+    margin: 1%;
+    width: 60%;
+height: 60vh;
+
+}
+
+.container{
+    background-color: rgb(15, 245, 15);
 }
