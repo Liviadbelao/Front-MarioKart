@@ -36,6 +36,7 @@ export default function Home() {
         mapas.map((mapa) => (
           <div key={mapa.id}>
             <h1>{mapa.nome}</h1>
+            <img src={mapa.imagem} width={200} height={100}/>
           </div>
         ))
       ) : (

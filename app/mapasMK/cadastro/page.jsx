@@ -6,6 +6,7 @@ import Link from "next/link";
 
 export default function Register() {
     const [nome, setNome] = useState("");
+    const [imagem, setImagem] = useState();
     const [mapas, setMapas] = useState([]);
 
     const Adicionar = async (e) => {
@@ -41,6 +42,7 @@ export default function Register() {
             </Link>
             <form onSubmit={Adicionar}>
                 <input type="text" value={nome} placeholder='nome' onChange={(e) => setNome(e.target.value)} required  />
+                <input type="text" value={imagem} placeholder='imagem' onChange={(e) => setImagem(e.target.value)} required  />
                 <button type="submit">Cadastrar</button>
             </form>
         </main>
