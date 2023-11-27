@@ -1,6 +1,7 @@
 'use client'
 import axios from "axios"
 import { useEffect, useState } from "react";
+import style from './sobrenos/page.module.css'
 
 export default function Home() {
 
@@ -10,7 +11,7 @@ export default function Home() {
   useEffect(() => {
     async function fetchMaps() {
       try {
-        const response = await axios.get("/api/mapas");
+        const response = await axios.get("/api/usuarios");
         setMapas(response.data.listaMapas);
         setDados(response.data.listaMapas);
       } catch (error) {
@@ -28,12 +29,12 @@ export default function Home() {
     <main >
       {mapas ? (
         mapas.map((mapa) => (
-          <div key={mapa.id}>
+          <div key={mapa.id} className={style.div1}>
             <h1>{mapa.id}</h1>
           </div>
         ))
       ) : (
-        <h1>Esperando Dados</h1>
+        <h1 className={style.h1}>Esperando Dados</h1>
       )}
     </main>
   )
