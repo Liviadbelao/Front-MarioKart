@@ -1,7 +1,7 @@
 'use client'
 import axios from "axios"
 import { useEffect, useState } from "react";
-import style from './sobrenos/page.module.css'
+import Link from "next/link";
 
 export default function Home() {
 
@@ -11,7 +11,7 @@ export default function Home() {
   useEffect(() => {
     async function fetchMaps() {
       try {
-        const response = await axios.get("/api/usuarios");
+        const response = await axios.get("/api/mapas");
         setMapas(response.data.listaMapas);
         setDados(response.data.listaMapas);
       } catch (error) {
@@ -27,10 +27,16 @@ export default function Home() {
 
   return (
     <main >
+        <Link href="/mapasMK/cadastro">
+          <button >
+            Cadastrar Aluno
+          </button>
+        </Link>
       {mapas ? (
         mapas.map((mapa) => (
           <div key={mapa.id}>
             <h1>{mapa.nome}</h1>
+            <img src={mapa.imagem} width={200} height={100}/>
           </div>
         ))
       ) : (
