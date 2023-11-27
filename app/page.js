@@ -29,8 +29,8 @@ export default function Home() {
     <main >
       {mapas ? (
         mapas.map((mapa) => (
-          <div key={mapa.id} className={style.div1}>
-            <h1>{mapa.id}</h1>
+          <div key={mapa.id}>
+            <h1>{mapa.nome}</h1>
           </div>
         ))
       ) : (
