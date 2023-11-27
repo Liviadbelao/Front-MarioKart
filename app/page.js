@@ -29,7 +29,7 @@ export default function Home() {
       {mapas ? (
         mapas.map((mapa) => (
           <div key={mapa.id}>
-            <h1>{mapa.id}</h1>
+            <h1>{mapa.nome}</h1>
           </div>
         ))
       ) : (
