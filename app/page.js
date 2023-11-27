@@ -11,7 +11,7 @@ export default function Home() {
   useEffect(() => {
     async function fetchMaps() {
       try {
-        const response = await axios.get("/api/usuarios");
+        const response = await axios.get("/api/mapas");
         setMapas(response.data.listaMapas);
         setDados(response.data.listaMapas);
       } catch (error) {
