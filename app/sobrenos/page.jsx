@@ -5,7 +5,7 @@ import style from './page.module.css'
 
 
 export default function SobreNos() {
-    const [usuarios, setUsuarios] = useState([]);
+  const [usuarios, setUsuarios] = useState([]);
 
   useEffect(() => {
     async function fetchUsers() {
@@ -27,26 +27,30 @@ export default function SobreNos() {
   return (
     <main className={style.divMain}>
       <div className={style.container}>
-      {usuarios ? (
-        usuarios.map((usuario) => (
-          <div key={usuario.id} className={style.content} >
-      
+        {usuarios ? (
+          usuarios.map((usuario) => (
 
-      <div className={style.nome}> <p className={style.p}>{usuario.nome} </p></div>
-    
-            {/* <p className={style.p}>{usuario.nome} </p>
+            <div >
+
+              <div key={usuario.id} className={style.content} >
+
+
+                <div className={style.nome}> <p className={style.p}>{usuario.nome} </p></div>
+
+                {/* <p className={style.p}>{usuario.nome} </p>
             <p className={style.p}>{usuario.idade} </p>
             <p  className={style.p}>{usuario.tipo} </p>
             <p  className={style.p}>{usuario.descricao} </p>
             <img className={style.img} src={usuario.imagem}/> 
          */}
-            
-          </div>
-        ))
-        ) : (
-          <h1>Esperando Dados</h1>
+
+              </div>
+              </div>))
+
+              )  : (
+              <h1>Esperando Dados</h1>
           )}
-          </div>
+            </div>
     </main>
   )
 }
