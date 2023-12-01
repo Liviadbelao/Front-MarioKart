@@ -26,23 +26,27 @@ export default function SobreNos() {
 
   return (
     <main className={style.divMain}>
+      <div className={style.container}>
       {usuarios ? (
         usuarios.map((usuario) => (
-        <div className={style.container}>
           <div key={usuario.id} className={style.content} >
-         
-            <h1 className={style.h1}>{usuario.nome} </h1>
-            <h1 className={style.h2}>{usuario.idade} </h1>
-            <h1  className={style.h1}>{usuario.tipo} </h1>
-            <h1  className={style.h1}>{usuario.descricao} </h1>
+      
+
+      <div className={style.nome}> <p className={style.p}>{usuario.nome} </p></div>
+    
+            {/* <p className={style.p}>{usuario.nome} </p>
+            <p className={style.p}>{usuario.idade} </p>
+            <p  className={style.p}>{usuario.tipo} </p>
+            <p  className={style.p}>{usuario.descricao} </p>
             <img className={style.img} src={usuario.imagem}/> 
+         */}
             
           </div>
-          </div>
         ))
-      ) : (
-        <h1>Esperando Dados</h1>
-      )}
+        ) : (
+          <h1>Esperando Dados</h1>
+          )}
+          </div>
     </main>
   )
 }
