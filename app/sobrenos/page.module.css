@@ -1,12 +1,15 @@
-.divMain {
-    background-image: url(../../public/background.jpg);
-    background-attachment: fixed;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    height: 100vh;
-    width: 100%;
-    padding-top: 10%;
+
+
+.divMain{
+   background-image:url(/cadastroSobreNos/background.jpg) ;
+   background-attachment: fixed;
+   background-position: center;
+   background-repeat: no-repeat;
+   background-size: cover;
+   height: 100vh;
+   width: 100%;
+   padding-top: 10%;
+
 
 }
 
