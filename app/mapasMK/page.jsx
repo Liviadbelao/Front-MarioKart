@@ -53,11 +53,11 @@ export default function Home() {
                 </button>
             </Link> 
             <div className={styles.container}>
-            <button className={styles.botoes} onClick={() => aplicarFiltro("Copa Flor")}>Flor</button>
-            <button className={styles.botoes} onClick={() => aplicarFiltro("Copa Casco")}>Casco</button>
-            <button className={styles.botoes} onClick={() => aplicarFiltro("Copa Seta")}>Seta</button>
-            <button className={styles.botoes} onClick={() => aplicarFiltro("Copa Estrela")}>Estrela</button>
-            <button className={styles.botoes} onClick={() => aplicarFiltro("Copa Flor de Cerejeira")}>Flor de Cerejeira</button>
+            <button className={styles.botoes} onClick={() => aplicarFiltro("Copa Cogumelo")}><img src={'/copas/copacogumelo.png'} width={100} height={100}/></button>
+            <button className={styles.botoes} onClick={() => aplicarFiltro("Copa Flor")}><img src={'/copas/copaflor.png'} width={100} height={100}/></button>
+            <button className={styles.botoes} onClick={() => aplicarFiltro("Copa Estrela")}><img src={'/copas/copaestrela.png'} width={100} height={100}/></button>
+            <button className={styles.botoes} onClick={() => aplicarFiltro("Copa Especial")}><img src={'/copas/copaespecial.png'} width={100} height={100}/></button>
+            <button className={styles.botoes} onClick={() => aplicarFiltro("Copa Casco")}><img src={'/copas/copacasco.png'} width={100} height={100}/></button>
             <button className={styles.botoes} onClick={() => aplicarFiltro("Copa Banana")}>Banana</button>
             <button className={styles.botoes} onClick={() => aplicarFiltro("Copa Folha")}>Folha</button>
             <button className={styles.botoes} onClick={() => aplicarFiltro("Copa Especial")}>Especial</button>
