@@ -28,7 +28,7 @@ export default function SobreNos() {
     <main className={style.divMain}>
       {usuarios ? (
         usuarios.map((usuario) => (
-        <div className={style.container}>
+        <div >
           <div key={usuario.id} className={style.content} >
          
             <h1 className={style.h1}>{usuario.nome} </h1>
