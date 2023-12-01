@@ -122,7 +122,7 @@ export default function Cadastro() {
               <option value=''>Selecione...</option>
               <option value="/abelha_rainha-removebg-preview.png">Abelha Rainha</option>
               <option value="/baby_pitty-removebg-preview.png">Baby Pitty</option>
-              <option value="/cadastroSobreNos/babyprincessbelao-PhotoRoom.png-PhotoRoom.png">Baby Princess</option>
+              <option value="/cadastroSobreNos/babyprincessbelao-PhotoRoom.png-PhotoRoom.png">Baby Rosalina</option>
               <option value="/cadastroSobreNos/baby_luid-removebg-preview.png">Baby Luid</option>
               <option value="/cadastroSobreNos/baby_mario-removebg-preview.png">Baby Mario</option>
               <option value="/cadastroSobreNos/baby_princes_brunete-removebg-preview.png">Baby Daisy</option>
@@ -152,7 +152,17 @@ export default function Cadastro() {
               <option value="/cadastroSobreNos/peninha.png">lemmy koppa</option>
               <option value="/cadastroSobreNos/planta carnivora-PhotoRoom.png">Petanha Piranha</option>
               <option value="/cadastroSobreNos/pninha verde-PhotoRoom.png">iggy koopa</option>
-              <option value="/cadastroSobreNos/peninha_azul-removebg-preview.png"></option>
+              <option value="/cadastroSobreNos/prince ghost-PhotoRoom.png-PhotoRoom.png">Boo Ghost</option>
+              <option value="/cadastroSobreNos/princesa belao-PhotoRoom.png-PhotoRoom.png">Princess Rosalina</option>
+              <option value="/cadastroSobreNos/rainha peach-PhotoRoom.png-PhotoRoom.png">Princess Peach</option>
+              <option value="/cadastroSobreNos/princesa ruiva-PhotoRoom.png-PhotoRoom.png">Princess Daisy</option>
+              <option value="/cadastroSobreNos/rainha peach-PhotoRoom.png-PhotoRoom.png">Rainha Peach</option>
+              <option value="/cadastroSobreNos/ratao-PhotoRoom.png-PhotoRoom.png">Mouser</option>
+              <option value="/cadastroSobreNos/sapao-PhotoRoom.png-PhotoRoom.png">Espigão</option>
+              <option value="/cadastroSobreNos/suga-PhotoRoom.png-PhotoRoom.png">Birdo</option>
+              <option value="/cadastroSobreNos/tartaruga de lacinho-PhotoRoom.png-PhotoRoom.png">Wendy</option>
+              <option value="/cadastroSobreNos/teen monkey-PhotoRoom.png-PhotoRoom.png">Diddy kong</option>
+              <option value="/cadastroSobreNos/veio maluco-PhotoRoom.png-PhotoRoom.png">Professor E.Gadd</option>
 
 
               
