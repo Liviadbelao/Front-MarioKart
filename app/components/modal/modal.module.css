@@ -63,7 +63,8 @@
     -moz-box-shadow: -6px 3px 60px 9px rgba(255, 255, 255, 0.51);
   }
   .botao{
-    padding: 1%;
+    padding: 2%;
+    margin-bottom: 2%;
     border-radius: 100%;
     background-color: red;
     color: #fff;
