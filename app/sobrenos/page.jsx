@@ -30,7 +30,7 @@ export default function SobreNos() {
         {usuarios ? (
           usuarios.map((usuario) => (
 
-            <div >
+            <div className={style.card}>
 
               <div key={usuario.id} className={style.content} >
 

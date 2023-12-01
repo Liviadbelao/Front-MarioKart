@@ -16,14 +16,16 @@ export default function Cadastro() {
   const adicionar = async (e) => {
     e.preventDefault();
 
+    console.log(nome, avatar, idade, descricao, tipo, imagem )
     try {
-      await axios.post("/api/usuarios", { nome, idade, descricao, tipo, imagem, avatar });
+      await axios.post("/api/usuarios", { nome, avatar, idade, descricao, tipo, imagem  });
       setNome("");
+      setAvatar("");
       setIdade("");
       setDescricao("");
       setTipo("");
       setImagem("");
-      setAvatar("");
+     
     } catch (error) {
       console.error("Error submitting data:", error);
     }
@@ -69,47 +71,6 @@ export default function Cadastro() {
           </div>
 
           <div>
-            <label htmlFor="idade"> idade</label>
-            <input
-              type="number"
-              id="idade"
-              value={idade}
-              onChange={(e) => setIdade(e.target.value)}
-              required
-            />
-          </div>
-          <div>
-            <label htmlFor="descricao"> descrição</label>
-            <input
-              type="text"
-              id="descricao"
-              value={descricao}
-              onChange={(e) => setDescricao(e.target.value)}
-              required
-            />
-          </div>
-          <div>
-            <label htmlFor="tipo"> tipo</label>
-            <input
-              type="text"
-              id="tipo"
-              value={tipo}
-              onChange={(e) => setTipo(e.target.value)}
-              required
-            />
-          </div>
-          <div>
-            <label htmlFor="imagem"> imagem</label>
-            <input
-              type="text"
-              id="imagem"
-              value={imagem}
-              onChange={(e) => setImagem(e.target.value)}
-              required
-            />
-          </div>
-
-          <div>
             <label htmlFor="avatar"> selecione seu avatar</label>
             <select
               name="avatar"
@@ -120,8 +81,8 @@ export default function Cadastro() {
               {/* <option value="caminho/para/imagem1.jpg">Imagem 1</option>
               <option value="caminho/para/imagem2.jpg">Imagem 2</option> */}
               <option value=''>Selecione...</option>
-              <option value="/abelha_rainha-removebg-preview.png">Abelha Rainha</option>
-              <option value="/baby_pitty-removebg-preview.png">Baby Pitty</option>
+              <option value="/cadastroSobreNos/abelha_rainha-removebg-preview.png">Abelha Rainha</option>
+              <option value="/cadastroSobreNos/baby_pitty-removebg-preview.png">Baby Pitty</option>
               <option value="/cadastroSobreNos/babyprincessbelao-PhotoRoom.png-PhotoRoom.png">Baby Rosalina</option>
               <option value="/cadastroSobreNos/baby_luid-removebg-preview.png">Baby Luid</option>
               <option value="/cadastroSobreNos/baby_mario-removebg-preview.png">Baby Mario</option>
@@ -178,6 +139,49 @@ export default function Cadastro() {
               />
             )}
           </div>
+
+          <div>
+            <label htmlFor="idade"> idade</label>
+            <input
+              type="number"
+              id="idade"
+              value={idade}
+              onChange={(e) => setIdade(e.target.value)}
+              required
+            />
+          </div>
+          <div>
+            <label htmlFor="descricao"> descrição</label>
+            <input
+              type="text"
+              id="descricao"
+              value={descricao}
+              onChange={(e) => setDescricao(e.target.value)}
+              required
+            />
+          </div>
+          <div>
+            <label htmlFor="tipo"> tipo</label>
+            <input
+              type="text"
+              id="tipo"
+              value={tipo}
+              onChange={(e) => setTipo(e.target.value)}
+              required
+            />
+          </div>
+          <div>
+            <label htmlFor="imagem"> imagem</label>
+            <input
+              type="text"
+              id="imagem"
+              value={imagem}
+              onChange={(e) => setImagem(e.target.value)}
+              required
+            />
+          </div>
+
+        
 
           <button type="submit">cadastrar</button>
         </form>
