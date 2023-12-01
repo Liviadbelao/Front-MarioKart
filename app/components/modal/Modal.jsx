@@ -3,21 +3,23 @@ const Modal = ({   nome, imagem, descricao,inspiracao, copa, trofeus, plataforma
 
 
     return (
-      <div >
+      <div className={styles.fundo}>
        
-   
+       <button className={styles.botao} onClick={fechar}>X</button>
           <div className={styles.container}>
             <div >
-               <button onClick={fechar}>X</button>
-              <h2>{nome}</h2>
-              <img  src={imagem} width={200} height={200}/>
-              <p >{descricao}</p>
-              <p >{inspiracao}</p>
-              <p >{copa}</p>
-              <p >{trofeus}</p>
-              <p >{plataforma}</p>
-             
-            </div>
+               
+              <h2  className={styles.titulo}>{nome}</h2>
+              <img className={styles.imagem}  src={imagem} width={200} height={200}/>
+              </div>
+              <div className={styles.textos}>
+              <p >Descrição:  {descricao}</p>
+              <p >Inspiração:  {inspiracao}</p>
+              <p >Copa: {copa}</p>
+              <p >Trofeus: {trofeus}</p>
+              <p >Plataforma: {plataforma}</p>
+              </div>
+          
           </div>
          
         </div>)}
