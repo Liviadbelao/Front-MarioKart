@@ -12,11 +12,16 @@ export default function Home() {
     const [copa, setCopa] = useState('');
     const [filtrados, setFiltrados] = useState([]);
     const [abrirModal, setAbrirModal] = useState(null);
+    const [copaSelecionada, setCopaSelecionada] = useState('');
     const router = useRouter();
 
     const openModal = (id) => {
         setAbrirModal(id);
     };
+
+    function deletarItens(item, set, id) {
+        set(item.filter((item) => item.id !== id));
+    }
 
     //fechar modal
     const closeModal = () => {
@@ -26,7 +31,9 @@ export default function Home() {
         const url = `/api/mapas/${id}`;
         try {
             await axios.delete(url);
-            setDados(dados.filter((mapa) => mapa.id !== id));
+            deletarItens(dados, setDados, id);
+            deletarItens(filtrados, setFiltrados, id);
+
         } catch (error) {
             console.error("Error fetching data:", error);
         }
@@ -54,7 +61,7 @@ export default function Home() {
     const aplicarFiltro = (copa) => {
         const mapasFiltrados = dados.filter((item) => item.copa === copa);
         setFiltrados(mapasFiltrados);
-        setCopa(copa);
+        setCopaSelecionada(copa);
     };
 
     useEffect(() => {
@@ -68,19 +75,78 @@ export default function Home() {
                     Cadastrar Aluno
                 </button>
             </Link>
-            <div className={styles.container}>
-            <button className={styles.botoes} onClick={() => aplicarFiltro("Copa Cogumelo")}><img src={'/copas/copacogumelo.png'} width={100} height={100}/></button>
-            <button className={styles.botoes} onClick={() => aplicarFiltro("Copa Flor")}><img src={'/copas/copaflor.png'} width={100} height={100}/></button>
-            <button className={styles.botoes} onClick={() => aplicarFiltro("Copa Estrela")}><img src={'/copas/copaestrela.png'} width={100} height={100}/></button>
-            <button className={styles.botoes} onClick={() => aplicarFiltro("Copa Especial")}><img src={'/copas/copaespecial.png'} width={100} height={100}/></button>
-            <button className={styles.botoes} onClick={() => aplicarFiltro("Copa Casco")}><img src={'/copas/copacasco.png'} width={100} height={100}/></button>
-            <button className={styles.botoes} onClick={() => aplicarFiltro("Copa Banana")}>Banana</button>
-            <button className={styles.botoes} onClick={() => aplicarFiltro("Copa Folha")}>Folha</button>
-            <button className={styles.botoes} onClick={() => aplicarFiltro("Copa Especial")}>Especial</button>
-            <button className={styles.botoes} onClick={() => aplicarFiltro("Copa Ovo")}>Ovo</button>
-            <button className={styles.botoes} onClick={() => aplicarFiltro("Copa Leve")}>Leve</button>
-            <button className={styles.botoes} onClick={() => aplicarFiltro("Copa Flor de Ouro")}>Flor de Ouro</button>
-            <button className={styles.botoes} onClick={() => aplicarFiltro("Copa Coroa")}>Coroa</button>
+            <div className={styles.containerCups}>
+                <div className={styles.botoesContainer}>
+                    <button className={`${styles.botoes} ${copaSelecionada === 'Copa Cogumelo' ? styles.botoesSelecionado : ''}`} onClick={() => aplicarFiltro("Copa Cogumelo")}>
+                        <img className={styles.imagecup} src={'/copas/copacogumelo.png'} width={150} height={150} />
+                    </button>
+                </div>
+
+                <div className={styles.botoesContainer}>
+                    <button className={`${styles.botoes} ${copaSelecionada === 'Copa Flor' ? styles.botoesSelecionado : ''}`} onClick={() => aplicarFiltro("Copa Flor")}>
+                        <img src={'/copas/copaflor.png'} width={150} height={150} />
+                    </button>
+                </div>
+
+                <div className={styles.botoesContainer}>
+                    <button className={`${styles.botoes} ${copaSelecionada === 'Copa Estrela' ? styles.botoesSelecionado : ''}`} onClick={() => aplicarFiltro("Copa Estrela")}>
+                        <img src={'/copas/copaestrela.png'} width={150} height={150} />
+                    </button>
+                </div>
+
+                <div className={styles.botoesContainer}>
+                    <button className={`${styles.botoes} ${copaSelecionada === 'Copa Especial' ? styles.botoesSelecionado : ''}`} onClick={() => aplicarFiltro("Copa Especial")}>
+                        <img src={'/copas/copaespecial.png'} width={150} height={150} />
+                    </button>
+                </div>
+
+                <div className={styles.botoesContainer}>
+                    <button className={`${styles.botoes} ${copaSelecionada === 'Copa Ovo' ? styles.botoesSelecionado : ''}`} onClick={() => aplicarFiltro("Copa Ovo")}>
+                        <img src={'/copas/copaovo.png'} width={150} height={150} />
+                    </button>
+                </div>
+
+                <div className={styles.botoesContainer}>
+                    <button className={`${styles.botoes} ${copaSelecionada === 'Copa Crossover' ? styles.botoesSelecionado : ''}`} onClick={() => aplicarFiltro("Copa Crossover")}>
+                        <img src={'/copas/copacrossover.png'} width={150} height={150} />
+                    </button>
+                </div>
+
+                <div className={styles.botoesContainer}>
+                    <button className={`${styles.botoes} ${copaSelecionada === 'Copa Casco' ? styles.botoesSelecionado : ''}`} onClick={() => aplicarFiltro("Copa Casco")}>
+                        <img src={'/copas/copacasco.png'} width={150} height={150} />
+                    </button>
+                </div>
+
+                <div className={styles.botoesContainer}>
+                    <button className={`${styles.botoes} ${copaSelecionada === 'Copa Banana' ? styles.botoesSelecionado : ''}`} onClick={() => aplicarFiltro("Copa Banana")}>
+                        <img src={'/copas/copabanana.png'} width={150} height={150} />
+                    </button>
+                </div>
+
+                <div className={styles.botoesContainer}>
+                    <button className={`${styles.botoes} ${copaSelecionada === 'Copa Folha' ? styles.botoesSelecionado : ''}`} onClick={() => aplicarFiltro("Copa Folha")}>
+                        <img src={'/copas/copafolha.png'} width={150} height={150} />
+                    </button>
+                </div>
+
+                <div className={styles.botoesContainer}>
+                    <button className={`${styles.botoes} ${copaSelecionada === 'Copa Relâmpago' ? styles.botoesSelecionado : ''}`} onClick={() => aplicarFiltro("Copa Relâmpago")}>
+                        <img src={'/copas/coparaio.png'} width={150} height={150} />
+                    </button>
+                </div>
+
+                <div className={styles.botoesContainer}>
+                    <button className={`${styles.botoes} ${copaSelecionada === 'Copa Triforce' ? styles.botoesSelecionado : ''}`} onClick={() => aplicarFiltro("Copa Triforce")}>
+                        <img src={'/copas/copatriforce.png'} width={150} height={150} />
+                    </button>
+                </div>
+
+                <div className={styles.botoesContainer}>
+                    <button className={`${styles.botoes} ${copaSelecionada === 'Copa Sino' ? styles.botoesSelecionado : ''}`} onClick={() => aplicarFiltro("Copa Sino")}>
+                        <img className={styles.imagecup} src={'/copas/copasino.png'} width={150} height={150} />
+                    </button>
+                </div>
             </div>
             {filtrados.length != 0 ? (
                 filtrados.map((mapa) => (
