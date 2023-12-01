@@ -1,0 +1,21 @@
+.botoes{
+    border: solid 1px black;
+    padding: 1%;
+    margin-left: 1%;
+    background-color: #fff;
+}
+.botoes:hover{
+    background-color: rgb(255, 13, 13);
+    color: white;
+    border: solid 1px white;
+    cursor: pointer;
+}
+.container{
+    margin-top: 2%;
+}
+.cardContainer{
+    display: flex;
+}
+.img{
+    border-radius: 100%;
+}

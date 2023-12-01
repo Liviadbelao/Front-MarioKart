@@ -2,12 +2,24 @@
 import axios from "axios"
 import { useEffect, useState } from "react";
 import Link from "next/link";
+import styles from "./mapas.module.css"
+import Modal from "../components/modal/Modal";
 
 export default function Home() {
     const [dados, setDados] = useState([]);
     const [mapas, setMapas] = useState([]);
     const [copa, setCopa] = useState('');
     const [filtrados, setFiltrados] = useState([]);
+    const [abrirModal, setAbrirModal] = useState(null);
+
+    const openModal = (id) => {
+        setAbrirModal(id);
+    };
+
+    //fechar modal
+    const closeModal = () => {
+        setAbrirModal(null);
+    };
 
     useEffect(() => {
         async function fetchMaps() {
@@ -40,28 +52,48 @@ export default function Home() {
                     Cadastrar Aluno
                 </button>
             </Link> 
-            <button onClick={() => aplicarFiltro("Copa Flor")}>Flor</button>
-            <button onClick={() => aplicarFiltro("Copa Casco")}>Casco</button>
-            <button onClick={() => aplicarFiltro("Copa Seta")}>Seta</button>
-            <button onClick={() => aplicarFiltro("Copa Estrela")}>Estrela</button>
-            <button onClick={() => aplicarFiltro("Copa Flor de Cerejeira")}>Flor de Cerejeira</button>
-            <button onClick={() => aplicarFiltro("Copa Banana")}>Banana</button>
-            <button onClick={() => aplicarFiltro("Copa Folha")}>Folha</button>
-            <button onClick={() => aplicarFiltro("Copa Especial")}>Especial</button>
-            <button onClick={() => aplicarFiltro("Copa Ovo")}>Ovo</button>
-            <button onClick={() => aplicarFiltro("Copa Leve")}>Leve</button>
-            <button onClick={() => aplicarFiltro("Copa Flor de Ouro")}>Flor de Ouro</button>
-            <button onClick={() => aplicarFiltro("Copa Coroa")}>Coroa</button>
+            <div className={styles.container}>
+            <button className={styles.botoes} onClick={() => aplicarFiltro("Copa Flor")}>Flor</button>
+            <button className={styles.botoes} onClick={() => aplicarFiltro("Copa Casco")}>Casco</button>
+            <button className={styles.botoes} onClick={() => aplicarFiltro("Copa Seta")}>Seta</button>
+            <button className={styles.botoes} onClick={() => aplicarFiltro("Copa Estrela")}>Estrela</button>
+            <button className={styles.botoes} onClick={() => aplicarFiltro("Copa Flor de Cerejeira")}>Flor de Cerejeira</button>
+            <button className={styles.botoes} onClick={() => aplicarFiltro("Copa Banana")}>Banana</button>
+            <button className={styles.botoes} onClick={() => aplicarFiltro("Copa Folha")}>Folha</button>
+            <button className={styles.botoes} onClick={() => aplicarFiltro("Copa Especial")}>Especial</button>
+            <button className={styles.botoes} onClick={() => aplicarFiltro("Copa Ovo")}>Ovo</button>
+            <button className={styles.botoes} onClick={() => aplicarFiltro("Copa Leve")}>Leve</button>
+            <button className={styles.botoes} onClick={() => aplicarFiltro("Copa Flor de Ouro")}>Flor de Ouro</button>
+            <button className={styles.botoes} onClick={() => aplicarFiltro("Copa Coroa")}>Coroa</button>
+            </div>
             {filtrados.length != 0 ? (
                 filtrados.map((mapa) => (
-                    <div key={mapa.id}>
+                    <div  onClick={() => openModal(mapa.id)} key={mapa.id}>
+                        <div className={styles.cardContainer}>
+                            <div className={styles.titulo}>
                         <h1>{mapa.nome}</h1>
-                        <img src={mapa.imagem} width={200} height={100} />
+                        
+                        <img className={styles.img} src={mapa.imagem} width={200} height={200} />
+                        </div>
+                        </div>
                     </div>
                 ))
             ) : (
                 <h1>Selecione a copa</h1>
             )}
+              {
+                            //modal
+                            abrirModal ? (
+                                filtrados.map((mapa) => (
+                                    mapa.id == abrirModal && (
+                                        <div key={mapa.id}>
+
+                                            <Modal nome={mapa.nome} imagem={mapa.imagem} descricao={mapa.description} inpiracao={mapa.inspiracao} copa={mapa.copa} trofeus={mapa.trofeus} plataforma={mapa.plataforma} fechar={closeModal} />
+
+                                        </div>)))
+                            ) : null
+                        }
+                 
         </main>
     );
 }
