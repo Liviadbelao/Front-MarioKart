@@ -1,6 +1,7 @@
 'use client'
 import axios from "axios"
 import { useEffect, useState } from "react";
+import { useRouter } from "next/navigation";
 import Link from "next/link";
 import styles from "./mapas.module.css"
 import Modal from "../components/modal/Modal";
@@ -11,6 +12,7 @@ export default function Home() {
     const [copa, setCopa] = useState('');
     const [filtrados, setFiltrados] = useState([]);
     const [abrirModal, setAbrirModal] = useState(null);
+    const router = useRouter();
 
     const openModal = (id) => {
         setAbrirModal(id);
@@ -20,6 +22,20 @@ export default function Home() {
     const closeModal = () => {
         setAbrirModal(null);
     };
+    const deletar = async (id) => {
+        const url = `/api/mapas/${id}`;
+        try {
+            await axios.delete(url);
+            setDados(dados.filter((mapa) => mapa.id !== id));
+        } catch (error) {
+            console.error("Error fetching data:", error);
+        }
+    };
+
+    const update = async (id) => {
+        router.push(`/mapasMK/${id}`);
+    };
+
 
     useEffect(() => {
         async function fetchMaps() {
@@ -42,7 +58,7 @@ export default function Home() {
     };
 
     useEffect(() => {
-            aplicarFiltro(copa);
+        aplicarFiltro(copa);
     }, [copa]);
 
     return (
@@ -51,7 +67,7 @@ export default function Home() {
                 <button>
                     Cadastrar Aluno
                 </button>
-            </Link> 
+            </Link>
             <div className={styles.container}>
             <button className={styles.botoes} onClick={() => aplicarFiltro("Copa Cogumelo")}><img src={'/copas/copacogumelo.png'} width={100} height={100}/></button>
             <button className={styles.botoes} onClick={() => aplicarFiltro("Copa Flor")}><img src={'/copas/copaflor.png'} width={100} height={100}/></button>
@@ -68,32 +84,36 @@ export default function Home() {
             </div>
             {filtrados.length != 0 ? (
                 filtrados.map((mapa) => (
-                    <div  onClick={() => openModal(mapa.id)} key={mapa.id}>
+                    <div key={mapa.id}>
                         <div className={styles.cardContainer}>
                             <div className={styles.titulo}>
-                        <h1>{mapa.nome}</h1>
-                        
-                        <img className={styles.img} src={mapa.imagem} width={200} height={200} />
-                        </div>
+                                <div onClick={() => openModal(mapa.id)}>
+                                    <h1>{mapa.nome}</h1>
+
+                                    <img className={styles.img} src={mapa.imagem} width={200} height={200} />
+                                </div>
+                                <button onClick={() => deletar(mapa.id)}> deletar </button>
+                                <button onClick={() => update(mapa.id)}>Atualizar</button>
+                            </div>
                         </div>
                     </div>
                 ))
             ) : (
                 <h1>Selecione a copa</h1>
             )}
-              {
-                            //modal
-                            abrirModal ? (
-                                filtrados.map((mapa) => (
-                                    mapa.id == abrirModal && (
-                                        <div key={mapa.id}>
+            {
+                //modal
+                abrirModal ? (
+                    dados.map((mapa) => (
+                        mapa.id == abrirModal && (
+                            <div key={mapa.id}>
 
-                                            <Modal nome={mapa.nome} imagem={mapa.imagem} descricao={mapa.description} inpiracao={mapa.inspiracao} copa={mapa.copa} trofeus={mapa.trofeus} plataforma={mapa.plataforma} fechar={closeModal} />
+                                <Modal nome={mapa.nome} imagem={mapa.imagem} descricao={mapa.description} inpiracao={mapa.inspiracao} copa={mapa.copa} trofeus={mapa.trofeus} plataforma={mapa.plataforma} fechar={closeModal} />
 
-                                        </div>)))
-                            ) : null
-                        }
-                 
+                            </div>)))
+                ) : null
+            }
+
         </main>
     );
 }

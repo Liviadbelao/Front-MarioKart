@@ -13,13 +13,14 @@ export default function Register() {
         e.preventDefault();
 
         try {
-            await axios.post("/api/mapas", { nome });
+            await axios.post("/api/mapas", { nome, imagem });
             setNome("");
         } catch (error) {
             console.error("Error submitting data:", error);
         }
     };
-
+ 
+    
     useEffect(() => {
         async function fetchMapas() {
             try {
@@ -45,6 +46,7 @@ export default function Register() {
                 <input type="text" value={imagem} placeholder='imagem' onChange={(e) => setImagem(e.target.value)} required  />
                 <button type="submit">Cadastrar</button>
             </form>
+         
         </main>
     )
 
