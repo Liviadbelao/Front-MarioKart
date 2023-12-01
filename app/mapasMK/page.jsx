@@ -69,12 +69,14 @@ export default function Home() {
     }, [copa]);
 
     return (
-        <main>
+        <main className={styles.main}>
+            <div className={styles.containerMudar}>
             <Link href="/mapasMK/cadastro">
                 <button>
                     Cadastrar Aluno
                 </button>
             </Link>
+            </div>
             <div className={styles.containerCups}>
                 <div className={styles.botoesContainer}>
                     <button className={`${styles.botoes} ${copaSelecionada === 'Copa Cogumelo' ? styles.botoesSelecionado : ''}`} onClick={() => aplicarFiltro("Copa Cogumelo")}>
@@ -148,25 +150,26 @@ export default function Home() {
                     </button>
                 </div>
             </div>
-            {filtrados.length != 0 ? (
-                filtrados.map((mapa) => (
-                    <div key={mapa.id}>
-                        <div className={styles.cardContainer}>
-                            <div className={styles.titulo}>
-                                <div onClick={() => openModal(mapa.id)}>
-                                    <h1>{mapa.nome}</h1>
-
-                                    <img className={styles.img} src={mapa.imagem} width={200} height={200} />
+            <div className={styles.results}>
+                {filtrados.length != 0 ? (
+                    filtrados.map((mapa) => (
+                        <div key={mapa.id}>
+                            <div className={styles.cardContainer}>
+                                <div className={styles.titulo}>
+                                    <div onClick={() => openModal(mapa.id)}>
+                                        <img className={styles.img} src={mapa.imagem} />
+                                        <h1 className={styles.mapaname}>{mapa.nome}</h1>
+                                    </div>
+                                    {/* <button onClick={() => deletar(mapa.id)}> deletar </button>
+                                    <button onClick={() => update(mapa.id)}>Atualizar</button> */}
                                 </div>
-                                <button onClick={() => deletar(mapa.id)}> deletar </button>
-                                <button onClick={() => update(mapa.id)}>Atualizar</button>
                             </div>
                         </div>
-                    </div>
-                ))
-            ) : (
-                <h1>Selecione a copa</h1>
-            )}
+                    ))
+                ) : (
+                    <h1>Selecione a copa</h1>
+                )}
+            </div>
             {
                 //modal
                 abrirModal ? (
