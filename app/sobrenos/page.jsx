@@ -35,7 +35,9 @@ export default function SobreNos() {
               <div key={usuario.id} className={style.content} >
 
 
-                <div className={style.nome}> <p className={style.p}>{usuario.nome} </p></div>
+                <div className={style.nome}><img className={style.img} src={usuario.avatar}/> <p className={style.p}>{usuario.nome} </p>
+                
+                </div>
 
                 {/* <p className={style.p}>{usuario.nome} </p>
             <p className={style.p}>{usuario.idade} </p>
