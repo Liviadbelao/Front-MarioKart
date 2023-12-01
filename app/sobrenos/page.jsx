@@ -34,7 +34,7 @@ export default function SobreNos() {
             <h1 className={style.h2}>{usuario.idade} </h1>
             <h1  className={style.h1}>{usuario.tipo} </h1>
             <h1  className={style.h1}>{usuario.descricao} </h1>
-            <img  src={usuario.imagem}/> 
+            <img className={style.img} src={usuario.imagem}/> 
             
           </div>
           </div>
