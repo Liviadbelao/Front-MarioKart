@@ -1,4 +1,6 @@
 'use client'
+
+//Importações
 import axios from "axios"
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
@@ -6,7 +8,10 @@ import Link from "next/link";
 import styles from "./mapas.module.css"
 import Modal from "../components/modal/Modal";
 
+//Criando página
 export default function Home() {
+
+    //Criando estados para nossas conts
     const [dados, setDados] = useState([]);
     const [mapas, setMapas] = useState([]);
     const [copa, setCopa] = useState('');
@@ -15,18 +20,24 @@ export default function Home() {
     const [copaSelecionada, setCopaSelecionada] = useState('');
     const router = useRouter();
 
+
+    //Const para abertura do modal
     const openModal = (id) => {
         setAbrirModal(id);
     };
 
+
+    //Const para fechamento do modal
+    const closeModal = () => {
+        setAbrirModal(null);
+    };
+
+
+    //Funciton de deletar mapa
     function deletarItens(item, set, id) {
         set(item.filter((item) => item.id !== id));
     }
 
-    //fechar modal
-    const closeModal = () => {
-        setAbrirModal(null);
-    };
     const deletar = async (id) => {
         const url = `/api/mapas/${id}`;
         try {
@@ -39,11 +50,20 @@ export default function Home() {
         }
     };
 
+
+    //Function para editar um mapa
     const update = async (id) => {
         router.push(`/mapasMK/${id}`);
     };
 
+    //Const para mostrar mapas da copa selecionada
+    const aplicarFiltro = (copa) => {
+        const mapasFiltrados = dados.filter((item) => item.copa === copa);
+        setFiltrados(mapasFiltrados);
+        setCopaSelecionada(copa);
+    };
 
+    //UseEffect para coletar dados da API
     useEffect(() => {
         async function fetchMaps() {
             try {
@@ -58,26 +78,25 @@ export default function Home() {
         fetchMaps();
     }, []);
 
-    const aplicarFiltro = (copa) => {
-        const mapasFiltrados = dados.filter((item) => item.copa === copa);
-        setFiltrados(mapasFiltrados);
-        setCopaSelecionada(copa);
-    };
 
+    //UseEffect para retornar todos os mapas para filtrar novamente
     useEffect(() => {
         aplicarFiltro(copa);
     }, [copa]);
 
     return (
         <main className={styles.main}>
+
             <div className={styles.containerMudar}>
-            <Link href="/mapasMK/cadastro">
-                <button>
-                    Cadastrar Aluno
-                </button>
-            </Link>
+                <Link href="/mapasMK/cadastro">
+                    <button>
+                        Cadastrar Aluno
+                    </button>
+                </Link>
             </div>
+
             <div className={styles.containerCups}>
+
                 <div className={styles.botoesContainer}>
                     <button className={`${styles.botoes} ${copaSelecionada === 'Copa Cogumelo' ? styles.botoesSelecionado : ''}`} onClick={() => aplicarFiltro("Copa Cogumelo")}>
                         <img className={styles.imagecup} src={'/copas/copacogumelo.png'} width={150} height={150} />
@@ -150,6 +169,7 @@ export default function Home() {
                     </button>
                 </div>
             </div>
+            
             <div className={styles.results}>
                 {filtrados.length != 0 ? (
                     filtrados.map((mapa) => (

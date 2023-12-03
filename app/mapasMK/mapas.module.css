@@ -1,30 +1,7 @@
-/* .botoes{
-    border: solid 1px black;
-    padding: 1%;
-    margin-left: 1%;
-    background-color: #fff;
-}
-.botoes:hover{
-    background-color: rgb(255, 13, 13);
-    color: white;
-    border: solid 1px white;
-    cursor: pointer;
-}
-.container{
-    margin-top: 2%;
-}
-.cardContainer{
-    display: flex;
-}
-.img{
-    border-radius: 100%;
-} */
-
 .containerCups {
-    padding-top: 2rem;
+    padding-top: 1.5rem;
     display: grid;
     grid-template-columns: repeat(6, 1fr);
-    /* 6 colunas com largura igual */
     justify-content: center;
     text-align: center;
     gap: 10px;
@@ -33,11 +10,10 @@
 .results {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    /* 6 colunas com largura igual */
     justify-content: center;
     text-align: center;
     gap: 10px;
-    padding: 1rem;
+    padding: 0.7rem;
     border-radius: 1rem;
     background-color: rgba(0, 0, 0, 0.081);
     margin: 1rem;
@@ -77,13 +53,13 @@
 
 .containerMudar {
     text-align: center;
-    padding-top: 1rem;
+    padding-top: 0.7rem;
 }
 
 .main {
     background-image: url('/fundo.png');
-    background-size: cover; /* Para cobrir todo o fundo */
-    background-repeat: no-repeat; /* Para não repetir a imagem */
+    background-size: cover;
+    background-repeat: no-repeat;
     width: 100%;
     height: 100vh;
 }
