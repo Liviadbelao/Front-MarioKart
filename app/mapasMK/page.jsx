@@ -63,6 +63,8 @@ export default function Home() {
         const mapasFiltrados = dados.filter((item) => item.copa === copa);
         setFiltrados(mapasFiltrados);
         setCopaSelecionada(copa);
+        console.log(mapas);
+        console.log( "filtrados", filtrados);
     };
 
     //UseEffect para coletar dados da API
@@ -71,7 +73,7 @@ export default function Home() {
             try {
                 const response = await axios.get("/api/mapas");
                 setDados(response.data.listaMapas);
-                setMapas(response.data.listaMapas);
+                setMapas(response.data);
             } catch (error) {
                 console.error("Error fetching data:", error);
             }

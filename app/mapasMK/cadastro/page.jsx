@@ -6,15 +6,27 @@ import TrocarTela from "@/app/components/trocartela/TrocarTela";
 
 export default function Register() {
     const [nome, setNome] = useState("");
-    const [imagem, setImagem] = useState();
+    const [imagem, setImagem] = useState("");
+    const [descricao, setDescricao] = useState("");
+    const [inspiracao, setInspiracao] = useState("");
+    const [copa, setCopa] = useState("");
+    const [trofeus, setTrofeus] = useState("");
+    const [plataforma, setPlataforma] = useState("");
     const [mapas, setMapas] = useState([]);
 
     const Adicionar = async (e) => {
         e.preventDefault();
 
         try {
-            await axios.post("/api/mapas", { nome, imagem });
+            await axios.post("/api/mapas", { nome, imagem, descricao, inspiracao, copa });
             setNome("");
+            setImagem("");
+            setDescricao("");
+            setInspiracao("");
+            setCopa("");
+            setTrofeus("");
+            setPlataforma("");
+            console.log('copa');
         } catch (error) {
             console.error("Error submitting data:", error);
         }
@@ -41,6 +53,11 @@ export default function Register() {
             <form onSubmit={Adicionar}>
                 <input type="text" value={nome} placeholder='nome' onChange={(e) => setNome(e.target.value)} required  />
                 <input type="text" value={imagem} placeholder='imagem' onChange={(e) => setImagem(e.target.value)} required  />
+                <input type="text" value={descricao} placeholder='Descrição do Mapa' onChange={(e) => setDescricao(e.target.value)} required  />
+                <input type="text" value={inspiracao} placeholder='Inspiração' onChange={(e) => setInspiracao(e.target.value)} required  />
+                <input type="text" value={copa} placeholder='Copa' onChange={(e) => setCopa(e.target.value)} required  />
+                <input type="text" value={trofeus} placeholder='Copa' onChange={(e) => setTrofeus(e.target.value)} required  />
+                <input type="text" value={plataforma} placeholder='Copa' onChange={(e) => setPlataforma(e.target.value)} required  />
                 <button type="submit">Cadastrar</button>
             </form>
          
