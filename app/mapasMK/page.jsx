@@ -8,6 +8,7 @@ import Link from "next/link";
 import styles from "./mapas.module.css"
 import Modal from "../components/modal/Modal";
 import BotoesCopas from "../components/botoescopas/BotoesCopas";
+import TrocarTela from "../components/trocartela/TrocarTela";
 
 //Criando página
 export default function Home() {
@@ -88,13 +89,7 @@ export default function Home() {
     return (
         <main className={styles.main}>
 
-            <div className={styles.containerMudar}>
-                <Link href="/mapasMK/cadastro">
-                    <button>
-                        Cadastrar Aluno
-                    </button>
-                </Link>
-            </div>
+<TrocarTela caminho={'/mapasMK/cadastro'} texto={'Cadastrar Novo Mapa'} />
 
             <div className={styles.containerCups}>
 

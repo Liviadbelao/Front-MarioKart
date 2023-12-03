@@ -2,7 +2,7 @@
 
 import axios from "axios";
 import { useEffect, useState } from "react";
-import Link from "next/link";
+import TrocarTela from "@/app/components/trocartela/TrocarTela";
 
 export default function Register() {
     const [nome, setNome] = useState("");
@@ -36,11 +36,8 @@ export default function Register() {
 
     return (
         <main>
-            <Link href="/mapasMK">
-                <button >
-                    Ver cadastrados
-                </button>
-            </Link>
+            <TrocarTela caminho={'/mapasMK'} texto={'Mapas Cadastrados'} />
+
             <form onSubmit={Adicionar}>
                 <input type="text" value={nome} placeholder='nome' onChange={(e) => setNome(e.target.value)} required  />
                 <input type="text" value={imagem} placeholder='imagem' onChange={(e) => setImagem(e.target.value)} required  />

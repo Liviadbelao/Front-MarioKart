@@ -1,4 +1,4 @@
-import styles from "./modal.module.css"
+import styles from "./botoescopa.module.css"
 const BotoesCopas = ({ imagem, oc, copaSelecionada, aplicarFiltro}) => {
 
   return (
