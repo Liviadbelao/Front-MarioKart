@@ -18,7 +18,7 @@ export default function Register() {
         e.preventDefault();
 
         try {
-            await axios.post("/api/mapas", { nome, imagem, descricao, inspiracao, copa });
+            await axios.post("/api/mapas", { nome, imagem, descricao, inspiracao, copa, trofeus, plataforma });
             setNome("");
             setImagem("");
             setDescricao("");
