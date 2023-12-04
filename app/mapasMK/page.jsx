@@ -20,12 +20,10 @@ export default function Home() {
     const [copa, setCopa] = useState('');
     const [filtrados, setFiltrados] = useState([]);
     const [nomesFiltrados, setNomesFiltrados] = useState([])
-    
     const [abrirModal, setAbrirModal] = useState(null);
     const [copaSelecionada, setCopaSelecionada] = useState('');
     const router = useRouter();
     const [search, setSearch] = useState('');
-
 
 
     //Const para abertura do modal
@@ -69,7 +67,7 @@ export default function Home() {
         setFiltrados(mapasFiltrados);
         setCopaSelecionada(copa);
         setNomesFiltrados([]);
-     
+
         console.log(mapas);
         console.log("filtrados", filtrados);
     };
@@ -83,7 +81,20 @@ export default function Home() {
         console.log("nomes filtrados", nomes);
         setSearch("")
     };
- 
+    //UseEffect para coletar dados da API
+    useEffect(() => {
+        async function fetchMaps() {
+            try {
+                const response = await axios.get("/api/mapas");
+                setDados(response.data.listaMapas);
+                setMapas(response.data);
+            } catch (error) {
+                console.error("Error fetching data:", error);
+            }
+        }
+
+        fetchMaps();
+    }, []);
 
 
     //UseEffect para retornar todos os mapas para filtrar novamente
@@ -102,7 +113,6 @@ export default function Home() {
                 onChange={(e) => setSearch(e.target.value)}
             />
             <button onClick={filtrarNome}>buscar</button>
-     
             <div className={styles.containerCups}>
 
                 <BotoesCopas imagem={'/copas/copacogumelo.png'} oc={"Copa Cogumelo"} copaSelecionada={copaSelecionada} aplicarFiltro={aplicarFiltro} />
@@ -169,7 +179,6 @@ export default function Home() {
                 ) : (
                     <h1>{nomesFiltrados ? "Não existe!" : filtrados}</h1>
                 )}
-
             </div>
 
 
