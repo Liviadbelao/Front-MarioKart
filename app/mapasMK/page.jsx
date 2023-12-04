@@ -9,6 +9,7 @@ import styles from "./mapas.module.css"
 import Modal from "../components/modal/Modal";
 import BotoesCopas from "../components/botoescopas/BotoesCopas";
 import TrocarTela from "../components/trocartela/TrocarTela";
+import { noSSR } from "next/dynamic";
 
 //Criando página
 export default function Home() {
@@ -18,6 +19,7 @@ export default function Home() {
     const [mapas, setMapas] = useState([]);
     const [copa, setCopa] = useState('');
     const [filtrados, setFiltrados] = useState([]);
+    const [nomesFiltrados, setNomesFiltrados] = useState([])
     const [abrirModal, setAbrirModal] = useState(null);
     const [copaSelecionada, setCopaSelecionada] = useState('');
     const router = useRouter();
@@ -66,7 +68,13 @@ export default function Home() {
         console.log(mapas);
         console.log( "filtrados", filtrados);
     };
+   //filtro por nome 
+   const filtrarNome = (nome)=>{
+    const nomes = dados.filter((item)=> item.nome == nome)
+    setNomesFiltrados(nomes)
+    console.log("nomes filtrados", nomesFiltrados)
 
+   }
     //UseEffect para coletar dados da API
     useEffect(() => {
         async function fetchMaps() {
@@ -92,7 +100,7 @@ export default function Home() {
         <main className={styles.main}>
 
 <TrocarTela caminho={'/mapasMK/cadastro'} texto={'Cadastrar Novo Mapa'} />
-
+          
             <div className={styles.containerCups}>
 
                 <BotoesCopas imagem={'/copas/copacogumelo.png'} oc={"Copa Cogumelo"} copaSelecionada={copaSelecionada} aplicarFiltro={aplicarFiltro} />

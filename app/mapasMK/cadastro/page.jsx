@@ -31,7 +31,7 @@ export default function Register() {
             console.error("Error submitting data:", error);
         }
     };
- 
+    
     
     useEffect(() => {
         async function fetchMapas() {
