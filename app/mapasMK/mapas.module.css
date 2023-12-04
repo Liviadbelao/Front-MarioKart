@@ -1,3 +1,4 @@
+@import url('https://fonts.cdnfonts.com/css/super-mario-world-mario');
 .containerCups {
     padding-top: 1.5rem;
     display: grid;
@@ -16,7 +17,8 @@
     padding: 0.7rem;
     border-radius: 1rem;
     background-color: rgba(0, 0, 0, 0.081);
-    margin: 1rem;
+    margin: 1rem;    
+    font-family: 'Super Mario World - Mario', sans-serif;                                                                
 }
 
 .cardContainer {
