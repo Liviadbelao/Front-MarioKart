@@ -23,7 +23,7 @@ export default function SobreNos() {
   console.log("Usuarios");
   console.log(usuarios);
 
-
+  // const [botaoModal, setBotaoModal] = useState(0)
   return (
     <main className={style.divMain}>
       <div className={style.container}>
@@ -31,28 +31,33 @@ export default function SobreNos() {
           usuarios.map((usuario) => (
 
             <div className={style.card}>
-
+              <button onClick={() => console.log('clicou')}className={style.botaoModal}>
               <div key={usuario.id} className={style.content} >
 
 
-                <div className={style.nome}><img className={style.img} src={usuario.avatar}/> <p className={style.p}>{usuario.nome} </p>
-                
+                <div className={style.nome}><img className={style.img} src={usuario.avatar} /> <p className={style.p}>{usuario.nome} </p>
+
                 </div>
 
-                {/* <p className={style.p}>{usuario.nome} </p>
+
+
+              </div>
+              </button>
+            </div>))
+
+        ) : (
+          <h1>Esperando Dados</h1>
+        )}
+        
+      </div>
+      
+    </main>
+  )
+}
+
+{/* <p className={style.p}>{usuario.nome} </p>
             <p className={style.p}>{usuario.idade} </p>
             <p  className={style.p}>{usuario.tipo} </p>
             <p  className={style.p}>{usuario.descricao} </p>
             <img className={style.img} src={usuario.imagem}/> 
          */}
-
-              </div>
-              </div>))
-
-              )  : (
-              <h1>Esperando Dados</h1>
-          )}
-            </div>
-    </main>
-  )
-}

@@ -48,3 +48,13 @@
 .card {
     width: 13rem;
 }
+
+.botaoModal{
+    background-color: transparent;
+    border: none;
+}
+
+.botaoModal:hover{
+cursor: pointer;
+width: 15rem;
+}
