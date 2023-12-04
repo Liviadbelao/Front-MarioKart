@@ -1,28 +1,71 @@
-.main{
-    background-image: url(../public/fundoPaginaHome2.jpg);
+.main {
+background-image: url(/fundoo.jpg);
     width: 100%;
-    height: 1000vh;
+    height: 245vh;
 }
-.container{
+
+.container {
     width: 60%;
 
-
-    background-color: rgb(50, 48, 48);
-    color: #fff;
+    margin-bottom: 2%;
+    background-color: white;
+    color: black;
     padding: 2%;
-    border-radius: 8px;
-    border: solid 3px red;
+
+    border-left: solid 3px red;
+    margin-left: 35%;
+}
+.container3 {
+    width: 60%;
+margin-top: 10%;
+    margin-bottom: 2%;
+    background-color: white;
+    color: black;
+    padding: 2%;
+
+    border-left: solid 3px red;
  
 }
-.titulo{
-color: black;
-width: 40%;
-margin-bottom: 1%;
+.container2 {
+    width: 60%;
+
+    margin-top: 25%;
+    background-color: white;
+    color: black;
+    padding: 2%;
+margin-bottom: 5%;
+    border-left: solid 3px red;
+    margin-left: 5%;
+}
+
+.titulo {
+    color: black;
+    width: 40%;
+    margin-bottom: 1%;
     background-color: rgb(255, 221, 0);
     padding: 1%;
 }
-.container2{
+
+.imgContainer {
+    position: relative;
+}
+
+.img1,
+.img2 {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.img2 {
+    z-index: 1;
+    /* Ajuste o valor de z-index conforme necessário para a ordem desejada */
+    margin-left: 70%;
+    margin-top: -3%;
+}
+.img3{
+    margin-top: -20%;
+}
+.containerAjuste{
     display: flex;
-    gap: 4rem;
-    margin-top: 5%;
 }

@@ -104,7 +104,6 @@ export default function Register() {
         }
     };
 
-
     useEffect(() => {
         async function fetchMapas() {
             try {
