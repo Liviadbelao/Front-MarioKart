@@ -1,8 +1,6 @@
 
-@import url('https://fonts.cdnfonts.com/css/new-super-mario-font-u');
 *{
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'New Super Mario Font U', sans-serif;
 }

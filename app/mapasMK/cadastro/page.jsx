@@ -3,6 +3,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import TrocarTela from "@/app/components/trocartela/TrocarTela";
+import Inputs from "@/app/components/inputs/Inputs";
 
 export default function Register() {
     const [nome, setNome] = useState("");
@@ -122,13 +123,13 @@ export default function Register() {
             <TrocarTela caminho={'/mapasMK'} texto={'Mapas Cadastrados'} />
 
             <form onSubmit={Adicionar}>
-                <input type="text" value={nome} placeholder='nome' onChange={(e) => setNome(e.target.value)} />
+                <Inputs tipo={'text'} valor={nome} pl={'nome'} oc={(e) => setNome(e.target.value)} />
                 <p>{erroNome}</p>
-                <input type="text" value={imagem} placeholder='imagem' onChange={(e) => setImagem(e.target.value)}  />
+                <Inputs tipo={'text'} valor={imagem} pl={'Imagem'} oc={(e) => setImagem(e.target.value)} />
                 <p>{erroImagem}</p>
-                <input type="text" value={descricao} placeholder='Descrição do Mapa' onChange={(e) => setDescricao(e.target.value)}  />
+                <Inputs tipo={'text'} valor={descricao} pl={'Descrição'} oc={(e) => setDescricao(e.target.value)} />
                 <p>{erroDescricao}</p>
-                <input type="text" value={inspiracao} placeholder='Inspiração' onChange={(e) => setInspiracao(e.target.value)}  />
+                <Inputs tipo={'text'} valor={inspiracao} pl={'Inspiração'} oc={(e) => setInspiracao(e.target.value)} />
                 <p>{erroInspiracao}</p>
                 <select name="copa" id="copa" value={copa} onChange={(e) => setCopa(e.target.value)}>
                     <option value="">Selecione</option>
@@ -156,6 +157,5 @@ export default function Register() {
         </main>
     )
 
-
-
 }
+
