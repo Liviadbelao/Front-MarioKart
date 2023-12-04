@@ -20,9 +20,12 @@ export default function Home() {
     const [copa, setCopa] = useState('');
     const [filtrados, setFiltrados] = useState([]);
     const [nomesFiltrados, setNomesFiltrados] = useState([])
+    
     const [abrirModal, setAbrirModal] = useState(null);
     const [copaSelecionada, setCopaSelecionada] = useState('');
     const router = useRouter();
+    const [search, setSearch] = useState('');
+
 
 
     //Const para abertura do modal
@@ -65,30 +68,22 @@ export default function Home() {
         const mapasFiltrados = dados.filter((item) => item.copa === copa);
         setFiltrados(mapasFiltrados);
         setCopaSelecionada(copa);
+        setNomesFiltrados([]);
+     
         console.log(mapas);
-        console.log( "filtrados", filtrados);
+        console.log("filtrados", filtrados);
     };
-   //filtro por nome 
-   const filtrarNome = (nome)=>{
-    const nomes = dados.filter((item)=> item.nome == nome)
-    setNomesFiltrados(nomes)
-    console.log("nomes filtrados", nomesFiltrados)
-
-   }
-    //UseEffect para coletar dados da API
-    useEffect(() => {
-        async function fetchMaps() {
-            try {
-                const response = await axios.get("/api/mapas");
-                setDados(response.data.listaMapas);
-                setMapas(response.data);
-            } catch (error) {
-                console.error("Error fetching data:", error);
-            }
-        }
-
-        fetchMaps();
-    }, []);
+    //filtro por nome 
+    const filtrarNome = () => {
+        const nomes = dados.filter((mapa) =>
+            mapa.nome.toLowerCase().includes(search.toLowerCase())
+        );
+        setFiltrados([])
+        setNomesFiltrados(nomes);
+        console.log("nomes filtrados", nomes);
+        setSearch("")
+    };
+ 
 
 
     //UseEffect para retornar todos os mapas para filtrar novamente
@@ -99,36 +94,43 @@ export default function Home() {
     return (
         <main className={styles.main}>
 
-<TrocarTela caminho={'/mapasMK/cadastro'} texto={'Cadastrar Novo Mapa'} />
-          
+            <TrocarTela caminho={'/mapasMK/cadastro'} texto={'Cadastrar Novo Mapa'} />
+            <input
+                placeholder="nome do mapa"
+                value={search}
+                type="text"
+                onChange={(e) => setSearch(e.target.value)}
+            />
+            <button onClick={filtrarNome}>buscar</button>
+     
             <div className={styles.containerCups}>
 
                 <BotoesCopas imagem={'/copas/copacogumelo.png'} oc={"Copa Cogumelo"} copaSelecionada={copaSelecionada} aplicarFiltro={aplicarFiltro} />
 
                 <BotoesCopas imagem={'/copas/copaflor.png'} oc={"Copa Flor"} copaSelecionada={copaSelecionada} aplicarFiltro={aplicarFiltro} />
-                
+
                 <BotoesCopas imagem={'/copas/copaestrela.png'} oc={"Copa Estrela"} copaSelecionada={copaSelecionada} aplicarFiltro={aplicarFiltro} />
-                
+
                 <BotoesCopas imagem={'/copas/copaespecial.png'} oc={"Copa Especial"} copaSelecionada={copaSelecionada} aplicarFiltro={aplicarFiltro} />
-              
+
                 <BotoesCopas imagem={'/copas/copaovo.png'} oc={"Copa Ovo"} copaSelecionada={copaSelecionada} aplicarFiltro={aplicarFiltro} />
-               
+
                 <BotoesCopas imagem={'/copas/copacrossover.png'} oc={"Copa Crossover"} copaSelecionada={copaSelecionada} aplicarFiltro={aplicarFiltro} />
-                
+
                 <BotoesCopas imagem={'/copas/copacasco.png'} oc={"Copa Casco"} copaSelecionada={copaSelecionada} aplicarFiltro={aplicarFiltro} />
-                
+
                 <BotoesCopas imagem={'/copas/copabanana.png'} oc={"Copa Banana"} copaSelecionada={copaSelecionada} aplicarFiltro={aplicarFiltro} />
-                
+
                 <BotoesCopas imagem={'/copas/copafolha.png'} oc={"Copa Folha"} copaSelecionada={copaSelecionada} aplicarFiltro={aplicarFiltro} />
-                
+
                 <BotoesCopas imagem={'/copas/coparaio.png'} oc={"Copa Relâmpago"} copaSelecionada={copaSelecionada} aplicarFiltro={aplicarFiltro} />
-                
+
                 <BotoesCopas imagem={'/copas/copatriforce.png'} oc={"Copa Triforce"} copaSelecionada={copaSelecionada} aplicarFiltro={aplicarFiltro} />
-                
+
                 <BotoesCopas imagem={'/copas/copasino.png'} oc={"Copa Sino"} copaSelecionada={copaSelecionada} aplicarFiltro={aplicarFiltro} />
 
             </div>
-            
+
             <div className={styles.results}>
 
                 {filtrados.length != 0 ? (
@@ -149,9 +151,28 @@ export default function Home() {
                 ) : (
                     <h1>{copaSelecionada ? "Copa vazia!" : "Selecione a copa!"}</h1>
                 )}
+                {nomesFiltrados.length != 0 ? (
+                    nomesFiltrados.map((mapa) => (
+                        <div key={mapa.id}>
+                            <div className={styles.cardContainer}>
+                                <div className={styles.titulo}>
+                                    <div onClick={() => openModal(mapa.id)}>
+                                        <img className={styles.img} src={mapa.imagem} />
+                                        <h1 className={styles.mapaname}>{mapa.nome}</h1>
+                                    </div>
+                                    {/* <button onClick={() => deletar(mapa.id)}> deletar </button>
+                                    <button onClick={() => update(mapa.id)}>Atualizar</button> */}
+                                </div>
+                            </div>
+                        </div>
+                    ))
+                ) : (
+                    <h1>{nomesFiltrados ? "Não existe!" : filtrados}</h1>
+                )}
+
             </div>
 
-            
+
             {
                 //Modal
                 abrirModal ? (
