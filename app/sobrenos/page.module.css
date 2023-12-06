@@ -103,3 +103,14 @@
     .edit:hover{
         background-color: rgb(201, 52, 246);
     }
+
+.botaoModal{
+    background-color: transparent;
+    border: none;
+}
+
+.botaoModal:hover{
+cursor: pointer;
+width: 15rem;
+}
+

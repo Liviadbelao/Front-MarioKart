@@ -51,11 +51,10 @@ export default function SobreNos() {
   console.log("Usuarios");
   console.log(usuarios);
 
-
+  // const [botaoModal, setBotaoModal] = useState(0)
   return (
     <main className={style.divMain}>
       <div className={style.container}>
-
 
         <div>
           <h1>Usuarios</h1>
@@ -63,6 +62,7 @@ export default function SobreNos() {
             <div className={style.all}>
               {usuarios.map((usuario) => (
                 <div className={style.card}>
+                   <button onClick={() => console.log('clicou')}className={style.botaoModal}></button>
                   <div key={usuario.id} className={style.content}>
 
                     <div className={style.nome}><img className={style.img} src={usuario.avatar} /> <p className={style.p}>{usuario.nome} </p>
@@ -122,3 +122,4 @@ export default function SobreNos() {
     </main>
   )
 }
+        
