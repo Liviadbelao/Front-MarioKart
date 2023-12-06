@@ -83,11 +83,13 @@
     margin: 0.5rem;
     border-radius: 60%;
     font-size: 15px;
+   
 
 }
 
 .delete:hover{
     background-color: rgb(244, 49, 49);
+ 
 }
 
 .edit {

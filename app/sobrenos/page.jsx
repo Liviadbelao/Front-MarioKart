@@ -57,16 +57,18 @@ export default function SobreNos() {
       <div className={style.container}>
 
         <div>
-          <h1>Usuarios</h1>
+         
           {dados.length ? (
             <div className={style.all}>
               {usuarios.map((usuario) => (
                 <div className={style.card}>
-                   <button onClick={() => console.log('clicou')}className={style.botaoModal}></button>
+                   <button onClick={() => console.log('clicou')}className={style.botaoModal}>
                   <div key={usuario.id} className={style.content}>
 
                     <div className={style.nome}><img className={style.img} src={usuario.avatar} /> <p className={style.p}>{usuario.nome} </p>
+                    
                     </div>
+                    
 
 
 
@@ -87,7 +89,7 @@ export default function SobreNos() {
                   </p>
                   <img className={style.img} src={usuario.imagem}/> */}
                   </div>
-
+                  </button>
                   <div >
                     <button
                       onClick={() => deletar(usuario.id)}
@@ -103,6 +105,7 @@ export default function SobreNos() {
                     </button>
                   </div>
                 </div>
+                
               ))}
             </div>
           ) : (
