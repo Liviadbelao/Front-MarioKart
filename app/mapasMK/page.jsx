@@ -161,24 +161,6 @@ export default function Home() {
                 ) : (
                     <h1>{copaSelecionada ? "Copa vazia!" : "Selecione a copa!"}</h1>
                 )}
-                {nomesFiltrados.length != 0 ? (
-                    nomesFiltrados.map((mapa) => (
-                        <div key={mapa.id}>
-                            <div className={styles.cardContainer}>
-                                <div className={styles.titulo}>
-                                    <div onClick={() => openModal(mapa.id)}>
-                                        <img className={styles.img} src={mapa.imagem} />
-                                        <h1 className={styles.mapaname}>{mapa.nome}</h1>
-                                    </div>
-                                    {/* <button onClick={() => deletar(mapa.id)}> deletar </button>
-                                    <button onClick={() => update(mapa.id)}>Atualizar</button> */}
-                                </div>
-                            </div>
-                        </div>
-                    ))
-                ) : (
-                    <h1>{nomesFiltrados ? "Não existe!" : filtrados}</h1>
-                )}
             </div>
 
 
