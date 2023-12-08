@@ -15,7 +15,7 @@
    
     background-color: #fff;
    border: solid 2px rgb(244, 60, 60);
-    animation: go-back 2s;
+    animation: go-back 3.7s;
   }
   
   @keyframes go-back {
@@ -79,7 +79,7 @@
   margin-top: 30%;
  
   animation-name: drive;
-  animation-duration: 4s;
+  animation-duration: 2.5s;
   animation-fill-mode: both;
   animation-iteration-count: 1; /* Alterado para executar apenas uma vez */
   animation-timing-function: linear;
