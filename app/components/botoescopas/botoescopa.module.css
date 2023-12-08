@@ -13,3 +13,16 @@
   border-radius: 100%;
   border: none;
 }
+
+@media (max-width: 680px) {
+  .botoes {
+    width:6rem;
+    height:6rem;
+    text-align: center;
+  }
+  .imagecup {
+    width:6rem;
+    height:6rem;
+  }
+
+}
