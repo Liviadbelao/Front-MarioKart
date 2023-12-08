@@ -4,7 +4,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import TrocarTela from "@/app/components/trocartela/TrocarTela";
 import Inputs from "@/app/components/inputs/Inputs";
-
+import styles from './cadastro.module.css'
 export default function Register() {
     const [nome, setNome] = useState("");
     const [erroNome, setErroNome] = useState("");
@@ -121,10 +121,10 @@ export default function Register() {
     console.log("mapas", mapas)
 
     return (
-        <main>
+        <main className={styles.main}>
             <TrocarTela caminho={'/mapasMK'} texto={'Mapas Cadastrados'} />
-
-            <form onSubmit={Adicionar}>
+<div className={styles.mainContainer}>
+            <form onSubmit={Adicionar} className={styles.container}>
                 <Inputs tipo={'text'} valor={nome} pl={'nome'} oc={(e) => setNome(e.target.value)} />
                 <p>{erroNome}</p>
                 <Inputs tipo={'text'} valor={imagem} pl={'Imagem'} oc={(e) => setImagem(e.target.value)} />
@@ -155,7 +155,7 @@ export default function Register() {
                 <p>{erroPlataforma}</p>
                 <button type="submit">Cadastrar</button>
             </form>
-
+            </div>
         </main>
     )
 
