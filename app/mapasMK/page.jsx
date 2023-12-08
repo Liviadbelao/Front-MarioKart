@@ -25,8 +25,8 @@ export default function Home() {
     const [abrirModal, setAbrirModal] = useState(null);
     const [copaSelecionada, setCopaSelecionada] = useState('');
     const router = useRouter();
-    const [search, setSearch] = useState('');
     const [exibirDados, setExibirDados] = useState(false);
+    const [optionList, setOptionList] = useState([])
 
 
     //Const para abertura do modal
@@ -75,18 +75,16 @@ export default function Home() {
         async function fetchMaps() {
             try {
                 let queryParams = '';
-                if(nomeInput){
-                    queryParams = `nome=${nomeInput}&`;
+                if (nomeInput) {
+                    queryParams = `nome=${nomeInput}`;
                 }
-                if(copaInput){
+                if (copaInput) {
                     queryParams = `copa=${copaInput}&`;
                 }
-                if(trofeusInput){
+                if (trofeusInput) {
                     queryParams = `trofeus=${trofeusInput}&`;
                 }
                 const response = await axios.get(`/api/mapas?${queryParams}`);
-
-                console.log({response})
 
                 setDados(response.data.listaMapas);
                 setMapas(response.data);
@@ -96,26 +94,40 @@ export default function Home() {
         }
 
         fetchMaps();
-    }, [nomeInput,copaInput,trofeusInput]);
+    }, [nomeInput, copaInput, trofeusInput]);
 
-
-    //UseEffect para retornar todos os mapas para filtrar novamente
     useEffect(() => {
-        aplicarFiltro(copa);
-    }, [copa]);
+        async function fetchMaps() {
+            try {
+                const response = await axios.get(`/api/mapas`);
 
-    console.log(dados)
+                setOptionList(response.data.listaMapas);
+            } catch (error) {
+                console.error("Error fetching data:", error);
+            }
+        }
+
+        fetchMaps();
+    }, []);
+
 
     return (
         <main className={styles.main}>
 
+            <select name="nome" id="nome" value={optionList} onChange={(e) => setNomeInput(e.target.value)}>
+                {optionList.map((mapa) => (
+                    <option value={mapa.nome} key={mapa.id}>{mapa.nome}</option>
+                ))}
+            </select>
+
             <TrocarTela caminho={'/mapasMK/cadastro'} texto={'Cadastrar Novo Mapa'} />
-            <input
+            {/* <input
                 placeholder="nome do mapa"
-                value={search}
+                value={nomeInput}
                 type="text"
-                onChange={(e) => setSearch(e.target.value)}
+                onChange={(e) => setNomeInput(e.target.value)}
             />
+            <button onClick={setNome}>Teste</button> */}
             <div className={styles.containerCups}>
 
                 <BotoesCopas imagem={'/copas/copacogumelo.png'} oc={"Copa Cogumelo"} copaSelecionada={copaSelecionada} aplicarFiltro={aplicarFiltro} />
@@ -145,8 +157,7 @@ export default function Home() {
             </div>
 
             <div className={styles.results}>
-
-                {dados.length != 0 && exibirDados == true ? (
+                {
                     dados.map((mapa) => (
                         <div key={mapa.id}>
                             <div className={styles.cardContainer}>
@@ -161,9 +172,8 @@ export default function Home() {
                             </div>
                         </div>
                     ))
-                ) : (
-                    <h1>{copaSelecionada ? "Copa vazia!" : "Selecione a copa!"}</h1>
-                )}
+                }
+
             </div>
 
 
@@ -174,7 +184,7 @@ export default function Home() {
                         mapa.id == abrirModal && (
                             <div key={mapa.id}>
 
-                                <Modal nome={mapa.nome} imagem={mapa.imagem} descricao={mapa.descricao} inspiracao={mapa.inspiracao} copa={mapa.copa} trofeus={mapa.trofeus} plataforma={mapa.plataforma} fechar={closeModal} edt={() => update(mapa.id)}  dlt={() => deletar(mapa.id)} />
+                                <Modal nome={mapa.nome} imagem={mapa.imagem} descricao={mapa.descricao} inspiracao={mapa.inspiracao} copa={mapa.copa} trofeus={mapa.trofeus} plataforma={mapa.plataforma} fechar={closeModal} edt={() => update(mapa.id)} dlt={() => deletar(mapa.id)} />
 
                             </div>)))
                 ) : null
