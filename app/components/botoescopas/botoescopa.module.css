@@ -1,0 +1,28 @@
+.botoes {
+  width: 10rem;
+  height: 10rem;
+  background-color: transparent;
+  border: none;
+  transition: 0.5s;
+}
+
+.botoesSelecionado {
+  -webkit-box-shadow: 0px 0px 45px -15px rgb(230, 9, 9);
+  -moz-box-shadow: 0px 0px 45px -15px rgb(230, 9, 9);
+  box-shadow: 0px 0px 45px -15px rgb(230, 9, 9);
+  border-radius: 100%;
+  border: none;
+}
+
+@media (max-width: 680px) {
+  .botoes {
+    width:6rem;
+    height:6rem;
+    text-align: center;
+  }
+  .imagecup {
+    width:6rem;
+    height:6rem;
+  }
+
+}

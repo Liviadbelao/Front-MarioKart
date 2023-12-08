@@ -1,7 +1,118 @@
-.h1{
-    color: blueviolet;
+
+
+.divMain{
+   background-image:url(/cadastroSobreNos/background.jpg) ;
+   background-attachment: fixed;
+   background-position: center;
+   background-repeat: no-repeat;
+   background-size: cover;
+   width: 100%;
+   padding-top: 13%;
+
+
 }
 
-.div1{
-    background-color: brown;
+.container {
+    background-color: rgba(223, 223, 223, 0.37);
+    display: flex;
+    flex-wrap: wrap;
+    width: 43%;
+    margin-left: 3%;
+    padding-left: 5%;
+    padding-bottom: 2%;
+    border: 5px double rgba(21, 3, 3, 0.3191);
+    border-radius: 6px 6px 6px 6px;
+    
 }
+
+.p {
+    font-size: 18px;
+    color:  #ece5e5;
+    font-family: sans-serif;
+    font-weight: bold;
+    text-align: center;
+
+}
+
+.content {
+    margin-right: 2rem;
+    margin-left: 2rem;
+    margin-top: 14%;
+    width: 2%;
+}
+
+.img{
+    width: 80px;
+    height: 80px;
+}
+
+.card {
+    width: 30%;
+}
+
+.all {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.button {
+     margin-top: 5rem;
+     display: flex;
+     text-align: center;
+     justify-content: center;
+     cursor: pointer;
+     background-color: rgb(95, 156, 255);
+     border: #fff solid 2px;
+     color: #fff;
+     border: none;
+     padding: 1rem;
+     border-radius: 60%;
+}
+
+.link {
+    text-decoration: none;
+}
+
+.delete {
+    border-radius: 5px;
+    background-color: rgb(255, 95, 95);
+    box-shadow: none;
+    cursor: pointer;
+    color: #fff;
+    padding: 0.3rem;
+    margin: 0.5rem;
+    border-radius: 60%;
+    font-size: 15px;
+   
+
+}
+
+.delete:hover{
+    background-color: rgb(244, 49, 49);
+ 
+}
+
+.edit {
+    border-radius: 5px;
+    background-color: rgb(218, 95, 255);
+    cursor: pointer;
+    color: #fff;
+    padding: 0.3rem;
+    margin: 0.5rem;
+    border-radius: 60%;
+    font-size: 15px;}
+
+    .edit:hover{
+        background-color: rgb(201, 52, 246);
+    }
+
+.botaoModal{
+    background-color: transparent;
+    border: none;
+}
+
+.botaoModal:hover{
+cursor: pointer;
+width: 15rem;
+}
+

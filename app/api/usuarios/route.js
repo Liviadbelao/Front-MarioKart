@@ -30,4 +30,4 @@ export async function POST(request) {
     console.log("[ORDER_POST]", error);
     return new NextResponse("Erro interno do servidor!", { status: 500 });
   }
-}
+} 
