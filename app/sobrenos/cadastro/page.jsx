@@ -3,20 +3,72 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import Inputs from "@/app/components/inputs/Inputs";
 
 export default function Cadastro() {
   const [nome, setNome] = useState("");
+  const [erroNome, setErroNome] = useState("");
   const [idade, setIdade] = useState("");
+  const [erroIdade, setErroIdade] = useState("");
   const [descricao, setDescricao] = useState("");
+  const [erroDescricao, setErroDescricao] = useState("");
   const [tipo, setTipo] = useState("");
   const [imagem, setImagem] = useState("");
-  const [usuarios, setUsuarios] = useState([]);
+  const [erroImagem, setErroImagem] = useState("");
   const [avatar, setAvatar] = useState("");
+
+  const [usuarios, setUsuarios] = useState([]);
+  let erros = [];
+
+  const urlValida = (imagem) => {
+    if (imagem.match(/\.(jpeg|jpg|gif|png)$/) != null) {
+        return true;
+    } else {
+        return false;
+    }
+  }
+
 
   const adicionar = async (e) => {
     e.preventDefault();
 
     console.log(nome, avatar, idade, descricao, tipo, imagem )
+
+    if (nome == '') {
+      setErroNome('Preencha o campo Nome');
+  } else if (nome.length < 3 || nome.length >20) {
+      setErroNome('O tamanho do nome deve ser entre 3 a 20 caracteres')
+  }else {
+      setErroNome('');
+  }
+
+  if(!imagem) {
+    console.log('Preencha o campo imagem')
+    setErroImagem('Preencha o campo Imagem')
+} else if (!urlValida(imagem)) {
+    console.log('A imagem precisa ser valida')
+    setErroImagem('A imagem precisa ter um formato válido: .jpeg/.jpg/.gif/.png')
+} else {
+    console.log('Limpou');
+    setErroImagem('');
+}
+
+if(descricao == '') {
+  setErroDescricao('Preencha o campo Descrição')
+ }else if(descricao.length < 10 || descricao.length > 100) {
+     setErroDescricao('O tamanho da descrição deve ser entre 10 a 100 caracteres')
+ } else {
+     setErroDescricao('');
+ }
+
+ if(idade == '') {
+  setErroIdade('Preencha o campo idade')
+ }else if(idade < 13) {
+     setErroIdade('O usuário deve ser maior de 13 anos.')
+ } else {
+     setErroIdade('');
+ }
+
     try {
       await axios.post("/api/usuarios", { nome, avatar, idade, descricao, tipo, imagem  });
       setNome("");
@@ -48,6 +100,11 @@ export default function Cadastro() {
     setAvatar(selectedAvatar);
   };
 
+  const handleTypeUser = (e) => {
+    const selectedTypeUser = e.target.value;
+    setTipo(selectedTypeUser);
+  };
+
   return (
     <div>
       <div>
@@ -60,18 +117,13 @@ export default function Cadastro() {
         <h1>cadastrar usuario</h1>
         <form onSubmit={adicionar}>
           <div>
-            <label htmlFor="name"> nome</label>
-            <input
-              type="text"
-              id="nome"
-              value={nome}
-              onChange={(e) => setNome(e.target.value)}
-              required
-            />
+            <label htmlFor="name"> Nome</label>
+            <Inputs tipo={'text'} valor={nome} oc={(e) => setNome(e.target.value)}/>
+            <p>{erroNome}</p>
           </div>
 
           <div>
-            <label htmlFor="avatar"> selecione seu avatar</label>
+            <label htmlFor="avatar"> Selecione seu avatar</label>
             <select
               name="avatar"
               id="avatar"
@@ -141,44 +193,28 @@ export default function Cadastro() {
           </div>
 
           <div>
-            <label htmlFor="idade"> idade</label>
-            <input
-              type="number"
-              id="idade"
-              value={idade}
-              onChange={(e) => setIdade(e.target.value)}
-              required
-            />
+            <label htmlFor="idade"> Idade</label>
+            <Inputs tipo={'number'} valor={idade} oc={(e) => setIdade(e.target.value)}/>
+            <p>{erroIdade}</p>
           </div>
           <div>
-            <label htmlFor="descricao"> descrição</label>
-            <input
-              type="text"
-              id="descricao"
-              value={descricao}
-              onChange={(e) => setDescricao(e.target.value)}
-              required
-            />
+            <label htmlFor="descricao"> Descrição</label>
+            <Inputs tipo={"text"} valor={descricao} oc={(e) => setDescricao(e.target.value)}/>
+           <p> {erroDescricao}</p>
           </div>
           <div>
-            <label htmlFor="tipo"> tipo</label>
-            <input
-              type="text"
-              id="tipo"
-              value={tipo}
-              onChange={(e) => setTipo(e.target.value)}
-              required
-            />
+            <label htmlFor="tipo"> Selecione seu tipo de usuário</label>
+            <select  type="text" id="tipo" value={tipo} onChange={handleTypeUser}>
+              <option value="Aluno"> Selecione... </option>
+              <option value="Aluno"> Aluno </option>
+              <option value="Instrutor"> Instrutor </option>
+              <option value="Vistante"> Visitante </option>
+            </select>
           </div>
           <div>
-            <label htmlFor="imagem"> imagem</label>
-            <input
-              type="text"
-              id="imagem"
-              value={imagem}
-              onChange={(e) => setImagem(e.target.value)}
-              required
-            />
+            <label htmlFor="imagem"> Imagem</label>
+            <Inputs tipo={"text"} valor={imagem} oc={(e) => setImagem(e.target.value)}/>
+              <p>{erroImagem}</p>
           </div>
 
         
