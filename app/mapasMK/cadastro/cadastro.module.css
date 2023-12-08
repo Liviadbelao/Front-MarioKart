@@ -1,0 +1,23 @@
+.main{
+    background-image: url("/fundo.png");
+   width: 100%;
+   height: 100vh;
+  text-align: center;
+}
+.container{
+border-radius: 10px;
+border: solid 3px rgb(255, 217, 0);
+background-color: white;
+padding: 2%;
+width: 30%;
+margin: auto;
+}
+.mainContainer{
+   margin-top: 10%;
+}
+
+@media (max-width: 680px) {
+.container{
+    width: 90%;
+}
+}

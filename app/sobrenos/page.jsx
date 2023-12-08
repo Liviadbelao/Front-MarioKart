@@ -7,6 +7,7 @@ import Link from "next/link";
 import { TbUserPlus } from "react-icons/tb";
 import { TiUserDelete } from "react-icons/ti";
 import { FaUserEdit } from "react-icons/fa";
+import ModalSobre from "../components/modalSobre/ModalSobre";
 
 
 
@@ -15,7 +16,16 @@ export default function SobreNos() {
   const [usuarios, setUsuarios] = useState([]);
   const [dados, setDados] = useState([]);
   const router = useRouter();
+const [abriModal,setAbrirModal]= useState(null);
 
+const openModal = (id) => {
+  setAbrirModal(id);
+};
+
+//fechar modal
+const closeModal = () => {
+  setAbrirModal(null);
+};
 
 
   const deletar = async (id) => {
@@ -48,9 +58,9 @@ export default function SobreNos() {
 
     fetchUsers();
   }, [usuarios]);
-
+/* 
   console.log("Usuarios");
-  console.log(usuarios);
+  console.log(usuarios); */
 
   // const [botaoModal, setBotaoModal] = useState(0)
   return (
@@ -62,8 +72,8 @@ export default function SobreNos() {
           {dados.length ? (
             <div className={style.all}>
               {usuarios.map((usuario) => (
-                <div className={style.card}>
-                   <button onClick={() => console.log('clicou')}className={style.botaoModal}>
+                <div onClick={() => openModal(usuario.id)} className={style.card}>
+                 
                   <div key={usuario.id} className={style.content}>
 
                     <div className={style.nome}><img className={style.img} src={usuario.avatar} /> <p className={style.p}>{usuario.nome} </p>
@@ -90,7 +100,7 @@ export default function SobreNos() {
                   </p>
                   <img className={style.img} src={usuario.imagem}/> */}
                   </div>
-                  </button>
+               
                   <div >
                     <button
                       onClick={() => deletar(usuario.id)}
@@ -122,6 +132,26 @@ export default function SobreNos() {
         </div>
 
       </div>
+
+      {
+                //Modal
+                abriModal ? (
+                    usuarios.map((usuarios) => (
+                        usuarios.id == abriModal && (
+                            <div key={usuarios.id}>
+
+                                <ModalSobre nome={usuarios.nome} 
+                                avatar={usuarios.avatar}
+                                 idade={usuarios.idade} 
+                                  descricao={usuarios.descricao} 
+                                  tipo={usuarios.tipo}
+                                  imagem={usuarios.imagem}
+                                     fechar={closeModal}  />
+
+                            </div>)))
+                ) : null
+            }
+
 
     </main>
   )
