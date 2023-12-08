@@ -1,5 +1,5 @@
 import styles from "./modal.module.css"
-const Modal = ({   nome, imagem, descricao,inspiracao, copa, trofeus, plataforma, fechar }) => {
+const Modal = ({   nome, imagem, descricao,inspiracao, copa, trofeus, plataforma, fechar, edt, dlt }) => {
 
 
     return (
@@ -20,7 +20,8 @@ const Modal = ({   nome, imagem, descricao,inspiracao, copa, trofeus, plataforma
               <p >Trofeus: {trofeus}</p>
               <p >Plataforma: {plataforma}</p>
               </div>
-          
+              <button  onClick={edt}>editar</button>
+              <button  onClick={dlt}>excuir</button>
           </div>
          
         </div>)}
