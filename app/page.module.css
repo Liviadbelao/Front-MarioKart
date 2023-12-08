@@ -93,3 +93,46 @@ margin-bottom: 5%;
     display: flex;
     margin-top: 30%;
 }
+@media (max-width: 600px) {
+    .miniMain{
+   
+        display: inline;
+    }
+    .container{
+        width: 90%;
+        margin-left: 0%;
+    }
+    .container3{
+        width: 90%;
+        margin-left: 0%;
+        margin-top: 120%;
+    }
+    .main{
+        background-image: none;
+    }
+  
+    .containerAjuste{
+     
+        display: inline;
+    }
+    .img3{
+        display: none;
+    }
+    .imgContainer{
+        align-items: center;
+
+    }
+    .img1{
+        width: 100%;
+    }
+    .img2{
+     margin-left: 0%;
+    }
+    .img4{
+        width: 90%;
+    }
+    .personagens{
+        margin-top: 80%;
+        width: 80%;
+    }
+}
