@@ -5,7 +5,7 @@ const Modal = ({   nome, imagem, descricao,inspiracao, copa, trofeus, plataforma
     return (
       <div className={styles.fundo}>
        
-      
+       <img className={styles.mario} src={"http://vignette2.wikia.nocookie.net/wiki-mario-kart-pc/images/7/75/Mario.png/revision/latest?cb=20161130004625&path-prefix=fr"}></img>
           <div className={styles.container}>
           <button className={styles.botao} onClick={fechar}>X</button>
             <div >

@@ -15,14 +15,13 @@
    
     background-color: #fff;
    border: solid 2px rgb(244, 60, 60);
-    animation: go-back 1s;
+    animation: go-back 3.7s;
   }
   
   @keyframes go-back {
     from {
-      transform: translateX(100%)
+      transform: translateX(-100%);
     }
-  
     to {
       transform: translateX(0);
     }
@@ -32,6 +31,7 @@
     padding: 1%;
     position: fixed;
     top: 0;
+    overflow: hidden;
     left: 0;
     width: 100%;
     height: 100%;
@@ -74,10 +74,39 @@
     font-size: 20px;
     border: none;
   }
-  @media (max-width: 600px) {
-    .container{
-      width: 100%;
-      margin-left: 0%;
-      margin-top: 30%;
-    }
+.mario {
+  position: absolute;
+  margin-top: 30%;
+ 
+  animation-name: drive;
+  animation-duration: 2.5s;
+  animation-fill-mode: both;
+  animation-iteration-count: 1; /* Alterado para executar apenas uma vez */
+  animation-timing-function: linear;
+}
+
+@keyframes drive {
+  from {
+    transform: translateX(-100px);
+  }
+  to {
+    transform: translateX(1920px);
+  }
+}
+
+@media (max-width: 600px) {
+  .container {
+    width: 100%;
+    margin-left: 0%;
+    margin-top: 30%;
+    animation: go-back 2s;
+  }
+.textos{
+  margin-top: 75%;
+}
+
+  .mario{
+    animation-duration: 3.5s;
+    margin-bottom: -10%;
+  }
 }
