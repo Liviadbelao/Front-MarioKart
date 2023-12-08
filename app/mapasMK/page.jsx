@@ -68,12 +68,6 @@ export default function Home() {
     const aplicarFiltro = (copa) => {
         setCopaInput(copa)
         setExibirDados(true);
-
-    };
-    const setNome = (nome) => {
-        console.log("nome", teste);
-        setNomeInput(nome)
-        setExibirDados(true);
     };
 
     //UseEffect para coletar dados da API
