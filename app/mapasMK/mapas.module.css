@@ -52,7 +52,7 @@
 }
 
 .main {
-    background-image: url('/fundo.png');
+    background-image: url('/pagHome/fundo.png');
     background-size: cover;
     background-repeat: no-repeat;
     width: 100%;
