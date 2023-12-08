@@ -68,6 +68,7 @@ export default function Home() {
     const aplicarFiltro = (copa) => {
         setCopaInput(copa)
         setExibirDados(true);
+        setCopaSelecionada(copa)
     };
 
     //UseEffect para coletar dados da API
