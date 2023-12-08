@@ -66,13 +66,19 @@
     padding: 0.5rem;
     margin-bottom: 2%;
     border-radius: 100%;
-    margin-left: 90%;
+    margin-left: 95%;
 
     z-index: 1;
-    background-color: red;
-    color: #fff;
+    background-color: transparent;
+    color: red;
     font-size: 20px;
     border: none;
+  }
+  .pg{
+    margin-top: 1%;
+  }
+  .botao:hover{
+    cursor: pointer;
   }
 .mario {
   position: absolute;
@@ -98,15 +104,15 @@
   .container {
     width: 100%;
     margin-left: 0%;
-    margin-top: 30%;
+    margin-top: 10%;
     animation: go-back 2s;
   }
 .textos{
-  margin-top: 75%;
+  margin-top: 85%;
 }
 
   .mario{
     animation-duration: 3.5s;
-    margin-bottom: -10%;
+    margin-top: 80%;
   }
 }
