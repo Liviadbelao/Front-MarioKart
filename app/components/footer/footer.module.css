@@ -45,10 +45,18 @@
     .container {
         margin-bottom: -50%;
         flex-direction: column;
+        width: 610px;
     }
 
     .container2 {
         margin-bottom: 2rem;
     }
 
+    .direitos {
+        margin-left: 130px;
+    }
+
+    .icons {
+        margin-top: -45px;
+    }
 }
