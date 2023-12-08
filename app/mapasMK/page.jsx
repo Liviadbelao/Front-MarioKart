@@ -19,11 +19,14 @@ export default function Home() {
     const [mapas, setMapas] = useState([]);
     const [copa, setCopa] = useState('');
     const [filtrados, setFiltrados] = useState([]);
-    const [nomesFiltrados, setNomesFiltrados] = useState([])
+    const [nomeInput, setNomeInput] = useState('');
+    const [copaInput, setCopaInput] = useState('');
+    const [trofeusInput, setTrofeusInput] = useState('');
     const [abrirModal, setAbrirModal] = useState(null);
     const [copaSelecionada, setCopaSelecionada] = useState('');
     const router = useRouter();
     const [search, setSearch] = useState('');
+    const [exibirDados, setExibirDados] = useState(false);
 
 
     //Const para abertura do modal
@@ -63,29 +66,28 @@ export default function Home() {
 
     //Const para mostrar mapas da copa selecionada
     const aplicarFiltro = (copa) => {
-        const mapasFiltrados = dados.filter((item) => item.copa === copa);
-        setFiltrados(mapasFiltrados);
-        setCopaSelecionada(copa);
-        setNomesFiltrados([]);
+        setCopaInput(copa)
+        setExibirDados(true);
+    };
 
-        console.log(mapas);
-        console.log("filtrados", filtrados);
-    };
-    //filtro por nome 
-    const filtrarNome = () => {
-        const nomes = dados.filter((mapa) =>
-            mapa.nome.toLowerCase().includes(search.toLowerCase())
-        );
-        setFiltrados([])
-        setNomesFiltrados(nomes);
-        console.log("nomes filtrados", nomes);
-        setSearch("")
-    };
     //UseEffect para coletar dados da API
     useEffect(() => {
         async function fetchMaps() {
             try {
-                const response = await axios.get("/api/mapas");
+                let queryParams = '';
+                if(nomeInput){
+                    queryParams = `nome=${nomeInput}&`;
+                }
+                if(copaInput){
+                    queryParams = `copa=${copaInput}&`;
+                }
+                if(trofeusInput){
+                    queryParams = `trofeus=${trofeusInput}&`;
+                }
+                const response = await axios.get(`/api/mapas?${queryParams}`);
+
+                console.log({response})
+
                 setDados(response.data.listaMapas);
                 setMapas(response.data);
             } catch (error) {
@@ -94,13 +96,15 @@ export default function Home() {
         }
 
         fetchMaps();
-    }, []);
+    }, [nomeInput,copaInput,trofeusInput]);
 
 
     //UseEffect para retornar todos os mapas para filtrar novamente
     useEffect(() => {
         aplicarFiltro(copa);
     }, [copa]);
+
+    console.log(dados)
 
     return (
         <main className={styles.main}>
@@ -112,7 +116,6 @@ export default function Home() {
                 type="text"
                 onChange={(e) => setSearch(e.target.value)}
             />
-            <button onClick={filtrarNome}>buscar</button>
             <div className={styles.containerCups}>
 
                 <BotoesCopas imagem={'/copas/copacogumelo.png'} oc={"Copa Cogumelo"} copaSelecionada={copaSelecionada} aplicarFiltro={aplicarFiltro} />
@@ -143,8 +146,8 @@ export default function Home() {
 
             <div className={styles.results}>
 
-                {filtrados.length != 0 ? (
-                    filtrados.map((mapa) => (
+                {dados.length != 0 && exibirDados == true ? (
+                    dados.map((mapa) => (
                         <div key={mapa.id}>
                             <div className={styles.cardContainer}>
                                 <div className={styles.titulo}>

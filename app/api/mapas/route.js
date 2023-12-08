@@ -4,13 +4,30 @@ import { NextResponse } from "next/server";
 
 const url = process.env.BASE_URL + "mapas";
 
-export async function GET() {
+export async function GET(request) {
+
+  const { searchParams } = new URL(request.url);
+
+  const nome = searchParams.get('nome');
+  const trofeus = searchParams.get('trofeus');
+  const copa = searchParams.get('copa');
+
+
   try {
-    const response = await axios.get(url);
+    if (nome || trofeus || copa) {
+      const nomeCondicao = nome == undefined || nome == null ? '' : `nome=${nome}`;
+      const trofeuCondicao = trofeus == undefined || trofeus == null ? '' : `&trofeus=${trofeus}`;
+      const copaCondicao = copa == undefined || copa == null ? '' : `&copa=${copa}`;
 
+      const response = await axios.get(`${url}?${nomeCondicao}${trofeuCondicao}${copaCondicao}`);
 
+      return NextResponse.json(response.data)
 
-    return NextResponse.json(response.data);
+    } else {
+      const response = await axios.get(`${url}`);
+
+      return NextResponse.json(response.data);
+    }
   } catch (error) {
     console.log("[ORDER_GET]", error);
     return new NextResponse("Erro interno do servidor!", { status: 500 });
