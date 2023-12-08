@@ -5,9 +5,9 @@ const Modal = ({   nome, imagem, descricao,inspiracao, copa, trofeus, plataforma
     return (
       <div className={styles.fundo}>
        
-       <button className={styles.botao} onClick={fechar}>X</button>
+      
           <div className={styles.container}>
-        
+          <button className={styles.botao} onClick={fechar}>X</button>
             <div >
             
               <h2  className={styles.titulo}>{nome}</h2>
