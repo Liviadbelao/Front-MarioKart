@@ -40,6 +40,7 @@ export default function SobreNos() {
         const response = await axios.get("/api/usuarios");
         setUsuarios(response.data.usuarios);
         setDados(response.data.usuarios)
+     
       } catch (error) {
         console.error("Error fetching data:", error);
       }
