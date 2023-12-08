@@ -118,6 +118,8 @@ export default function Register() {
         fetchMapas();
     }, []);
 
+    console.log("mapas", mapas)
+
     return (
         <main className={styles.main}>
             <TrocarTela caminho={'/mapasMK'} texto={'Mapas Cadastrados'} />
