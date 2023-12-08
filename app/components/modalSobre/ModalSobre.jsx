@@ -1,5 +1,5 @@
 import styles from './modalSobre.module.css'
-
+import { TiStar } from "react-icons/ti";
 const ModalSobre = ({ nome, avatar, idade, descricao, tipo, imagem, fechar }) => {
 
     return (
@@ -14,11 +14,13 @@ const ModalSobre = ({ nome, avatar, idade, descricao, tipo, imagem, fechar }) =>
                 <img className={styles.imagem}  src={imagem} width={200} height={200}/>
                 </div>
                 <div className={styles.textos}>
-                <p >idade: {idade}</p>
+             
+                <p  >Idade: {idade}</p>
                 <p >Descrição:  {descricao}</p>
-                <p >tipo:  {tipo}</p>
-                <p >avatar: <img src={avatar} /></p>
-            
+                <p >Tipo:  {tipo}</p>
+                <div className={styles.divAvatar}>
+                <p >Avatar: <img src={avatar} width={60} height={60}/></p>
+                </div>
                 </div>
               
             </div>
