@@ -12,7 +12,6 @@ export async function GET(request) {
   const trofeus = searchParams.get('trofeus');
   const copa = searchParams.get('copa');
 
-
   try {
     if (nome || trofeus || copa) {
       const nomeCondicao = nome == undefined || nome == null ? '' : `nome=${nome}`;

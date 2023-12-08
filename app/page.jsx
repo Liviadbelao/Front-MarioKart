@@ -1,9 +1,11 @@
 import Image from "next/image"
 import styles from "./page.module.css"
 import Footer from "./components/footer/Footer"
+import Header from "./components/header/Header"
 export default function Home() {
   return (
     <main className={styles.main}>
+     <Header/>
     <h1 className={styles.titulo1}> Software Ways</h1>
     <div className={styles.miniMain}>
     <Image className={styles.gif} src={"/giphy.gif"} width={400} height={400} /> 
@@ -53,7 +55,7 @@ export default function Home() {
       <p>Além disso, há uma variedade de modos de jogo, desde corridas simples até batalhas onde o objetivo é derrotar outros jogadores usando os itens. O Mario Kart é conhecido por sua jogabilidade divertida e acessível para jogadores de todas as idades, tornando-o um dos jogos de corrida mais populares e duradouros.</p>
       </div>
       </div>
-      
+     
     </main>
   )
 }
