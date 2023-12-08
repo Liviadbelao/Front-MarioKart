@@ -11,6 +11,7 @@ import BotoesCopas from "../components/botoescopas/BotoesCopas";
 import TrocarTela from "../components/trocartela/TrocarTela";
 import { noSSR } from "next/dynamic";
 
+
 //Criando página
 export default function Home() {
 
@@ -114,7 +115,7 @@ export default function Home() {
 
     return (
         <main className={styles.main}>
-
+         
             <select name="nome" id="nome" value={optionList} onChange={(e) => setNomeInput(e.target.value)}>
                 {optionList.map((mapa) => (
                     <option value={mapa.nome} key={mapa.id}>{mapa.nome}</option>
