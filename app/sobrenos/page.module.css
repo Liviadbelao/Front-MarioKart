@@ -228,16 +228,25 @@ margin-bottom: 6%;
             border: none;
             }
 
-@media (max-width: 680px) 
-{
+            @media (max-width: 680px) {
+                .containerEd{
+                    width: 80%;
+                    margin-top: 30%;
+                }
 
-    .label{
-        margin-right: 90%;
-        font-family: Verdana, Geneva, Tahoma, sans-serif;
-    }
+                .container{
+                    width: 92%;
+                
+                }
 
-    
-    .container{
-        width: 90%;
-    }
-}
+                .divMain{
+                    height: 100vh;
+                }
+
+
+
+            }
+                
+            
+                
+                
