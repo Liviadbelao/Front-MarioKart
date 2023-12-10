@@ -56,18 +56,18 @@ export default function AtualizarUsuario({ params }) {
 
   return (
     <div className={styles.main}>
-      <div className={styles.action}>
+      <div >
         <Link href={`/sobrenos`}>
-          <button>Voltar para cadastro</button>
+          <button className={styles.btn_hibrido}>Voltar para cadastro</button>
         </Link>
       </div>
 
-      <div>
+      <div className={styles.containerEd}>
         <h1>Atualizar Usuario</h1>
         {id ? (
-          <form onSubmit={handleSubmit}>
+          <form onSubmit={handleSubmit} className={styles.mainContainer}>
             <div>
-              <label htmlFor="nome">nome</label>
+              <label htmlFor="nome" className={styles.label}>nome</label>
               <input
                 type="text"
                 className={styles.input}
@@ -78,12 +78,13 @@ export default function AtualizarUsuario({ params }) {
               />
             </div>
             <div>
-              <label htmlFor="avatar"> selecione seu avatar</label>
+              <label htmlFor="avatar" className={styles.label}> selecione seu avatar</label>
               <select
                 name="avatar"
                 id="avatar"
                 onChange={handleAvatarChange}
                 value={avatar}
+                className={styles.select}
 
               >
 
@@ -148,7 +149,7 @@ export default function AtualizarUsuario({ params }) {
             </div>
 
             <div className={styles.formGroup}>
-              <label htmlFor="idade" className={styles.label}>
+              <label  htmlFor="idade" className={styles.label}>
                 Idade:
               </label>
               <input
@@ -162,35 +163,38 @@ export default function AtualizarUsuario({ params }) {
             </div>
 
             <div>
-              <label htmlFor="descricao">
+              <label htmlFor="descricao"  className={styles.label}>
                 descrição
               </label>
               <input
                 type="text"
                 id="descricao"
+                className={styles.input}
                 value={descricao}
                 onChange={(e) => setDescricao(e.target.value)}
                 required
               />
             </div>
             <div>
-              <label htmlFor="tipo">
+              <label htmlFor="tipo"  className={styles.label}>
                 tipo
               </label>
               <input
                 type="text"
                 id="tipo"
+                className={styles.input}
                 value={tipo}
                 onChange={(e) => setTipo(e.target.value)}
                 required
               />
             </div>
             <div>
-              <label htmlFor="imagem">
+              <label htmlFor="imagem"  className={styles.label}>
                 imagem
               </label>
               <input
                 type="text"
+                className={styles.input}
                 id="imagem"
                 value={imagem}
                 onChange={(e) => setImagem(e.target.value)}
@@ -198,7 +202,7 @@ export default function AtualizarUsuario({ params }) {
               />
             </div>
 
-            <button type="submit">Atualizar</button>
+            <button type="submit" className={styles.button}>Atualizar</button>
           </form>
         ) : (
           <p>Carregando...</p>
