@@ -18,22 +18,12 @@
     border-radius: 1rem;
     background-color: rgba(0, 0, 0, 0.081);
     margin: 1rem;    
-    height: 13.65rem;
-    overflow: auto;    
-    scrollbar-color: transparent transparent;
-    scrollbar-width: thin;                                                     
+    height: 35%;
+    overflow: auto;                                                      
 }
 
 .results::-webkit-scrollbar {
     width: 12px; /* Ajuste conforme necessário */
-  }
-  
-  .results::-webkit-scrollbar-thumb {
-    background-color: transparent; /* Torna o polegar da barra de rolagem transparente */
-  }
-  
-  .results::-webkit-scrollbar-track {
-    background-color: transparent; /* Torna a trilha da barra de rolagem transparente */
   }
 
 .cardContainer {
