@@ -1,7 +1,7 @@
 "use client"
 import { useState, useEffect } from "react"
 import Image from "next/image"
-
+import axios from "axios"
 import { useRouter } from "next/navigation"
 import styles from "./page.module.css"
 import Footer from "./components/footer/Footer"
@@ -30,8 +30,8 @@ export default function Home() {
     async function fetchPersonagens() {
       try {
         const response = await axios.get("/api/personagens");
-        setPersonagens(response.data.personagens);
-        setDados(response.data.personagens)
+        setPersonagens(response.data);
+        setDados(response.data)
 
       } catch (error) {
         console.error("Error fetching data:", error);
