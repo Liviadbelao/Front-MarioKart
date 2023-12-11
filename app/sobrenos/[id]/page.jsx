@@ -22,6 +22,31 @@ export default function AtualizarUsuario({ params }) {
   const { id } = params;
   let erros = [];
 
+
+
+  
+  useEffect(() => {
+    async function buscarDetalhesUsuario() {
+      try {
+        const { data } = await axios.get(`/api/usuarios/${id}`);
+        const usuario = data.usuario;
+        setNome(usuario.nome);
+        setIdade(usuario.idade);
+        setDescricao(usuario.descricao);
+        setTipo(usuario.tipo);
+        setImagem(usuario.imagem);
+        setAvatar(usuario.avatar);
+      } catch (error) {
+        console.error("Error fetching usuario details:", error);
+      }
+    }
+
+    if (id) {
+      buscarDetalhesUsuario();
+    }
+  }, [id]);
+
+
   const urlValida = (imagem) => {
     if (imagem.match(/\.(jpeg|jpg|gif|png)$/) != null) {
         return true;
@@ -30,9 +55,19 @@ export default function AtualizarUsuario({ params }) {
     }
 }
 
+const handleAvatarChange = (event) => {
+  const selectedAvatar = event.target.value;
+  setAvatar(selectedAvatar);
+};
 
-  const handlesubmit = async (e) => {
-    e.preventDefault();
+const handleTypeUser = (e) => {
+  const selectedTypeUser = e.target.value;
+  setTipo(selectedTypeUser);
+};
+
+
+const handleSubmit = async (e) => {
+  e.preventDefault();
 
     
     if (nome == '') {
@@ -71,64 +106,16 @@ export default function AtualizarUsuario({ params }) {
   setErroImagem('');
 }
 
- 
-
-
 try {
-  await axios.post("/api/usuarios", { nome, avatar, idade, descricao, tipo, imagem  });
-  setNome("");
-  setAvatar("");
-  setIdade("");
-  setDescricao("");
-  setTipo("");
-  setImagem("");
- 
+  await axios.put(`/api/usuarios/${id}`, { nome, avatar, idade, descricao, tipo, imagem });
+  router.push(`/sobrenos/`);
 } catch (error) {
-  console.error("Error submitting data:", error);
+  console.error("Error updating usuario:", error);
 }
-  }
-  useEffect(() => {
-    async function buscarDetalhesUsuario() {
-      try {
-        const { data } = await axios.get(`/api/usuarios/${id}`);
-        const usuario = data.usuario;
-        setNome(usuario.nome);
-        setIdade(usuario.idade);
-        setDescricao(usuario.descricao);
-        setTipo(usuario.tipo);
-        setImagem(usuario.imagem);
-        setAvatar(usuario.avatar);
-      } catch (error) {
-        console.error("Error fetching usuario details:", error);
-      }
-    }
+}
+ 
 
-    if (id) {
-      buscarDetalhesUsuario();
-    }
-  }, [id]);
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-
-    try {
-      await axios.put(`/api/usuarios/${id}`, { nome, avatar, idade, descricao, tipo, imagem });
-      router.push(`/sobrenos/`);
-    } catch (error) {
-      console.error("Error updating usuario:", error);
-    }
-  }
-
-
-  const handleAvatarChange = (event) => {
-    const selectedAvatar = event.target.value;
-    setAvatar(selectedAvatar);
-  };
-
-  const handleTypeUser = (e) => {
-    const selectedTypeUser = e.target.value;
-    setTipo(selectedTypeUser);
-  };
+ 
 
   return (
     <div className={styles.main}>
@@ -141,7 +128,7 @@ try {
       <div className={styles.containerEd}>
         <h1>Atualizar Usuario</h1>
         {id ? (
-          <form onSubmit={handlesubmit} className={styles.mainContainer}>
+          <form onSubmit={handleSubmit} className={styles.mainContainer}>
             <div>
               <label htmlFor="nome" className={styles.label}>nome</label>
               <input
@@ -289,5 +276,6 @@ try {
         )}
       </div>
     </div >
-  );
+  )
+        
 }
