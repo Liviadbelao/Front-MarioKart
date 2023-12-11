@@ -8,6 +8,7 @@ import TrocarTela from "@/app/components/trocartela/TrocarTela";
 import Inputs from "@/app/components/inputs/Inputs";
 import styles from './cadastro.module.css'
 import Footer from "@/app/components/footer/Footer";
+import Label from "@/app/components/label/label";
 
 //Criando Páginas
 export default function Register() {
@@ -145,8 +146,7 @@ export default function Register() {
             <div className={styles.mainContainer}>
 
                 <form onSubmit={Adicionar} className={styles.container}>
-
-                    <label htmlFor="nome" className={styles.label}>Idade</label>
+                    <Label htmlFor={"nome"} texto={"Nome"}/>
                     <Inputs tipo={'text'} valor={nome} oc={(e) => setNome(e.target.value)} />
                     <p>{erroNome}</p>
 

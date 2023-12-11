@@ -7,6 +7,7 @@ import Link from "next/link";
 import Image from "next/image";
 import Inputs from "@/app/components/inputs/Inputs";
 import styles from "./cadastro.module.css"
+import TrocarTela from "@/app/components/trocartela/TrocarTela";
 
 //Criação da página
 export default function Cadastro() {
@@ -123,9 +124,7 @@ export default function Cadastro() {
     <div className={styles.main}>
       
       <div>
-        <Link href="/sobrenos">
-          <button className={styles.btn_hibrido}>Mostrar usuários</button>
-        </Link>
+        <TrocarTela caminho={'/sobrenos'} texto={'Usuários Cadastrados'}/>
       </div>
 
       <div className={styles.container}>
