@@ -79,6 +79,7 @@ export default function Register() {
             setErroCopa('');
         }
         if (trofeus == '') {
+            console.log('trofeus', trofeus);
             setErroTrofeus('Preenca a quatidade de troféus')
         } else if (trofeus < 500 || trofeus > 5000) {
             setErroTrofeus('Quantidade de Troféus inválida')
@@ -166,12 +167,12 @@ export default function Register() {
                     </select>
 
                     <p>{erroCopa}</p>
-                    <label  htmlFor="trofeus" className={styles.label}>Troféus</label>
-                    <Inputs type="number" value={trofeus} placeholder='Troféus' onChange={(e) => setTrofeus(e.target.value)} />
+                    <label  htmlFor="trofeus" className={styles.label}>Trofeus</label>
+                    <Inputs tipo={'number'} valor={trofeus} oc={(e) => setTrofeus(e.target.value)} />
                     <p>{erroTrofeus}</p>
 
                     <label  htmlFor="plataforma" className={styles.label}>Plataforma</label>
-                    <Inputs type="text" value={plataforma} placeholder='Plataforma' onChange={(e) => setPlataforma(e.target.value)} />
+                    <Inputs tipo={'text'} valor={plataforma} oc={(e) => setPlataforma(e.target.value)} />
                     <p>{erroPlataforma}</p>
                     <button type="submit"className={styles.button} >Cadastrar</button>
                 </form>
