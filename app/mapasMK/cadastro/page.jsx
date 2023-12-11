@@ -82,7 +82,7 @@ export default function Register() {
             console.log('trofeus', trofeus);
             setErroTrofeus('Preenca a quatidade de troféus')
         } else if (trofeus < 500 || trofeus > 5000) {
-            setErroTrofeus('Quantidade de Troféus inválida')
+            setErroTrofeus('A quantidade de troféus tem qyue ser entre 500 a 5000')
         } else if (trofeus % 100 !== 0) {
             setErroTrofeus('Quantidade de Troféus Inválida, insira um valor que seja multiplo de 100')
         }
