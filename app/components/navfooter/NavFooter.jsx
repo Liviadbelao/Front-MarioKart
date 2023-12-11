@@ -1,10 +1,10 @@
 import styles from '../navfooter/navfooter.module.css'
 
-const NavFooter = ({ rota, texto}) => {
+const NavFooter = ({ rota, icon}) => {
     return (
         
         <div>
-            <a className={styles.texto} href={rota}>{texto}</a>
+            <a className={styles.texto} href={rota}>{icon}</a>
         </div>
     );
 

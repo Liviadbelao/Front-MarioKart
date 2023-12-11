@@ -168,8 +168,6 @@ export default function Home() {
                                         <img className={styles.img} src={mapa.imagem} />
                                         <h1 className={styles.mapaname}>{mapa.nome}</h1>
                                     </div>
-                                    {/* <button onClick={() => deletar(mapa.id)}> deletar </button>
-                                    <button onClick={() => update(mapa.id)}>Atualizar</button> */}
                                 </div>
                             </div>
                         </div>
