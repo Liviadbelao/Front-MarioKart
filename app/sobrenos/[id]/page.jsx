@@ -8,14 +8,85 @@ import Image from "next/image";
 
 export default function AtualizarUsuario({ params }) {
   const [nome, setNome] = useState("");
+
   const [avatar, setAvatar] = useState("");
   const [idade, setIdade] = useState("");
   const [descricao, setDescricao] = useState("");
   const [tipo, setTipo] = useState("");
   const [imagem, setImagem] = useState("");
+  const [erroNome, setErroNome] = useState("");
+  const [erroIdade, setErroIdade] = useState("");
+  const [erroDescricao, setErroDescricao] = useState("");
+  const [erroImagem, setErroImagem] = useState("");
   const router = useRouter();
   const { id } = params;
+  let erros = [];
 
+  const urlValida = (imagem) => {
+    if (imagem.match(/\.(jpeg|jpg|gif|png)$/) != null) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
+
+  const handlesubmit = async (e) => {
+    e.preventDefault();
+
+    
+    if (nome == '') {
+      setErroNome('Preencha o campo Nome');
+  } else if (nome.length < 3 || nome.length >20) {
+      setErroNome('O tamanho do nome deve ser entre 3 a 20 caracteres')
+  }else {
+      setErroNome('');
+  }
+
+  
+ if(idade == '') {
+  setErroIdade('Preencha o campo idade')
+ }else if(idade < 13) {
+     setErroIdade('O usuário deve ser maior de 13 anos.')
+ } else {
+     setErroIdade('');
+ }
+
+ if(descricao == '') {
+  setErroDescricao('Preencha o campo Descrição')
+ }else if(descricao.length < 10 || descricao.length > 100) {
+     setErroDescricao('O tamanho da descrição deve ser entre 10 a 100 caracteres')
+ } else {
+     setErroDescricao('');
+ }
+
+ if(!imagem) {
+  console.log('Preencha o campo imagem')
+  setErroImagem('Preencha o campo Imagem')
+} else if (!urlValida(imagem)) {
+  console.log('A imagem precisa ser valida')
+  setErroImagem('A imagem precisa ter um formato válido: .jpeg/.jpg/.gif/.png')
+} else {
+  console.log('Limpou');
+  setErroImagem('');
+}
+
+ 
+
+
+try {
+  await axios.post("/api/usuarios", { nome, avatar, idade, descricao, tipo, imagem  });
+  setNome("");
+  setAvatar("");
+  setIdade("");
+  setDescricao("");
+  setTipo("");
+  setImagem("");
+ 
+} catch (error) {
+  console.error("Error submitting data:", error);
+}
+  }
   useEffect(() => {
     async function buscarDetalhesUsuario() {
       try {
@@ -54,6 +125,11 @@ export default function AtualizarUsuario({ params }) {
     setAvatar(selectedAvatar);
   };
 
+  const handleTypeUser = (e) => {
+    const selectedTypeUser = e.target.value;
+    setTipo(selectedTypeUser);
+  };
+
   return (
     <div className={styles.main}>
       <div >
@@ -65,7 +141,7 @@ export default function AtualizarUsuario({ params }) {
       <div className={styles.containerEd}>
         <h1>Atualizar Usuario</h1>
         {id ? (
-          <form onSubmit={handleSubmit} className={styles.mainContainer}>
+          <form onSubmit={handlesubmit} className={styles.mainContainer}>
             <div>
               <label htmlFor="nome" className={styles.label}>nome</label>
               <input
@@ -75,7 +151,9 @@ export default function AtualizarUsuario({ params }) {
                 value={nome}
                 onChange={(e) => setNome(e.target.value)}
                 required
+                
               />
+                <p>{erroNome}</p>
             </div>
             <div>
               <label htmlFor="avatar" className={styles.label}> selecione seu avatar</label>
@@ -160,6 +238,7 @@ export default function AtualizarUsuario({ params }) {
                 onChange={(e) => setIdade(e.target.value)}
                 required
               />
+                 <p>{erroIdade}</p>
             </div>
 
             <div>
@@ -174,19 +253,18 @@ export default function AtualizarUsuario({ params }) {
                 onChange={(e) => setDescricao(e.target.value)}
                 required
               />
+              <p>{erroDescricao}</p>
             </div>
             <div>
               <label htmlFor="tipo"  className={styles.label}>
                 tipo
               </label>
-              <input
-                type="text"
-                id="tipo"
-                className={styles.input}
-                value={tipo}
-                onChange={(e) => setTipo(e.target.value)}
-                required
-              />
+              <select  type="text" id="tipo" value={tipo} onChange={handleTypeUser} className={styles.select}>
+              <option value="Aluno"> Selecione... </option>
+              <option value="Aluno"> Aluno </option>
+              <option value="Instrutor"> Instrutor </option>
+              <option value="Vistante"> Visitante </option>
+            </select>
             </div>
             <div>
               <label htmlFor="imagem"  className={styles.label}>
@@ -200,6 +278,8 @@ export default function AtualizarUsuario({ params }) {
                 onChange={(e) => setImagem(e.target.value)}
                 required
               />
+
+<p>{erroImagem}</p>
             </div>
 
             <button type="submit" className={styles.button}>Atualizar</button>
