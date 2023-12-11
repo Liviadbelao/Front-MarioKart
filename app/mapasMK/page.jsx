@@ -10,6 +10,8 @@ import Modal from "../components/modal/Modal";
 import BotoesCopas from "../components/botoescopas/BotoesCopas";
 import TrocarTela from "../components/trocartela/TrocarTela";
 import { noSSR } from "next/dynamic";
+import Footer from "../components/footer/Footer";
+
 
 //Criando página
 export default function Home() {
@@ -68,6 +70,7 @@ export default function Home() {
     const aplicarFiltro = (copa) => {
         setCopaInput(copa)
         setExibirDados(true);
+        setCopaSelecionada(copa)
     };
 
     //UseEffect para coletar dados da API
@@ -113,7 +116,7 @@ export default function Home() {
 
     return (
         <main className={styles.main}>
-
+         
             <select name="nome" id="nome" value={optionList} onChange={(e) => setNomeInput(e.target.value)}>
                 {optionList.map((mapa) => (
                     <option value={mapa.nome} key={mapa.id}>{mapa.nome}</option>
@@ -166,8 +169,6 @@ export default function Home() {
                                         <img className={styles.img} src={mapa.imagem} />
                                         <h1 className={styles.mapaname}>{mapa.nome}</h1>
                                     </div>
-                                    {/* <button onClick={() => deletar(mapa.id)}> deletar </button>
-                                    <button onClick={() => update(mapa.id)}>Atualizar</button> */}
                                 </div>
                             </div>
                         </div>
@@ -189,7 +190,7 @@ export default function Home() {
                             </div>)))
                 ) : null
             }
-
+         <Footer />
         </main>
     );
 }

@@ -1,9 +1,14 @@
 .botoes {
-  width: 10rem;
-  height: 10rem;
+  width: 8rem;
+  height: 8rem;
   background-color: transparent;
   border: none;
   transition: 0.5s;
+}
+
+.imagecup {
+  width:8rem;
+  height:8rem;
 }
 
 .botoesSelecionado {

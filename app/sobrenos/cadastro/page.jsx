@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import Inputs from "@/app/components/inputs/Inputs";
+import styles from "./cadastro.module.css"
 
 export default function Cadastro() {
   const [nome, setNome] = useState("");
@@ -106,29 +107,29 @@ if(descricao == '') {
   };
 
   return (
-    <div>
+    <div className={styles.main}>
       <div>
         <Link href="/sobrenos">
-          <button>voltar para usuarios</button>
+          <button className={styles.btn_hibrido}>voltar para usuarios</button>
         </Link>
       </div>
 
-      <div>
-        <h1>cadastrar usuario</h1>
-        <form onSubmit={adicionar}>
+      <div className={styles.container}>
+        <h1>Cadastrar Usuário</h1>
+        <form onSubmit={adicionar} className={styles.mainContainer}>
           <div>
-            <label htmlFor="name"> Nome</label>
+            <label htmlFor="name" className={styles.label}> Nome </label>
             <Inputs tipo={'text'} valor={nome} oc={(e) => setNome(e.target.value)}/>
             <p>{erroNome}</p>
           </div>
 
           <div>
-            <label htmlFor="avatar"> Selecione seu avatar</label>
+            <label htmlFor="avatar" className={styles.label}> Selecione seu avatar</label>
             <select
               name="avatar"
               id="avatar"
               onChange={handleAvatarChange}
-              value={avatar}
+              value={avatar} className={styles.select}
             >
               {/* <option value="caminho/para/imagem1.jpg">Imagem 1</option>
               <option value="caminho/para/imagem2.jpg">Imagem 2</option> */}
@@ -193,18 +194,18 @@ if(descricao == '') {
           </div>
 
           <div>
-            <label htmlFor="idade"> Idade</label>
+            <label htmlFor="idade" className={styles.label}> Idade</label>
             <Inputs tipo={'number'} valor={idade} oc={(e) => setIdade(e.target.value)}/>
             <p>{erroIdade}</p>
           </div>
           <div>
-            <label htmlFor="descricao"> Descrição</label>
+            <label htmlFor="descricao" className={styles.label}> Descrição</label>
             <Inputs tipo={"text"} valor={descricao} oc={(e) => setDescricao(e.target.value)}/>
            <p> {erroDescricao}</p>
           </div>
           <div>
-            <label htmlFor="tipo"> Selecione seu tipo de usuário</label>
-            <select  type="text" id="tipo" value={tipo} onChange={handleTypeUser}>
+            <label htmlFor="tipo" className={styles.label}> Selecione seu tipo de usuário</label>
+            <select  type="text" id="tipo" value={tipo} onChange={handleTypeUser} className={styles.select}>
               <option value="Aluno"> Selecione... </option>
               <option value="Aluno"> Aluno </option>
               <option value="Instrutor"> Instrutor </option>
@@ -212,14 +213,14 @@ if(descricao == '') {
             </select>
           </div>
           <div>
-            <label htmlFor="imagem"> Imagem</label>
+            <label htmlFor="imagem" className={styles.label}> Imagem</label>
             <Inputs tipo={"text"} valor={imagem} oc={(e) => setImagem(e.target.value)}/>
               <p>{erroImagem}</p>
           </div>
 
         
 
-          <button type="submit">cadastrar</button>
+          <button type="submit" className={styles.button}>cadastrar</button>
         </form>
       </div>
     </div>

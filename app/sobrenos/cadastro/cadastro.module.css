@@ -1,0 +1,114 @@
+.main{
+    background-image: url("/pagHome/fundo.png");
+    width: 100%;
+    height: 100%;
+    text-align: center;
+}
+.container{
+border-radius: 10px;
+border: solid 3px rgb(255, 217, 0);
+background-color: white;
+padding: 2%;
+width: 30%;
+margin: auto;
+margin-top: 2%;
+margin-bottom: 10%;
+}
+.mainContainer{
+   margin-top: 10%;
+}
+
+
+
+.label{
+    margin-right: 90%;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    margin-bottom: 2%;
+}
+
+.select{
+     width: 100%;
+     padding: 2%;
+     font-size: 16px;
+     border-width: 1px;
+     border-color: #CCCCCC;
+     background-color: #FFFFFF;
+     color: #000000;
+     border-style: double;
+     border-radius: 18px;
+     box-shadow: 0px 0px 2px rgba(66,66,66,.52);
+     
+}
+
+.button{
+font-family: Roboto, sans-serif;
+font-weight: 500;
+font-size: 15px;
+color: #fff;
+background-color: #ffd900;
+padding: 10px 30px;
+border: none;
+box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px 0px;
+border-radius: 50px;
+transition : 657ms;
+transform: translateY(0);
+margin-top: 4%;
+align-items: center;
+cursor: pointer;
+text-transform: uppercase;
+}
+
+.button:hover{
+
+transition : 657ms;
+padding: 10px 20px;
+transform : translateY(-0px);
+background-color: #ffb300af;
+border: solid 2px;
+}
+
+
+ 
+.btn_hibrido{
+
+font-family: Roboto, sans-serif;
+font-weight: 900;
+font-size: 14px;
+color: #00b4d830;
+background-color: #fff;
+padding: 10px 100px;
+border: none;
+box-shadow: rgba(0, 0, 0, 0.2) 0px 20px 30px;
+border-radius: 50px;
+transition : 1000ms;
+transform: translateY(0);
+display: flex;
+flex-direction: row;
+align-items: center;
+cursor: pointer;
+text-transform: uppercase;
+margin: auto;
+
+margin-top: 5%;
+
+}
+
+.btn_hibrido:hover{
+
+transition : 1000ms;
+padding: 10px 50px;
+transform : translateY(-0px);
+background-color: #00b4d830;
+color: #ffffff;
+border: none;
+
+}
+
+@media (max-width: 680px) {
+    .container{
+        width: 80%;
+        margin-top: 30%;
+    }
+
+
+    }

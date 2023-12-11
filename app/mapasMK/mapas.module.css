@@ -1,6 +1,6 @@
 @import url('https://fonts.cdnfonts.com/css/super-mario-world-mario');
 .containerCups {
-    padding-top: 1.5rem;
+    padding-top: 1rem;
     display: grid;
     grid-template-columns: repeat(6, 1fr);
     justify-content: center;
@@ -18,8 +18,13 @@
     border-radius: 1rem;
     background-color: rgba(0, 0, 0, 0.081);
     margin: 1rem;    
-/*     font-family: 'Super Mario World - Mario', sans-serif;      */                                                           
+    height: 35%;
+    overflow: auto;                                                      
 }
+
+.results::-webkit-scrollbar {
+    width: 12px; /* Ajuste conforme necessário */
+  }
 
 .cardContainer {
     background-color: white;
@@ -34,8 +39,8 @@
 }
 
 .botoes {
-    width: 10rem;
-    height: 10rem;
+    width: 8rem;
+    height: 8rem;
     background-color: transparent;
     border: none;
     transition: 0.5s;
@@ -52,7 +57,7 @@
 }
 
 .main {
-    background-image: url('/fundo.png');
+    background-image: url('/pagHome/fundo.png');
     background-size: cover;
     background-repeat: no-repeat;
     width: 100%;
@@ -75,7 +80,9 @@
         padding: 0.7rem;
         border-radius: 1rem;
         background-color: rgba(0, 0, 0, 0.081);
-        margin: 1rem;    
+        margin: 1rem;   
+        height: auto; 
     /*     font-family: 'Super Mario World - Mario', sans-serif;      */                                                           
     }
+    
 }

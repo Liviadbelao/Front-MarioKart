@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 import Inputs from "@/app/components/inputs/Inputs";
+import Footer from "@/app/components/footer/Footer";
 
 export default function UpdateMapa({ params }) {
   const [nome, setNome] = useState("");
@@ -48,13 +49,73 @@ export default function UpdateMapa({ params }) {
 }, [id]);
 
 console.log("AAAAAAAAAAAAAAAAAAAAA");
-
+const urlValida = (imagem) => {
+  if (imagem.match(/\.(jpeg|jpg|gif|png)$/) != null) {
+      return true;
+  } else {
+      return false;
+  }
+}
 const handleSubmit = async (e) => {
     e.preventDefault();
+    if (nome == '') {
+      setErroNome('Preencha o campo Nome');
+  } else if (nome.length < 3 || nome.length >20) {
+      setErroNome('O tamanho do nome deve ser entre 3 a 20 caracteres')
+  }else {
+      setErroNome('');
+  }
 
+  if(!imagem) {
+      console.log('Preencha o campo imagem')
+      setErroImagem('Preencha o campo Imagem')
+  } else if (!urlValida(imagem)) {
+      console.log('A imagem precisa ser valida')
+      setErroImagem('A imagem precisa ter um formato válido: .jpeg/.jpg/.gif/.png')
+  } else {
+      console.log('Limpou');
+      setErroImagem('');
+  }
+  if(descricao == '') {
+   setErroDescricao('Preencha o campo Descrição')
+  }else if(descricao.length < 10 || descricao.length > 100) {
+      setErroDescricao('O tamanho da descrição deve ser entre 10 a 100 caracteres')
+  } else {
+      setErroDescricao('');
+  }
+  if(inspiracao == '') {
+      setErroInspiracao('Preencha o campo Inspiração')
+  } else if(inspiracao.length < 10 ||inspiracao.length > 100) {
+      setErroInspiracao('O tamanho da inspiração deve ser entre 10 a 100 caracter')
+  } else {
+      setErroInspiracao('');
+  }
+  if(!copa) {
+      setErroCopa('Selecione uma copa')
+      console.log('copa', erroCopa);
+  }
+  else {
+      setErroCopa('');
+  }
+  if(trofeus == '') {
+      setErroTrofeus('Preenca a quatidade de troféus')
+  } else if(trofeus < 500 || trofeus > 5000) {
+      setErroTrofeus('Quantidade de Troféus inválida')
+  }else if(trofeus %100 !== 0) {
+      setErroTrofeus('Quantidade de Troféus Inválida, insira um valor que seja multiplo de 100')
+  }
+   else {
+      setErroTrofeus('');
+  }
+  if(plataforma == '') {
+      setErroPlataforma('Preencha o campo Plataforma')
+  } else {
+      setErroPlataforma('');
+  }
     try {
       await axios.put(`/api/mapas/${id}`, { nome, imagem, descricao, inspiracao, copa, trofeus, plataforma });
       router.push(`/mapasMK/`);
+      
     } catch (error) {
       console.error("Error updating mapa:", error);
     }
@@ -103,7 +164,7 @@ const handleSubmit = async (e) => {
         </form>
         ):(<p>Carregando...</p>)}
    
-     
+     <Footer/>
     </main>
 )
 
