@@ -5,7 +5,7 @@ const TrocarTela = ({ caminho, texto }) => {
   return (
     <div className={styles.containerMudar}>
       <Link href={caminho}>
-        <button>
+        <button className={styles.btn_hibrido}>
           {texto}
         </button>
       </Link>

@@ -41,13 +41,13 @@ export default function Register() {
 
         if (nome == '') {
             setErroNome('Preencha o campo Nome');
-        } else if (nome.length < 3 || nome.length >20) {
+        } else if (nome.length < 3 || nome.length > 20) {
             setErroNome('O tamanho do nome deve ser entre 3 a 20 caracteres')
-        }else {
+        } else {
             setErroNome('');
         }
 
-        if(!imagem) {
+        if (!imagem) {
             console.log('Preencha o campo imagem')
             setErroImagem('Preencha o campo Imagem')
         } else if (!urlValida(imagem)) {
@@ -57,38 +57,38 @@ export default function Register() {
             console.log('Limpou');
             setErroImagem('');
         }
-        if(descricao == '') {
-         setErroDescricao('Preencha o campo Descrição')
-        }else if(descricao.length < 10 || descricao.length > 100) {
+        if (descricao == '') {
+            setErroDescricao('Preencha o campo Descrição')
+        } else if (descricao.length < 10 || descricao.length > 100) {
             setErroDescricao('O tamanho da descrição deve ser entre 10 a 100 caracteres')
         } else {
             setErroDescricao('');
         }
-        if(inspiracao == '') {
+        if (inspiracao == '') {
             setErroInspiracao('Preencha o campo Inspiração')
-        } else if(inspiracao.length < 10 ||inspiracao.length > 100) {
+        } else if (inspiracao.length < 10 || inspiracao.length > 100) {
             setErroInspiracao('O tamanho da inspiração deve ser entre 10 a 100 caracter')
         } else {
             setErroInspiracao('');
         }
-        if(!copa) {
+        if (!copa) {
             setErroCopa('Selecione uma copa')
             console.log('copa', erroCopa);
         }
         else {
             setErroCopa('');
         }
-        if(trofeus == '') {
+        if (trofeus == '') {
             setErroTrofeus('Preenca a quatidade de troféus')
-        } else if(trofeus < 500 || trofeus > 5000) {
+        } else if (trofeus < 500 || trofeus > 5000) {
             setErroTrofeus('Quantidade de Troféus inválida')
-        }else if(trofeus %100 !== 0) {
+        } else if (trofeus % 100 !== 0) {
             setErroTrofeus('Quantidade de Troféus Inválida, insira um valor que seja multiplo de 100')
         }
-         else {
+        else {
             setErroTrofeus('');
         }
-        if(plataforma == '') {
+        if (plataforma == '') {
             setErroPlataforma('Preencha o campo Plataforma')
         } else {
             setErroPlataforma('');
@@ -114,7 +114,7 @@ export default function Register() {
         async function fetchMapas() {
             try {
                 const response = await axios.get("/api/mapas");
-           
+
                 setMapas(response.data);
             } catch (error) {
                 console.error("Error fetching data:", error);
@@ -129,18 +129,27 @@ export default function Register() {
     return (
         <main className={styles.main}>
             <TrocarTela caminho={'/mapasMK'} texto={'Mapas Cadastrados'} />
-<div className={styles.mainContainer}>
-            <form onSubmit={Adicionar} className={styles.container}>
-                <Inputs tipo={'text'} valor={nome} pl={'nome'} oc={(e) => setNome(e.target.value)} />
-                <p>{erroNome}</p>
-                <Inputs tipo={'text'} valor={imagem} pl={'Imagem'} oc={(e) => setImagem(e.target.value)} />
-                <p>{erroImagem}</p>
-                <Inputs tipo={'text'} valor={descricao} pl={'Descrição'} oc={(e) => setDescricao(e.target.value)} />
-                <p>{erroDescricao}</p>
-                <Inputs tipo={'text'} valor={inspiracao} pl={'Inspiração'} oc={(e) => setInspiracao(e.target.value)} />
-                <p>{erroInspiracao}</p>
-                <select name="copa" id="copa" value={copa} onChange={(e) => setCopa(e.target.value)}>
-                    <option value="">Selecione</option>
+            <div className={styles.mainContainer}>
+                <form onSubmit={Adicionar} className={styles.container}>
+                    <label htmlFor="nome" className={styles.label}>Idade</label>
+                    <Inputs tipo={'text'} valor={nome} oc={(e) => setNome(e.target.value)} />
+                    <p>{erroNome}</p>
+
+                    <label  htmlFor="imagem" className={styles.label}>Imagem</label>
+                    <Inputs tipo={'text'} valor={imagem} oc={(e) => setImagem(e.target.value)} />
+                    <p>{erroImagem}</p>
+
+                    <label  htmlFor="descricao" className={styles.label}>Descrição</label>
+                    <Inputs tipo={'text'} valor={descricao} oc={(e) => setDescricao(e.target.value)} />
+                    <p>{erroDescricao}</p>
+
+                    <label  htmlFor="inspiracao" className={styles.label}>Inspiração</label>
+                    <Inputs tipo={'text'} valor={inspiracao} oc={(e) => setInspiracao(e.target.value)} />
+                    <p>{erroInspiracao}</p>
+
+                    <label  htmlFor="Copa" className={styles.label}>Selecione uma copa</label>
+                    <select name="copa" id="copa" value={copa} onChange={(e) => setCopa(e.target.value)} className={styles.select} >
+                    <option value="">Selecione....</option>
                     <option value="Copa Cogumelo">Copa Cogumelo</option>
                     <option value="Copa FLor">Copa Flor</option>
                     <option value="Copa Estrela">Copa Estrela</option>
@@ -153,16 +162,21 @@ export default function Register() {
                     <option value="Copa Relâmpago">Copa Relâmpago</option>
                     <option value="Copa Triforce">Copa Triforce</option>
                     <option value="Copa Sino">Copa Sino</option>
-                </select>
-                <p>{erroCopa}</p>
-                <input type="number" value={trofeus} placeholder='Troféus' onChange={(e) => setTrofeus(e.target.value)}  />
-                <p>{erroTrofeus}</p>
-                <input type="text" value={plataforma} placeholder='Plataforma' onChange={(e) => setPlataforma(e.target.value)}  />
-                <p>{erroPlataforma}</p>
-                <button type="submit">Cadastrar</button>
-            </form>
+
+                    </select>
+
+                    <p>{erroCopa}</p>
+                    <label  htmlFor="trofeus" className={styles.label}>Troféus</label>
+                    <Inputs type="number" value={trofeus} placeholder='Troféus' onChange={(e) => setTrofeus(e.target.value)} />
+                    <p>{erroTrofeus}</p>
+
+                    <label  htmlFor="plataforma" className={styles.label}>Plataforma</label>
+                    <Inputs type="text" value={plataforma} placeholder='Plataforma' onChange={(e) => setPlataforma(e.target.value)} />
+                    <p>{erroPlataforma}</p>
+                    <button type="submit"className={styles.button} >Cadastrar</button>
+                </form>
             </div>
-            <Footer/>
+            <Footer />
         </main>
     )
 
