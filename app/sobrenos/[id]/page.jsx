@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation";
 import styles from "../page.module.css";
 import Link from "next/link";
 import Image from "next/image";
+import TrocarTela from "@/app/components/trocartela/TrocarTela";
 
 export default function AtualizarUsuario({ params }) {
   const [nome, setNome] = useState("");
@@ -49,11 +50,11 @@ export default function AtualizarUsuario({ params }) {
 
   const urlValida = (imagem) => {
     if (imagem.match(/\.(jpeg|jpg|gif|png)$/) != null) {
-        return true;
+      return true;
     } else {
-        return false;
+      return false;
     }
-}
+  }
 
 const handleAvatarChange = (event) => {
   const selectedAvatar = event.target.value;
@@ -69,12 +70,12 @@ const handleTypeUser = (e) => {
 const handleSubmit = async (e) => {
   e.preventDefault();
 
-    
+
     if (nome == '') {
       setErroNome('Preencha o campo Nome');
-  } else if (nome.length < 3 || nome.length >20) {
+    } else if (nome.length < 3 || nome.length > 20) {
       setErroNome('O tamanho do nome deve ser entre 3 a 20 caracteres')
-  }else {
+    } else {
       setErroNome('');
   }
 
@@ -114,15 +115,10 @@ try {
 }
 }
  
-
- 
-
   return (
     <div className={styles.main}>
       <div >
-        <Link href={`/sobrenos`}>
-          <button className={styles.btn_hibrido}>Voltar para cadastro</button>
-        </Link>
+      <TrocarTela caminho={'/sobrenos'} texto={'Usuários cadastrados'} />
       </div>
 
       <div className={styles.containerEd}>
@@ -138,9 +134,9 @@ try {
                 value={nome}
                 onChange={(e) => setNome(e.target.value)}
                 required
-                
+
               />
-                <p>{erroNome}</p>
+              <p>{erroNome}</p>
             </div>
             <div>
               <label htmlFor="avatar" className={styles.label}> selecione seu avatar</label>
@@ -214,7 +210,7 @@ try {
             </div>
 
             <div className={styles.formGroup}>
-              <label  htmlFor="idade" className={styles.label}>
+              <label htmlFor="idade" className={styles.label}>
                 Idade:
               </label>
               <input
@@ -225,11 +221,11 @@ try {
                 onChange={(e) => setIdade(e.target.value)}
                 required
               />
-                 <p>{erroIdade}</p>
+              <p>{erroIdade}</p>
             </div>
 
             <div>
-              <label htmlFor="descricao"  className={styles.label}>
+              <label htmlFor="descricao" className={styles.label}>
                 descrição
               </label>
               <input
@@ -243,18 +239,19 @@ try {
               <p>{erroDescricao}</p>
             </div>
             <div>
-              <label htmlFor="tipo"  className={styles.label}>
+              <label htmlFor="tipo" className={styles.label}>
                 tipo
               </label>
-              <select  type="text" id="tipo" value={tipo} onChange={handleTypeUser} className={styles.select}>
-              <option value="Aluno"> Selecione... </option>
-              <option value="Aluno"> Aluno </option>
-              <option value="Instrutor"> Instrutor </option>
-              <option value="Vistante"> Visitante </option>
-            </select>
+              <select type="text" id="tipo" value={tipo} onChange={handleTypeUser} className={styles.select}>
+                <option value="Aluno"> Selecione... </option>
+                <option value="Aluno"> Aluno </option>
+                <option value="Instrutor"> Instrutor </option>
+                <option value="Vistante"> Visitante </option>
+              </select>
             </div>
+            
             <div>
-              <label htmlFor="imagem"  className={styles.label}>
+              <label htmlFor="imagem" className={styles.label}>
                 imagem
               </label>
               <input
@@ -266,7 +263,7 @@ try {
                 required
               />
 
-<p>{erroImagem}</p>
+              <p>{erroImagem}</p>
             </div>
 
             <button type="submit" className={styles.button}>Atualizar</button>
@@ -279,3 +276,5 @@ try {
   )
         
 }
+
+

@@ -2,3 +2,38 @@
   text-align: center;
   padding-top: 0.7rem;
 }
+
+
+.btn_hibrido{
+
+  font-family: Roboto, sans-serif;
+  font-weight: 900;
+  font-size: 14px;
+  color: #03799153;
+  background-color: #f5f8fb;
+  padding: 10px 100px;
+  border: none;
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 20px 30px;
+  border-radius: 50px;
+  transition : 1000ms;
+  transform: translateY(0);
+  display: inline-flex;
+  flex-direction: row;
+  align-items: center;
+  cursor: pointer;
+  text-transform: uppercase;
+  margin: auto;
+
+  
+  }
+  
+  .btn_hibrido:hover{
+  
+  transition : 1000ms;
+  padding: 10px 50px;
+  transform : translateY(-0px);
+  background-color: #03799153;
+  color: #f5f8fb;
+  border: none;
+  
+  }
