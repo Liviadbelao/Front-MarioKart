@@ -1,23 +1,25 @@
-.main{
+.main {
     background-image: url("/pagHome/fundo.png");
-   width: 100%;
-   height: 100vh;
-  text-align: center;
-}
-.container{
-border-radius: 10px;
-border: solid 3px rgb(255, 217, 0);
-background-color: white;
-padding: 2%;
-width: 30%;
-margin: auto;
-margin-top: 2%;
-}
-.mainContainer{
-   margin-top: 10%;
+    width: 100%;
+    height: 100vh;
+    text-align: center;
 }
 
-.select{
+.container {
+    border-radius: 10px;
+    border: solid 3px rgb(255, 217, 0);
+    background-color: white;
+    padding: 2%;
+    width: 30%;
+    margin: auto;
+    margin-top: 2%;
+}
+
+.mainContainer {
+    margin-top: 10%;
+}
+
+.select {
     width: 100%;
     padding: 2%;
     font-size: 16px;
@@ -27,20 +29,18 @@ margin-top: 2%;
     color: #000000;
     border-style: double;
     border-radius: 18px;
-    box-shadow: 0px 0px 2px rgba(66,66,66,.52);
-    
+    box-shadow: 0px 0px 2px rgba(66, 66, 66, .52);
+
 }
 
-
-
-.label{
+.label {
     display: flex;
     text-align: right;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     margin-top: 3%;
 }
 
-.button{
+.button {
     font-family: Roboto, sans-serif;
     font-weight: 500;
     font-size: 15px;
@@ -50,25 +50,25 @@ margin-top: 2%;
     border: none;
     box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px 0px;
     border-radius: 50px;
-    transition : 657ms;
+    transition: 657ms;
     transform: translateY(0);
     margin-top: 4%;
     align-items: center;
     cursor: pointer;
     text-transform: uppercase;
-    }
-    
-    .button:hover{
-    
-    transition : 657ms;
-    padding: 10px 20px;
-    transform : translateY(-0px);
-    background-color: #ffb300af;
-    border: solid 2px;
-    }
-@media (max-width: 680px) {
-.container{
-    width: 90%;
-}
 }
 
+.button:hover {
+
+    transition: 657ms;
+    padding: 10px 20px;
+    transform: translateY(-0px);
+    background-color: #ffb300af;
+    border: solid 2px;
+}
+
+@media (max-width: 680px) {
+    .container {
+        width: 90%;
+    }
+}
