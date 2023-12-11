@@ -1,4 +1,6 @@
 "use client";
+
+//Importações
 import axios from "axios";
 import ButtonAmarelo from "@/app/components/buttonAmarelo/buttonAmarelo";
 import { useState, useEffect } from "react";
@@ -12,119 +14,138 @@ import Label from "@/app/components/label/label";
 
 
 export default function UpdateMapa({ params }) {
-  const [nome, setNome] = useState("");
-  const [erroNome, setErroNome] = useState("");
-  const [imagem, setImagem] = useState("");
-  const [erroImagem, setErroImagem] = useState("");
-  const [descricao, setDescricao] = useState("");
-  const [erroDescricao, setErroDescricao] = useState("");
-  const [inspiracao, setInspiracao] = useState("");
-  const [erroInspiracao, setErroInspiracao] = useState("");
-  const [copa, setCopa] = useState("");
-  const [erroCopa, setErroCopa] = useState("");
-  const [trofeus, setTrofeus] = useState("");
-  const [erroTrofeus, setErroTrofeus] = useState("");
-  const [plataforma, setPlataforma] = useState("");
-  const [erroPlataforma, setErroPlataforma] = useState("");
+
+    //Criando estado de variáveis
+    const [nome, setNome] = useState("");
+    const [erroNome, setErroNome] = useState("");
+    const [imagem, setImagem] = useState("");
+    const [erroImagem, setErroImagem] = useState("");
+    const [descricao, setDescricao] = useState("");
+    const [erroDescricao, setErroDescricao] = useState("");
+    const [inspiracao, setInspiracao] = useState("");
+    const [erroInspiracao, setErroInspiracao] = useState("");
+    const [copa, setCopa] = useState("");
+    const [erroCopa, setErroCopa] = useState("");
+    const [trofeus, setTrofeus] = useState("");
+    const [erroTrofeus, setErroTrofeus] = useState("");
+    const [plataforma, setPlataforma] = useState("");
+    const [erroPlataforma, setErroPlataforma] = useState("");
+
     const router = useRouter();
     const { id } = params;
-  
+
+    //Trazendo as informações do ID de volta
     useEffect(() => {
-      async function fetchMapaDetails() {
-        try {
-          const response = await axios.get(`/api/mapas/${id}`);
-          const mapa = response.data.mapas;
-          console.log("AAAAAAAAAAAAAAAAAAAAA");
-          console.log(mapa);
-          setNome(mapa.nome);
-          setImagem(mapa.imagem);
-            setDescricao(mapa.descricao);
-          setInspiracao(mapa.inspiracao);
-          setCopa(mapa.copa);
-          setTrofeus(mapa.trofeus);
-          setPlataforma(mapa.plataforma);
-        } catch (error) {
-          console.error("Error fetching mapa details:", error);
+
+        async function fetchMapaDetails() {
+
+            try {
+                const response = await axios.get(`/api/mapas/${id}`);
+                const mapa = response.data.mapas;
+                console.log(mapa);
+                setNome(mapa.nome);
+                setImagem(mapa.imagem);
+                setDescricao(mapa.descricao);
+                setInspiracao(mapa.inspiracao);
+                setCopa(mapa.copa);
+                setTrofeus(mapa.trofeus);
+                setPlataforma(mapa.plataforma);
+            } catch (error) {
+                console.error("Error fetching mapa details:", error);
+            }
+
         }
-    }
-    
-    if (id) {
-        fetchMapaDetails();
-    }
-}, [id]);
 
-console.log("AAAAAAAAAAAAAAAAAAAAA");
-const urlValida = (imagem) => {
-  if (imagem.match(/\.(jpeg|jpg|gif|png)$/) != null) {
-      return true;
-  } else {
-      return false;
-  }
-}
-const handleSubmit = async (e) => {
-    e.preventDefault();
-    if (nome == '') {
-      setErroNome('Preencha o campo Nome');
-  } else if (nome.length < 3 || nome.length >20) {
-      setErroNome('O tamanho do nome deve ser entre 3 a 20 caracteres')
-  }else {
-      setErroNome('');
-  }
+        if (id) {
+            fetchMapaDetails();
+        }
 
-  if(!imagem) {
-      console.log('Preencha o campo imagem')
-      setErroImagem('Preencha o campo Imagem')
-  } else if (!urlValida(imagem)) {
-      console.log('A imagem precisa ser valida')
-      setErroImagem('A imagem precisa ter um formato válido: .jpeg/.jpg/.gif/.png')
-  } else {
-      console.log('Limpou');
-      setErroImagem('');
-  }
-  if(descricao == '') {
-   setErroDescricao('Preencha o campo Descrição')
-  }else if(descricao.length < 10 || descricao.length > 100) {
-      setErroDescricao('O tamanho da descrição deve ser entre 10 a 100 caracteres')
-  } else {
-      setErroDescricao('');
-  }
-  if(inspiracao == '') {
-      setErroInspiracao('Preencha o campo Inspiração')
-  } else if(inspiracao.length < 10 ||inspiracao.length > 100) {
-      setErroInspiracao('O tamanho da inspiração deve ser entre 10 a 100 caracter')
-  } else {
-      setErroInspiracao('');
-  }
-  if(!copa) {
-      setErroCopa('Selecione uma copa')
-      console.log('copa', erroCopa);
-  }
-  else {
-      setErroCopa('');
-  }
-  if(trofeus == '') {
-      setErroTrofeus('Preenca a quatidade de troféus')
-  } else if(trofeus < 500 || trofeus > 5000) {
-      setErroTrofeus('Quantidade de Troféus inválida')
-  }else if(trofeus %100 !== 0) {
-      setErroTrofeus('Quantidade de Troféus Inválida, insira um valor que seja multiplo de 100')
-  }
-   else {
-      setErroTrofeus('');
-  }
-  if(plataforma == '') {
-      setErroPlataforma('Preencha o campo Plataforma')
-  } else {
-      setErroPlataforma('');
-  }
-    try {
-      await axios.put(`/api/mapas/${id}`, { nome, imagem, descricao, inspiracao, copa, trofeus, plataforma });
-      router.push(`/mapasMK/`);
-      
-    } catch (error) {
-      console.error("Error updating mapa:", error);
+    }, [id]);
+
+
+    //Function de verificação de imagem
+    const urlValida = (imagem) => {
+
+        if (imagem.match(/\.(jpeg|jpg|gif|png)$/) != null) {
+            return true;
+        } else {
+            return false;
+        }
+
     }
-  };
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+
+        //Verificações
+        if (!nome) {
+            setErroNome('Preencha o campo Nome');
+        } else if (nome.length < 3 || nome.length > 20) {
+            setErroNome('O tamanho do nome deve ser entre 3 a 20 caracteres')
+        } else {
+            setErroNome('');
+        }
+
+        if (!imagem) {
+            console.log('Preencha o campo imagem')
+            setErroImagem('Preencha o campo Imagem')
+        } else if (!urlValida(imagem)) {
+            console.log('A imagem precisa ser valida')
+            setErroImagem('A imagem precisa ter um formato válido: .jpeg/.jpg/.gif/.png')
+        } else {
+            console.log('Limpou');
+            setErroImagem('');
+        }
+
+        if (!descricao) {
+            setErroDescricao('Preencha o campo Descrição')
+        } else if (descricao.length < 10 || descricao.length > 100) {
+            setErroDescricao('O tamanho da descrição deve ser entre 10 a 100 caracteres')
+        } else {
+            setErroDescricao('');
+        }
+
+        if (!inspiracao) {
+            setErroInspiracao('Preencha o campo Inspiração')
+        } else if (inspiracao.length < 10 || inspiracao.length > 100) {
+            setErroInspiracao('O tamanho da inspiração deve ser entre 10 a 100 caracter')
+        } else {
+            setErroInspiracao('');
+        }
+
+        if (!copa) {
+            setErroCopa('Selecione uma copa')
+            console.log('copa', erroCopa);
+        }
+        else {
+            setErroCopa('');
+        }
+
+        if (!trofeus) {
+            setErroTrofeus('Preenca a quatidade de troféus')
+        } else if (trofeus < 500 || trofeus > 5000) {
+            setErroTrofeus('Quantidade de Troféus inválida')
+        } else if (trofeus % 100 !== 0) {
+            setErroTrofeus('Quantidade de Troféus Inválida, insira um valor que seja multiplo de 100')
+        }
+        else {
+            setErroTrofeus('');
+        }
+
+        if (!plataforma) {
+            setErroPlataforma('Preencha o campo Plataforma')
+        } else {
+            setErroPlataforma('');
+        }
+
+        try {
+            await axios.put(`/api/mapas/${id}`, { nome, imagem, descricao, inspiracao, copa, trofeus, plataforma });
+            router.push(`/mapasMK/`);
+
+        } catch (error) {
+            console.error("Error updating mapa:", error);
+        }
+
+    };
 
   
   return (
@@ -133,6 +154,17 @@ const handleSubmit = async (e) => {
         {id?( 
             <div className={styles.container}>
              <h1>Cadastrar Usuário</h1>
+//Criand HTMl
+    return (
+        <main>
+
+            <Link href="/mapasMK">
+                <button >
+                    Ver cadastrados
+                </button>
+            </Link>
+
+            {id ? (
                 <form onSubmit={handleSubmit}>
               <Label htmlFor={"nome"} texto={"Nome"}/>
               <Inputs tipo={'text'} valor={nome}  oc={(e) => setNome(e.target.value)} />
@@ -180,7 +212,6 @@ const handleSubmit = async (e) => {
         
 
         </form>
-        </div>
         ):(<p>Carregando...</p>)}
    
      <Footer/>

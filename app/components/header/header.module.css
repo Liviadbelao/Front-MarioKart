@@ -38,6 +38,7 @@ width: 100rem;
     left: 0;
     background-color: #efbbbb;
     height: 100vh;
+    z-index: 999;
 }
 
 .linksContainer {

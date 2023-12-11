@@ -8,6 +8,7 @@
    background-size: cover;
    width: 100%;
    padding-top: 13%;
+min-height: 100vh;
 
 
 }
@@ -240,7 +241,7 @@ margin-bottom: 6%;
                 }
 
                 .divMain{
-                    height: 100vh;
+                    min-height: 100vh;
                 }
 
 

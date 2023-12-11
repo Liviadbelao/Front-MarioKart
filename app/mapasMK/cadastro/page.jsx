@@ -1,5 +1,6 @@
 "use client";
 
+//Importações
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
@@ -9,6 +10,7 @@ import styles from './cadastro.module.css'
 import Footer from "@/app/components/footer/Footer";
 import Label from "@/app/components/label/label";
 
+//Criando Páginas
 export default function Register() {
     const router = useRouter();
     const [nome, setNome] = useState("");
@@ -25,10 +27,10 @@ export default function Register() {
     const [erroTrofeus, setErroTrofeus] = useState("");
     const [plataforma, setPlataforma] = useState("");
     const [erroPlataforma, setErroPlataforma] = useState("");
-
     const [mapas, setMapas] = useState([]);
     let erros = [];
 
+    //Verificação de imagem
     const urlValida = (imagem) => {
         if (imagem.match(/\.(jpeg|jpg|gif|png)$/) != null) {
             return true;
@@ -37,10 +39,12 @@ export default function Register() {
         }
     }
 
+    //Function de adicionar um novo mapa
     const Adicionar = async (e) => {
         e.preventDefault();
 
-        if (nome == '') {
+        //Verificações
+        if (!nome) {
             setErroNome('Preencha o campo Nome');
         } else if (nome.length < 3 || nome.length > 20) {
             setErroNome('O tamanho do nome deve ser entre 3 a 20 caracteres')
@@ -58,20 +62,23 @@ export default function Register() {
             console.log('Limpou');
             setErroImagem('');
         }
-        if (descricao == '') {
+
+        if (!descricao) {
             setErroDescricao('Preencha o campo Descrição')
         } else if (descricao.length < 10 || descricao.length > 100) {
             setErroDescricao('O tamanho da descrição deve ser entre 10 a 100 caracteres')
         } else {
             setErroDescricao('');
         }
-        if (inspiracao == '') {
+
+        if (!inspiracao) {
             setErroInspiracao('Preencha o campo Inspiração')
         } else if (inspiracao.length < 10 || inspiracao.length > 100) {
             setErroInspiracao('O tamanho da inspiração deve ser entre 10 a 100 caracter')
         } else {
             setErroInspiracao('');
         }
+
         if (!copa) {
             setErroCopa('Selecione uma copa')
             console.log('copa', erroCopa);
@@ -79,18 +86,20 @@ export default function Register() {
         else {
             setErroCopa('');
         }
-        if (trofeus == '') {
+
+        if (!trofeus) {
             console.log('trofeus', trofeus);
             setErroTrofeus('Preenca a quatidade de troféus')
         } else if (trofeus < 500 || trofeus > 5000) {
-            setErroTrofeus('Quantidade de Troféus inválida')
+            setErroTrofeus('A quantidade de troféus tem que ser entre 500 a 5000')
         } else if (trofeus % 100 !== 0) {
             setErroTrofeus('Quantidade de Troféus Inválida, insira um valor que seja multiplo de 100')
         }
         else {
             setErroTrofeus('');
         }
-        if (plataforma == '') {
+
+        if (!plataforma) {
             setErroPlataforma('Preencha o campo Plataforma')
         } else {
             setErroPlataforma('');
@@ -112,6 +121,7 @@ export default function Register() {
         }
     };
 
+    //Coletando dados da API
     useEffect(() => {
         async function fetchMapas() {
             try {
@@ -126,12 +136,15 @@ export default function Register() {
         fetchMapas();
     }, []);
 
-    console.log("mapas", mapas)
-
+//Criando HTML
     return (
+
         <main className={styles.main}>
+
             <TrocarTela caminho={'/mapasMK'} texto={'Mapas Cadastrados'} />
+
             <div className={styles.mainContainer}>
+
                 <form onSubmit={Adicionar} className={styles.container}>
                     <Label htmlFor={"nome"} texto={"Nome"}/>
                     <Inputs tipo={'text'} valor={nome} oc={(e) => setNome(e.target.value)} />
@@ -164,10 +177,9 @@ export default function Register() {
                     <option value="Copa Relâmpago">Copa Relâmpago</option>
                     <option value="Copa Triforce">Copa Triforce</option>
                     <option value="Copa Sino">Copa Sino</option>
-
                     </select>
-
                     <p>{erroCopa}</p>
+
                     <label  htmlFor="trofeus" className={styles.label}>Trofeus</label>
                     <Inputs tipo={'number'} valor={trofeus} oc={(e) => setTrofeus(e.target.value)} />
                     <p>{erroTrofeus}</p>
@@ -175,10 +187,15 @@ export default function Register() {
                     <label  htmlFor="plataforma" className={styles.label}>Plataforma</label>
                     <Inputs tipo={'text'} valor={plataforma} oc={(e) => setPlataforma(e.target.value)} />
                     <p>{erroPlataforma}</p>
+
                     <button type="submit"className={styles.button} >Cadastrar</button>
+
                 </form>
+
             </div>
+
             <Footer />
+
         </main>
     )
 

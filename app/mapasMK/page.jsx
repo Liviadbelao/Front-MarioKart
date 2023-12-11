@@ -4,12 +4,10 @@
 import axios from "axios"
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
-import Link from "next/link";
 import styles from "./mapas.module.css"
 import Modal from "../components/modal/Modal";
 import BotoesCopas from "../components/botoescopas/BotoesCopas";
 import TrocarTela from "../components/trocartela/TrocarTela";
-import { noSSR } from "next/dynamic";
 import Footer from "../components/footer/Footer";
 
 
@@ -48,6 +46,7 @@ export default function Home() {
         set(item.filter((item) => item.id !== id));
     }
 
+    //Função de deletar mapa
     const deletar = async (id) => {
         const url = `/api/mapas/${id}`;
         try {
@@ -61,11 +60,11 @@ export default function Home() {
     };
 
 
-
     //Function para editar um mapa
     const update = async (id) => {
         router.push(`/mapasMK/${id}`);
     };
+
 
     //Const para mostrar mapas da copa selecionada
     const aplicarFiltro = (copa) => {
@@ -74,30 +73,36 @@ export default function Home() {
         setCopaSelecionada(copa)
     };
 
+//Function de filtrar mapa por nome
     const mapFilter = (e) => {
         setNomeInput(e.target.value)
         setCopaInput('')
         setExibirDados(true);
         setCopaSelecionada('')
-        console.log("Fonfou");
     }
 
     //UseEffect para coletar dados da API
     useEffect(() => {
         async function fetchMaps() {
+
             try {
+
                 let queryParams = '';
+                
                 if (nomeInput) {
                     queryParams = `nome=${nomeInput}`;
                 }
+
                 if (copaInput) {
                     queryParams = `copa=${copaInput}&`;
                 }
+
                 if (trofeusInput) {
                     queryParams = `trofeus=${trofeusInput}&`;
                 }
+
                 const response = await axios.get(`/api/mapas?${queryParams}`);
-                console.log("filtro passando c sucesso");
+
                 setDados(response.data.listaMapas);
                 setMapas(response.data);
             } catch (error) {
@@ -108,6 +113,7 @@ export default function Home() {
         fetchMaps();
     }, [nomeInput, copaInput, trofeusInput]);
 
+    //UseEffect de auxílio para fltragem de nome
     useEffect(() => {
         async function fetchMaps() {
             try {
@@ -123,23 +129,19 @@ export default function Home() {
     }, [nomeInput]);
 
 
+//Criando HTML
     return (
+
         <main className={styles.main}>
 
-            <select name="nome" id="nome" value={nomeInput} onChange={mapFilter}>
+            <select className={styles.inputsss} name="nome" id="nome" value={nomeInput} onChange={mapFilter}>
                 {optionList.map((mapa) => (
                     <option value={mapa.nome} key={mapa.id}>{mapa.nome}</option>
                 ))}
             </select>
 
             <TrocarTela caminho={'/mapasMK/cadastro'} texto={'Cadastrar Novo Mapa'} />
-            {/* <input
-                placeholder="nome do mapa"
-                value={nomeInput}
-                type="text"
-                onChange={(e) => setNomeInput(e.target.value)}
-            />
-            <button onClick={setNome}>Teste</button> */}
+
             <div className={styles.containerCups}>
 
                 <BotoesCopas imagem={'/copas/copacogumelo.png'} oc={"Copa Cogumelo"} copaSelecionada={copaSelecionada} aplicarFiltro={aplicarFiltro} />
@@ -189,7 +191,6 @@ export default function Home() {
                 }
 
             </div>
-
 
             {
                 //Modal
