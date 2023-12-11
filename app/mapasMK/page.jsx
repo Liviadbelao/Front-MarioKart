@@ -126,7 +126,7 @@ export default function Home() {
     return (
         <main className={styles.main}>
 
-            <select name="nome" id="nome" value={nomeInput} onChange={mapFilter}>
+            <select className={styles.inputsss} name="nome" id="nome" value={nomeInput} onChange={mapFilter}>
                 {optionList.map((mapa) => (
                     <option value={mapa.nome} key={mapa.id}>{mapa.nome}</option>
                 ))}
