@@ -110,7 +110,7 @@ if(descricao == '') {
     <div className={styles.main}>
       <div>
         <Link href="/sobrenos">
-          <button className={styles.btn_hibrido}>voltar para usuarios</button>
+          <button className={styles.btn_hibrido}>Mostrar usuários</button>
         </Link>
       </div>
 
