@@ -2,10 +2,14 @@
 
 import axios from "axios";
 import { useEffect, useState } from "react";
+import { useRouter } from "next/navigation";
 import TrocarTela from "@/app/components/trocartela/TrocarTela";
 import Inputs from "@/app/components/inputs/Inputs";
 import styles from './cadastro.module.css'
+import Footer from "@/app/components/footer/Footer";
+
 export default function Register() {
+    const router = useRouter();
     const [nome, setNome] = useState("");
     const [erroNome, setErroNome] = useState("");
     const [imagem, setImagem] = useState("");
@@ -100,6 +104,7 @@ export default function Register() {
             setTrofeus("");
             setPlataforma("");
             console.log('copa');
+            router.push(`/mapasMK/`);
         } catch (error) {
             console.error("Error submitting data:", error);
         }
@@ -109,6 +114,7 @@ export default function Register() {
         async function fetchMapas() {
             try {
                 const response = await axios.get("/api/mapas");
+           
                 setMapas(response.data);
             } catch (error) {
                 console.error("Error fetching data:", error);
@@ -156,6 +162,7 @@ export default function Register() {
                 <button type="submit">Cadastrar</button>
             </form>
             </div>
+            <Footer/>
         </main>
     )
 

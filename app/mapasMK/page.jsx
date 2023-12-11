@@ -10,6 +10,7 @@ import Modal from "../components/modal/Modal";
 import BotoesCopas from "../components/botoescopas/BotoesCopas";
 import TrocarTela from "../components/trocartela/TrocarTela";
 import { noSSR } from "next/dynamic";
+import Footer from "../components/footer/Footer";
 
 
 //Criando página
@@ -189,7 +190,7 @@ export default function Home() {
                             </div>)))
                 ) : null
             }
-
+         <Footer />
         </main>
     );
 }

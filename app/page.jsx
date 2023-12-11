@@ -1,6 +1,7 @@
 "use client"
 import { useState, useEffect } from "react"
 import Image from "next/image"
+
 import { useRouter } from "next/navigation"
 import styles from "./page.module.css"
 import Footer from "./components/footer/Footer"
@@ -57,7 +58,7 @@ const closeModal = () => {
       </div>
       </div>
       <div className={styles.imgContainer}>
-       <Image className={styles.img1} src={"/pagHome/marioHome (1).png"} width={1500} height={300} /> 
+       <Image className={styles.img1} src={"/pagHome/marioHome (1).png"} width={100} height={300} /> 
     
        <Image className={styles.img2} src={"/pagHome/Mario.png"} width={400} height={400} /> 
        </div>
@@ -96,7 +97,7 @@ const closeModal = () => {
       </div>
       </div>
       <div className={styles.imgContainer}>
-       <Image className={styles.img1} src={"/pagHome/marioHome (1).png"} width={1500} height={300} /> 
+       <Image className={styles.img1} src={"/pagHome/marioHome (1).png"} width={100} height={300} /> 
     
        <Image className={styles.img4} src={"/pagHome/princesaPeachHome.png"} width={400} height={450} /> 
        </div>
@@ -111,7 +112,7 @@ const closeModal = () => {
       <p>Além disso, há uma variedade de modos de jogo, desde corridas simples até batalhas onde o objetivo é derrotar outros jogadores usando os itens. O Mario Kart é conhecido por sua jogabilidade divertida e acessível para jogadores de todas as idades, tornando-o um dos jogos de corrida mais populares e duradouros.</p>
       </div>
       </div>
-     
+     <Footer />
     </main>
   )
 }

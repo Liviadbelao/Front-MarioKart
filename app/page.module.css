@@ -1,23 +1,27 @@
 @import url('https://fonts.cdnfonts.com/css/new-super-mario-font-u');
 
 .main {
-background-image: url(/pagHome/fundoo.jpg);
+    background-image: url(/pagHome/fundoo.jpg);
     width: 100%;
 
 }
-.gif{
+
+.gif {
     margin-top: 3%;
     margin-left: 5%;
 }
-.miniMain{
+
+.miniMain {
     display: flex;
 }
-.titulo1{
+
+.titulo1 {
     font-family: 'New Super Mario Font U', sans-serif;
     margin-left: 10%;
     font-size: 50px;
-  
+
 }
+
 .container {
     width: 60%;
 
@@ -29,32 +33,36 @@ background-image: url(/pagHome/fundoo.jpg);
     border-left: solid 3px red;
     margin-left: 15%;
 }
+
 .container3 {
     width: 60%;
-margin-top: 10%;
-height: 55vh;
+    margin-top: 10%;
+    height: 55vh;
     margin-bottom: 2%;
     background-color: white;
     color: black;
     padding: 2%;
 
     border-left: solid 3px red;
- 
+
 }
-.container4{
+
+.container4 {
     width: 80%;
 
     margin-top: 25%;
-   margin-left: 10%;
-margin-bottom: 5%;
- 
+    margin-left: 10%;
+    margin-bottom: 5%;
+
 }
-.personagens{
+
+.personagens {
     display: flex;
     flex-wrap: wrap;
     gap: 1rem;
-  
+
 }
+
 .titulo {
     color: black;
     width: 40%;
@@ -68,7 +76,8 @@ margin-bottom: 5%;
 }
 
 .img1,
-.img2, .img4 {
+.img2,
+.img4 {
     position: absolute;
     top: 0;
     left: 0;
@@ -80,58 +89,61 @@ margin-bottom: 5%;
     margin-left: 70%;
     margin-top: -3%;
 }
+
 .img4 {
     z-index: 1;
     /* Ajuste o valor de z-index conforme necessário para a ordem desejada */
-   margin-left: 5%;
+    margin-left: 5%;
     margin-top: -5%;
 }
-.img3{
+
+.img1 {
+    width: 100%;
+}
+
+.img3 {
+    width: 100%;
     margin-top: -20%;
 }
-.containerAjuste{
+
+.containerAjuste {
     display: flex;
     margin-top: 30%;
 }
-@media (max-width: 600px) {
-    .miniMain{
-   
+
+@media (max-width: 780px) {
+    .miniMain {
+
         display: inline;
     }
-    .container{
-        width: 90%;
-        margin-left: 0%;
+
+    .container {
+        margin: auto;
+        width: 80%;
     }
-    .container3{
-        width: 90%;
-        margin-left: 0%;
-        margin-top: 120%;
+
+    .container3 {
+        margin: auto;
+        margin-top: 130%;
+        margin-bottom: 60%;
+        width: 80%;
     }
-    .main{
-        background-image: none;
-    }
-  
-    .containerAjuste{
-     
+
+    .containerAjuste {
+
         display: inline;
     }
-    .img3{
+
+    .img3 {
         display: none;
     }
-    .imgContainer{
-        align-items: center;
 
+    .img2,
+    .img4 {
+        margin: auto;
     }
-    .img1{
-        width: 100%;
-    }
-    .img2{
-     margin-left: 0%;
-    }
-    .img4{
-        width: 90%;
-    }
-    .personagens{
+
+    .personagens {
         margin-top: 80%;
         width: 80%;
     }
