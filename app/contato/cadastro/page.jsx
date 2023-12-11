@@ -9,6 +9,9 @@ import Link from "next/link";
 
 export default function Register() {
     const [nome, setNome] = useState("");
+    const [email, setEmail] = useState("");
+    const [telefone, setTelefone] = useState("");
+    const [mensagem , setMensagem] = useState("");
     const [contato, setContato] = useState([]);
     const router = useRouter();
 
@@ -16,8 +19,11 @@ export default function Register() {
         e.preventDefault();
 
         try {
-            await axios.post("/api/contato", { nome });
+            await axios.post("/api/contato", { nome, email, telefone, mensagem });
             setNome("");
+            setEmail("")
+            setTelefone("")
+            setMensagem("")
 
             router.push(`/contato/`);
         } catch (error) {
@@ -57,19 +63,19 @@ export default function Register() {
                             <div>
                                 <label className={style.label} htmlFor="name">Nome:</label>
 
-                                <input className={style.input} type="text" id="name" value={nome} onChange={(e) => setNome(e.target.value)} required /></div>
+                                <input className={style.input} type="text"  value={nome} onChange={(e) => setNome(e.target.value)} required /></div>
                             <div>
                                 <label className={style.label} htmlFor="name">E-mail:</label>
 
-                                <input className={style.input} type="text" id="name" value={nome} onChange={(e) => setNome(e.target.value)} required /></div>
+                                <input className={style.input} type="text" value={email} onChange={(e) => setEmail(e.target.value)} required /></div>
                             <div>
                                 <label className={style.label} htmlFor="name">Telefone:</label>
 
-                                <input className={style.input} type="text" id="name" value={nome} onChange={(e) => setNome(e.target.value)} required /></div>
+                                <input className={style.input} type="text" value={telefone} onChange={(e) => setTelefone(e.target.value)} required /></div>
                             <div>
                                 <label className={style.label} htmlFor="name">Mensagem:</label>
 
-                                <input className={style.input} type="text" id="name" value={nome} onChange={(e) => setNome(e.target.value)} required /></div>
+                                <input className={style.input} type="text" value={mensagem} onChange={(e) => setMensagem(e.target.value)} required /></div>
 
                             <button className={style.button2} type="submit">Cadastrar</button>
                         </form>

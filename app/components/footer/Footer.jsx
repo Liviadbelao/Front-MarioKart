@@ -19,13 +19,13 @@ const Footer = () => {
                 <div className={styles.icons}>
 
                     <div className={styles.mario}>
-                        <Link className={styles.icon} href={"https://mario.nintendo.com/"} target="_blank">
+                        <Link className={styles.icon} href={"https://www.nintendo.com/pt-br/store/games/mario-games/"} target="_blank">
                             <GiSuperMushroom />
                         </Link>
-                        <Link className={styles.icon} href={""} target="_blank">
+                        <Link className={styles.icon} href={"https://linktr.ee/giuu509?utm_source=linktree_admin_share"} target="_blank">
                             <SiLinktree />
                         </Link>
-                        <Link className={styles.icon} href={"https://mario.nintendo.com/"} target="_blank">
+                        <Link className={styles.icon} href={"https://github.com/Liviadbelao?tab=repositories"} target="_blank">
                             <AiFillGithub />
                         </Link>
 
