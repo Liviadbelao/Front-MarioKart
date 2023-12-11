@@ -20,6 +20,7 @@ const Header = () => {
 
                 <div className={styles.linksContainer}>
                     <div className={styles.mario}>
+                        <img src={"/pagHome/icon-mario.png.png"} width={40} height={40} />
                     </div>
                     <NavFooter className={styles.linksNavPages} rota={'/mapasMK'} texto={'Mapa'} />
                 </div>

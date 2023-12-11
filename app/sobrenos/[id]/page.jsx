@@ -24,68 +24,68 @@ export default function AtualizarUsuario({ params }) {
 
   const urlValida = (imagem) => {
     if (imagem.match(/\.(jpeg|jpg|gif|png)$/) != null) {
-        return true;
+      return true;
     } else {
-        return false;
+      return false;
     }
-}
+  }
 
 
   const handlesubmit = async (e) => {
     e.preventDefault();
 
-    
+
     if (nome == '') {
       setErroNome('Preencha o campo Nome');
-  } else if (nome.length < 3 || nome.length >20) {
+    } else if (nome.length < 3 || nome.length > 20) {
       setErroNome('O tamanho do nome deve ser entre 3 a 20 caracteres')
-  }else {
+    } else {
       setErroNome('');
-  }
-
-  
- if(idade == '') {
-  setErroIdade('Preencha o campo idade')
- }else if(idade < 13) {
-     setErroIdade('O usuário deve ser maior de 13 anos.')
- } else {
-     setErroIdade('');
- }
-
- if(descricao == '') {
-  setErroDescricao('Preencha o campo Descrição')
- }else if(descricao.length < 10 || descricao.length > 100) {
-     setErroDescricao('O tamanho da descrição deve ser entre 10 a 100 caracteres')
- } else {
-     setErroDescricao('');
- }
-
- if(!imagem) {
-  console.log('Preencha o campo imagem')
-  setErroImagem('Preencha o campo Imagem')
-} else if (!urlValida(imagem)) {
-  console.log('A imagem precisa ser valida')
-  setErroImagem('A imagem precisa ter um formato válido: .jpeg/.jpg/.gif/.png')
-} else {
-  console.log('Limpou');
-  setErroImagem('');
-}
-
- 
+    }
 
 
-try {
-  await axios.post("/api/usuarios", { nome, avatar, idade, descricao, tipo, imagem  });
-  setNome("");
-  setAvatar("");
-  setIdade("");
-  setDescricao("");
-  setTipo("");
-  setImagem("");
- 
-} catch (error) {
-  console.error("Error submitting data:", error);
-}
+    if (idade == '') {
+      setErroIdade('Preencha o campo idade')
+    } else if (idade < 13) {
+      setErroIdade('O usuário deve ser maior de 13 anos.')
+    } else {
+      setErroIdade('');
+    }
+
+    if (descricao == '') {
+      setErroDescricao('Preencha o campo Descrição')
+    } else if (descricao.length < 10 || descricao.length > 100) {
+      setErroDescricao('O tamanho da descrição deve ser entre 10 a 100 caracteres')
+    } else {
+      setErroDescricao('');
+    }
+
+    if (!imagem) {
+      console.log('Preencha o campo imagem')
+      setErroImagem('Preencha o campo Imagem')
+    } else if (!urlValida(imagem)) {
+      console.log('A imagem precisa ser valida')
+      setErroImagem('A imagem precisa ter um formato válido: .jpeg/.jpg/.gif/.png')
+    } else {
+      console.log('Limpou');
+      setErroImagem('');
+    }
+
+
+
+
+    try {
+      await axios.post("/api/usuarios", { nome, avatar, idade, descricao, tipo, imagem });
+      setNome("");
+      setAvatar("");
+      setIdade("");
+      setDescricao("");
+      setTipo("");
+      setImagem("");
+
+    } catch (error) {
+      console.error("Error submitting data:", error);
+    }
   }
   useEffect(() => {
     async function buscarDetalhesUsuario() {
@@ -151,9 +151,9 @@ try {
                 value={nome}
                 onChange={(e) => setNome(e.target.value)}
                 required
-                
+
               />
-                <p>{erroNome}</p>
+              <p>{erroNome}</p>
             </div>
             <div>
               <label htmlFor="avatar" className={styles.label}> selecione seu avatar</label>
@@ -227,7 +227,7 @@ try {
             </div>
 
             <div className={styles.formGroup}>
-              <label  htmlFor="idade" className={styles.label}>
+              <label htmlFor="idade" className={styles.label}>
                 Idade:
               </label>
               <input
@@ -238,11 +238,11 @@ try {
                 onChange={(e) => setIdade(e.target.value)}
                 required
               />
-                 <p>{erroIdade}</p>
+              <p>{erroIdade}</p>
             </div>
 
             <div>
-              <label htmlFor="descricao"  className={styles.label}>
+              <label htmlFor="descricao" className={styles.label}>
                 descrição
               </label>
               <input
@@ -256,18 +256,19 @@ try {
               <p>{erroDescricao}</p>
             </div>
             <div>
-              <label htmlFor="tipo"  className={styles.label}>
+              <label htmlFor="tipo" className={styles.label}>
                 tipo
               </label>
-              <select  type="text" id="tipo" value={tipo} onChange={handleTypeUser} className={styles.select}>
-              <option value="Aluno"> Selecione... </option>
-              <option value="Aluno"> Aluno </option>
-              <option value="Instrutor"> Instrutor </option>
-              <option value="Vistante"> Visitante </option>
-            </select>
+              <select type="text" id="tipo" value={tipo} onChange={handleTypeUser} className={styles.select}>
+                <option value="Aluno"> Selecione... </option>
+                <option value="Aluno"> Aluno </option>
+                <option value="Instrutor"> Instrutor </option>
+                <option value="Vistante"> Visitante </option>
+              </select>
             </div>
+            
             <div>
-              <label htmlFor="imagem"  className={styles.label}>
+              <label htmlFor="imagem" className={styles.label}>
                 imagem
               </label>
               <input
@@ -279,7 +280,7 @@ try {
                 required
               />
 
-<p>{erroImagem}</p>
+              <p>{erroImagem}</p>
             </div>
 
             <button type="submit" className={styles.button}>Atualizar</button>
