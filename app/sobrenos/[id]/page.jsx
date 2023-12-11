@@ -23,71 +23,9 @@ export default function AtualizarUsuario({ params }) {
   const { id } = params;
   let erros = [];
 
-  const urlValida = (imagem) => {
-    if (imagem.match(/\.(jpeg|jpg|gif|png)$/) != null) {
-      return true;
-    } else {
-      return false;
-    }
-  }
 
 
-  const handlesubmit = async (e) => {
-    e.preventDefault();
-
-
-    if (nome == '') {
-      setErroNome('Preencha o campo Nome');
-    } else if (nome.length < 3 || nome.length > 20) {
-      setErroNome('O tamanho do nome deve ser entre 3 a 20 caracteres')
-    } else {
-      setErroNome('');
-    }
-
-
-    if (idade == '') {
-      setErroIdade('Preencha o campo idade')
-    } else if (idade < 13) {
-      setErroIdade('O usuário deve ser maior de 13 anos.')
-    } else {
-      setErroIdade('');
-    }
-
-    if (descricao == '') {
-      setErroDescricao('Preencha o campo Descrição')
-    } else if (descricao.length < 10 || descricao.length > 100) {
-      setErroDescricao('O tamanho da descrição deve ser entre 10 a 100 caracteres')
-    } else {
-      setErroDescricao('');
-    }
-
-    if (!imagem) {
-      console.log('Preencha o campo imagem')
-      setErroImagem('Preencha o campo Imagem')
-    } else if (!urlValida(imagem)) {
-      console.log('A imagem precisa ser valida')
-      setErroImagem('A imagem precisa ter um formato válido: .jpeg/.jpg/.gif/.png')
-    } else {
-      console.log('Limpou');
-      setErroImagem('');
-    }
-
-
-
-
-    try {
-      await axios.post("/api/usuarios", { nome, avatar, idade, descricao, tipo, imagem });
-      setNome("");
-      setAvatar("");
-      setIdade("");
-      setDescricao("");
-      setTipo("");
-      setImagem("");
-
-    } catch (error) {
-      console.error("Error submitting data:", error);
-    }
-  }
+  
   useEffect(() => {
     async function buscarDetalhesUsuario() {
       try {
@@ -109,28 +47,74 @@ export default function AtualizarUsuario({ params }) {
     }
   }, [id]);
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
 
-    try {
-      await axios.put(`/api/usuarios/${id}`, { nome, avatar, idade, descricao, tipo, imagem });
-      router.push(`/sobrenos/`);
-    } catch (error) {
-      console.error("Error updating usuario:", error);
+  const urlValida = (imagem) => {
+    if (imagem.match(/\.(jpeg|jpg|gif|png)$/) != null) {
+      return true;
+    } else {
+      return false;
     }
   }
 
+const handleAvatarChange = (event) => {
+  const selectedAvatar = event.target.value;
+  setAvatar(selectedAvatar);
+};
 
-  const handleAvatarChange = (event) => {
-    const selectedAvatar = event.target.value;
-    setAvatar(selectedAvatar);
-  };
+const handleTypeUser = (e) => {
+  const selectedTypeUser = e.target.value;
+  setTipo(selectedTypeUser);
+};
 
-  const handleTypeUser = (e) => {
-    const selectedTypeUser = e.target.value;
-    setTipo(selectedTypeUser);
-  };
 
+const handleSubmit = async (e) => {
+  e.preventDefault();
+
+
+    if (nome == '') {
+      setErroNome('Preencha o campo Nome');
+    } else if (nome.length < 3 || nome.length > 20) {
+      setErroNome('O tamanho do nome deve ser entre 3 a 20 caracteres')
+    } else {
+      setErroNome('');
+  }
+
+  
+ if(idade == '') {
+  setErroIdade('Preencha o campo idade')
+ }else if(idade < 13) {
+     setErroIdade('O usuário deve ser maior de 13 anos.')
+ } else {
+     setErroIdade('');
+ }
+
+ if(descricao == '') {
+  setErroDescricao('Preencha o campo Descrição')
+ }else if(descricao.length < 10 || descricao.length > 100) {
+     setErroDescricao('O tamanho da descrição deve ser entre 10 a 100 caracteres')
+ } else {
+     setErroDescricao('');
+ }
+
+ if(!imagem) {
+  console.log('Preencha o campo imagem')
+  setErroImagem('Preencha o campo Imagem')
+} else if (!urlValida(imagem)) {
+  console.log('A imagem precisa ser valida')
+  setErroImagem('A imagem precisa ter um formato válido: .jpeg/.jpg/.gif/.png')
+} else {
+  console.log('Limpou');
+  setErroImagem('');
+}
+
+try {
+  await axios.put(`/api/usuarios/${id}`, { nome, avatar, idade, descricao, tipo, imagem });
+  router.push(`/sobrenos/`);
+} catch (error) {
+  console.error("Error updating usuario:", error);
+}
+}
+ 
   return (
     <div className={styles.main}>
       <div >
@@ -140,7 +124,7 @@ export default function AtualizarUsuario({ params }) {
       <div className={styles.containerEd}>
         <h1>Atualizar Usuario</h1>
         {id ? (
-          <form onSubmit={handlesubmit} className={styles.mainContainer}>
+          <form onSubmit={handleSubmit} className={styles.mainContainer}>
             <div>
               <label htmlFor="nome" className={styles.label}>nome</label>
               <input
@@ -289,5 +273,8 @@ export default function AtualizarUsuario({ params }) {
         )}
       </div>
     </div >
-  );
+  )
+        
 }
+
+
