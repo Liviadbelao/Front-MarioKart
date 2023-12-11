@@ -1,5 +1,6 @@
 'use client'
 import axios from "axios"
+import styles from "./contato.module.css"
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
@@ -26,7 +27,7 @@ export default function Contato() {
     async function fetchContato() {
       try {
         const response = await axios.get("/api/contato");
-        setContato(response.data);
+        setContato(response.data.contato);
       } catch (error) {
         console.error("Error fetching data:", error);
       }
@@ -45,10 +46,14 @@ export default function Contato() {
             Cadastrar Aluno
           </button>
         </Link>
+        <h1>Contatos feitos</h1>
           {contato ? (
             contato.map((contato) => (
-              <div key={contato.id}>
+              <div className={styles.container} key={contato.id}>
                 <h1>{contato.nome}</h1>
+                <p><strong>Email:</strong>{contato.email}</p>
+                <p><strong>Telefone:</strong>{contato.telefone}</p>
+                <p><strong>Mensagem deixada pelo usuario:</strong>{contato.mensagem}</p>
                 <button onClick={()=> deletar(contato.id)}>apagar</button>
                 <button onClick={()=> update(contato.id)}>editar</button>
               </div>
