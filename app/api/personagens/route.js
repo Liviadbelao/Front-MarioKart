@@ -8,6 +8,7 @@ const url = process.env.BASE_URL + "personagens";
 export async function GET() {
   try {
     const response = await axios.get(url);
+    //console.log(response.data);
 
 
 

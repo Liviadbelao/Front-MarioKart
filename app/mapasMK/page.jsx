@@ -61,6 +61,7 @@ export default function Home() {
     };
 
 
+
     //Function para editar um mapa
     const update = async (id) => {
         router.push(`/mapasMK/${id}`);
@@ -72,6 +73,14 @@ export default function Home() {
         setExibirDados(true);
         setCopaSelecionada(copa)
     };
+
+    const mapFilter = (e) => {
+        setNomeInput(e.target.value)
+        setCopaInput('')
+        setExibirDados(true);
+        setCopaSelecionada('')
+        console.log("Fonfou");
+    }
 
     //UseEffect para coletar dados da API
     useEffect(() => {
@@ -88,7 +97,7 @@ export default function Home() {
                     queryParams = `trofeus=${trofeusInput}&`;
                 }
                 const response = await axios.get(`/api/mapas?${queryParams}`);
-
+                console.log("filtro passando c sucesso");
                 setDados(response.data.listaMapas);
                 setMapas(response.data);
             } catch (error) {
@@ -111,13 +120,13 @@ export default function Home() {
         }
 
         fetchMaps();
-    }, []);
+    }, [nomeInput]);
 
 
     return (
         <main className={styles.main}>
-         
-            <select name="nome" id="nome" value={optionList} onChange={(e) => setNomeInput(e.target.value)}>
+
+            <select name="nome" id="nome" value={nomeInput} onChange={mapFilter}>
                 {optionList.map((mapa) => (
                     <option value={mapa.nome} key={mapa.id}>{mapa.nome}</option>
                 ))}
@@ -160,7 +169,7 @@ export default function Home() {
             </div>
 
             <div className={styles.results}>
-                {
+                { dados.length ? (
                     dados.map((mapa) => (
                         <div key={mapa.id}>
                             <div className={styles.cardContainer}>
@@ -172,7 +181,11 @@ export default function Home() {
                                 </div>
                             </div>
                         </div>
-                    ))
+                    ))) : (
+                        <div className={styles.load}>
+                        <img src={"/pagHome/marioGifCarregar.gif"} width={100} height={100}/>
+                        </div>
+                    )
                 }
 
             </div>
@@ -190,7 +203,7 @@ export default function Home() {
                             </div>)))
                 ) : null
             }
-         <Footer />
+            <Footer />
         </main>
     );
 }

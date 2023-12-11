@@ -5,6 +5,9 @@
     width: 100%;
 
 }
+.personagens{
+    display: flex;
+}
 
 .gif {
     margin-top: 3%;
@@ -21,7 +24,11 @@
     font-size: 50px;
 
 }
-
+.content{
+    background-color: brown;
+    padding: 2%;
+    margin-top: 1%;
+}
 .container {
     width: 60%;
 
