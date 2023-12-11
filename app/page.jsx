@@ -6,6 +6,7 @@ import { useRouter } from "next/navigation"
 import styles from "./page.module.css"
 import Footer from "./components/footer/Footer"
 import Header from "./components/header/Header"
+import Modal from "./components/modal/Modal"
 export default function Home() {
   const [personagens, setPersonagens] = useState([]);
   const [dados, setDados] = useState([]);
@@ -69,11 +70,12 @@ export default function Home() {
           {dados.length ? (
             <div >
               {personagens.map((personagem) => (
-                <div onClick={() => openModal(personagem.id)} className={styles.card}>
+                <div  className={styles.card}>
 
-                  <div key={personagem.id} className={styles.content}>
-
-                    <div className={styles.nome}> <p className={styles.p}>{personagem.nome} </p>
+                  <div  key={personagem.id} className={styles.content} >
+<button onClick={()=> openModal(personagem.id)}>saber mais</button>
+                    <div className={styles.nome}> 
+                    <p className={styles.p}>{personagem.nome} </p>
 
                     </div>
 
@@ -87,10 +89,12 @@ export default function Home() {
               ))}
             </div>
           ) : (
-            <p>{dados.message ? dados.message : "Carregando..."}</p>
+           <img src={"/pagHome/marioGifCarregar.gif"} width={100}height={100}/>
+
           )}
 
         </div>
+       
       </div>
       <div className={styles.imgContainer}>
         <Image className={styles.img1} src={"/pagHome/marioHome (1).png"} width={100} height={300} />
@@ -107,6 +111,19 @@ export default function Home() {
 
           <p>Além disso, há uma variedade de modos de jogo, desde corridas simples até batalhas onde o objetivo é derrotar outros jogadores usando os itens. O Mario Kart é conhecido por sua jogabilidade divertida e acessível para jogadores de todas as idades, tornando-o um dos jogos de corrida mais populares e duradouros.</p>
         </div>
+      </div>
+      <div>
+      {
+ abriModal ? (
+  personagens.map((personagem) => (
+    personagem.id == abriModal && (
+        <div key={personagem.id}>
+
+            <h1>{personagem.nome}</h1>
+
+        </div>)))
+) : null
+}
       </div>
       <Footer />
     </main>
