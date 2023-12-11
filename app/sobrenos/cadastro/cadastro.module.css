@@ -76,8 +76,8 @@ border: solid 2px;
 font-family: Roboto, sans-serif;
 font-weight: 900;
 font-size: 14px;
-color: #00b4d830;
-background-color: #fff;
+color: #03799153;
+background-color: #f5f8fb;
 padding: 10px 100px;
 border: none;
 box-shadow: rgba(0, 0, 0, 0.2) 0px 20px 30px;
@@ -100,8 +100,8 @@ margin-top: 5%;
 transition : 1000ms;
 padding: 10px 50px;
 transform : translateY(-0px);
-background-color: #00b4d830;
-color: #ffffff;
+background-color: #03799153;
+color: #f5f8fb;
 border: none;
 
 }

@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation";
 import styles from "../page.module.css";
 import Link from "next/link";
 import Image from "next/image";
+import TrocarTela from "@/app/components/trocartela/TrocarTela";
 
 export default function AtualizarUsuario({ params }) {
   const [nome, setNome] = useState("");
@@ -133,9 +134,7 @@ export default function AtualizarUsuario({ params }) {
   return (
     <div className={styles.main}>
       <div >
-        <Link href={`/sobrenos`}>
-          <button className={styles.btn_hibrido}>Voltar para cadastro</button>
-        </Link>
+      <TrocarTela caminho={'/sobrenos'} texto={'Usuários cadastrados'} />
       </div>
 
       <div className={styles.containerEd}>
