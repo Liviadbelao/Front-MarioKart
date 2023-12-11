@@ -8,6 +8,8 @@
     align-items: center;
     font-family: 'New Super Mario Font U', sans-serif;
     padding: 1rem;
+    position: fixed;
+    bottom: 0%;
 }
 
 .direitos {
