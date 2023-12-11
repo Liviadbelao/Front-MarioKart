@@ -1,11 +1,7 @@
-.header {
+/* .header {
     height: 100%;
-    background-color: #ede0e0;
+    background-color: #ede0e000;
     color: black;
-    width: 6%;
-    overflow: hidden;
-    transition: width 0.8s;
-    box-shadow: 3px 0 0 rgb(239, 71, 71);
     position: fixed;
     top: 0;
     left: 0;
@@ -16,57 +12,58 @@
    display: none;
   }
 
-.header:hover  {
-    width: 17%; /* Mude a largura quando .menuIcon ou .header estiver em hover */
-}
-
 .links {
     margin-top: 1rem;
-}
-
-.menuIcon {
-    font-size: 35px;
-    margin: 0.5rem;
 }
 
 .linksContainer{
 display: flex;
 padding: 1rem 0.5rem;
-transition: 0.4s;
 align-items: center;
-margin-right: -19%;
-gap: 2rem;
-}
+width: 50%;
+overflow: hidden;
 
+}
 .linksContainer:hover{
-    background-color: rgb(243, 82, 82);
-    transition: 0.4s;
-    }
-
-.iconContainer {
-    align-items: center;
-}
-
-.iconLinks {
-    font-size: 25px;
-    margin-left: 0.4rem;
-}
-
-.logo {
-    margin-top: 0.5rem;
-}
-
-.linksNavPages {
-    margin-left: 10%;
-    color: black;
-    background-color: black;
+width: 100rem;
 }
 
 .mario {
     margin-left: 20%;
+} */
+
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: #efbbbb;
+    height: 100vh;
 }
 
-.menu {
-    margin-left: 40%;
-    padding-top: 15%;
+.linksContainer {
+    display: flex;
+    align-items: center;
+    margin: 1rem;
+    width: 4rem;
+    overflow: hidden;
+    transition: 0.5s;
+    background-color: #ede0e0;
+    padding: 0.7rem;
+    border-radius: 8px;
+    border: 1px solid black;
+}
+
+.linksContainer:hover {
+    width: 10rem;
+    transition: 0.5s;
+
+}
+
+.text {
+    border-radius: 4px;
+    padding: 0.1rem 1rem;
+}
+
+.mario {
+    margin-right: 1rem;
 }

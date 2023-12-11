@@ -8,16 +8,14 @@ import { TiThMenu } from "react-icons/ti";
 const Header = () => {
     return (
         <div className={styles.header}>
-            <div className={styles.menu}>
-            <TiThMenu />
-            </div>
+
             <div className={styles.links}>
 
                 <div className={styles.linksContainer}>
                     <div className={styles.mario}>
-                        <img src={"/icon-mario.png.png"} width={30} height={30} />
+                        <img src={"/pagHome/icon-mario.png.png"} width={40} height={40} />
                     </div>
-                    <NavFooter className={styles.linksNavPages} rota={'/'} texto={'Home'} />
+                    <p className={styles.text}>teste</p>
                 </div>
 
                 <div className={styles.linksContainer}>
@@ -28,14 +26,14 @@ const Header = () => {
 
                 <div className={styles.linksContainer}>
                     <div className={styles.mario}>
-                        <img src={"/icon-mario.png.png"} width={30} height={30} />
+                        <img src={"/pagHome/icon-mario.png.png"} width={40} height={40} />
                     </div>
                     <NavFooter className={styles.linksNavPages} rota={'/'} texto={'Cadastro'} />
                 </div>
 
                 <div className={styles.linksContainer}>
                     <div className={styles.mario}>
-                        <img src={"/icon-mario.png.png"} width={30} height={30} />
+                        <img src={"/pagHome/icon-mario.png.png"} width={40} height={40} />
                     </div>
                     <NavFooter className={styles.linksNavPages} rota={'/'} texto={'Sobre Nós'} />
                 </div>
