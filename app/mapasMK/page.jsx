@@ -169,7 +169,7 @@ export default function Home() {
             </div>
 
             <div className={styles.results}>
-                {
+                { dados.length ? (
                     dados.map((mapa) => (
                         <div key={mapa.id}>
                             <div className={styles.cardContainer}>
@@ -181,7 +181,11 @@ export default function Home() {
                                 </div>
                             </div>
                         </div>
-                    ))
+                    ))) : (
+                        <div className={styles.load}>
+                        <img src={"/pagHome/marioGifCarregar.gif"} width={100} height={100}/>
+                        </div>
+                    )
                 }
 
             </div>
