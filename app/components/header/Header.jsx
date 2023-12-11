@@ -22,9 +22,8 @@ const Header = () => {
 
                 <div className={styles.linksContainer}>
                     <div className={styles.mario}>
-                        <img src={"/icon-mario.png.png"} width={30} height={30} />
                     </div>
-                    <NavFooter className={styles.linksNavPages} rota={'/'} texto={'Mapa'} />
+                    <NavFooter className={styles.linksNavPages} rota={'/mapasMK'} texto={'Mapa'} />
                 </div>
 
                 <div className={styles.linksContainer}>
