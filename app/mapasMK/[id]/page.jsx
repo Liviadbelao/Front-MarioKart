@@ -2,11 +2,16 @@
 
 //Importações
 import axios from "axios";
+import ButtonAmarelo from "@/app/components/buttonAmarelo/buttonAmarelo";
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 import Inputs from "@/app/components/inputs/Inputs";
 import Footer from "@/app/components/footer/Footer";
+import styles from "../mapas.module.css"
+import TrocarTela from "@/app/components/trocartela/TrocarTela";
+import Label from "@/app/components/label/label";
+
 
 export default function UpdateMapa({ params }) {
 
@@ -142,6 +147,13 @@ export default function UpdateMapa({ params }) {
 
     };
 
+  
+  return (
+    <main className={styles.main}>
+        
+        {id?( 
+            <div className={styles.container}>
+             <h1>Cadastrar Usuário</h1>
 //Criand HTMl
     return (
         <main>
@@ -154,48 +166,56 @@ export default function UpdateMapa({ params }) {
 
             {id ? (
                 <form onSubmit={handleSubmit}>
+              <Label htmlFor={"nome"} texto={"Nome"}/>
+              <Inputs tipo={'text'} valor={nome}  oc={(e) => setNome(e.target.value)} />
+                <p>{erroNome}</p>
 
-                    <Inputs tipo={'text'} valor={nome} pl={'nome'} oc={(e) => setNome(e.target.value)} />
-                    <p>{erroNome}</p>
+                <Label htmlFor={"imagem"} texto={"Imagem"}/>
+                <Inputs tipo={'text'} valor={imagem}  oc={(e) => setImagem(e.target.value)} />
+                <p>{erroImagem}</p>
 
-                    <Inputs tipo={'text'} valor={imagem} pl={'Imagem'} oc={(e) => setImagem(e.target.value)} />
-                    <p>{erroImagem}</p>
+                <Label htmlFor={"descricao"} texto={"Descrição"}/>
+                <Inputs tipo={'text'} valor={descricao}  oc={(e) => setDescricao(e.target.value)} />
+                <p>{erroDescricao}</p>
 
-                    <Inputs tipo={'text'} valor={descricao} pl={'Descrição'} oc={(e) => setDescricao(e.target.value)} />
-                    <p>{erroDescricao}</p>
+                <Label htmlFor={"inspiracao"} texto={"Inspiraçâo"}/>
+                <Inputs tipo={'text'} valor={inspiracao}  oc={(e) => setInspiracao(e.target.value)} />
+                <p>{erroInspiracao}</p>
 
-                    <Inputs tipo={'text'} valor={inspiracao} pl={'Inspiração'} oc={(e) => setInspiracao(e.target.value)} />
-                    <p>{erroInspiracao}</p>
+                <Label htmlFor={"copa"} texto={"Selecione uma copa"}/>
+                <select name="copa" id="copa" value={copa} onChange={(e) => setCopa(e.target.value)} className={styles.select}>
+                    <option value="">Selecione</option>
+                    <option value="Copa Cogumelo">Copa Cogumelo</option>
+                    <option value="Copa FLor">Copa Flor</option>
+                    <option value="Copa Estrela">Copa Estrela</option>
+                    <option value="Copa Especial">Copa Especial</option>
+                    <option value="Copa Ovo">Copa Ovo</option>
+                    <option value="Copa Crossover">Copa Crossover</option>
+                    <option value="Copa Casco">Copa Casco</option>
+                    <option value="Copa Banana">Copa Banana</option>
+                    <option value="Copa Folha">Copa Folha</option>
+                    <option value="Copa Relâmpago">Copa Relâmpago</option>
+                    <option value="Copa Triforce">Copa Triforce</option>
+                    <option value="Copa Sino">Copa Sino</option>
+                </select>
+                <p>{erroCopa}</p>
 
-                    <select name="copa" id="copa" value={copa} onChange={(e) => setCopa(e.target.value)}>
-                        <option value="">Selecione</option>
-                        <option value="Copa Cogumelo">Copa Cogumelo</option>
-                        <option value="Copa FLor">Copa Flor</option>
-                        <option value="Copa Estrela">Copa Estrela</option>
-                        <option value="Copa Especial">Copa Especial</option>
-                        <option value="Copa Ovo">Copa Ovo</option>
-                        <option value="Copa Crossover">Copa Crossover</option>
-                        <option value="Copa Casco">Copa Casco</option>
-                        <option value="Copa Banana">Copa Banana</option>
-                        <option value="Copa Folha">Copa Folha</option>
-                        <option value="Copa Relâmpago">Copa Relâmpago</option>
-                        <option value="Copa Triforce">Copa Triforce</option>
-                        <option value="Copa Sino">Copa Sino</option>
-                    </select>
-                    <p>{erroCopa}</p>
+                <Label htmlFor={"trofeus"} texto={"Troféus"}/>
+                <Inputs type="number" value={trofeus} onChange={(e) => setTrofeus(e.target.value)}  />
+                <p>{erroTrofeus}</p>
 
-                    <Inputs tipo={'number'} valor={trofeus} pl={'Troféus'} oc={(e) => setTrofeus(e.target.value)} />
-                    <p>{erroTrofeus}</p>
+                <Label htmlFor={"plataforma"} texto={"Plataforma"}/>
+                <Inputs type="text" value={plataforma} onChange={(e) => setPlataforma(e.target.value)}  />
+                <p>{erroPlataforma}</p>
+                <ButtonAmarelo type={"submit"} texto={"Atualizar"} />
 
-                    <Inputs tipo={'text'} valor={plataforma} pl={'Plataforma'} oc={(e) => setPlataforma(e.target.value)} />
-                    <p>{erroPlataforma}</p>
-                    
-                    <button type="submit">atualizar</button>
-                </form>
-            ) : (<p>Carregando...</p>)}
+        
 
-            <Footer />
-        </main>
-    )
+        </form>
+        ):(<p>Carregando...</p>)}
+   
+     <Footer/>
+    </main>
+)
 
 }
