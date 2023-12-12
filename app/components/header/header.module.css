@@ -68,3 +68,8 @@ width: 100rem;
 .mario {
     margin-right: 1rem;
 }
+
+@media (max-width: 680px) {
+
+    
+}

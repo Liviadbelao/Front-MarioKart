@@ -1,9 +1,5 @@
-import Image from 'next/image';
 import styles from './header.module.css';
-import { AiFillAliwangwang } from "react-icons/ai";
-import Link from 'next/link';
 import NavFooter from '../navfooter/NavFooter';
-import { TiThMenu } from "react-icons/ti";
 
 const Header = () => {
     return (
@@ -11,12 +7,6 @@ const Header = () => {
 
             <div className={styles.links}>
 
-                <div className={styles.linksContainer}>
-                    <div className={styles.mario}>
-                        <img src={"/pagHome/icon-mario.png.png"} width={40} height={40} />
-                    </div>
-                    <p className={styles.text}>teste</p>
-                </div>
 
                 <div className={styles.linksContainer}>
                     <div className={styles.mario}>
@@ -29,14 +19,21 @@ const Header = () => {
                     <div className={styles.mario}>
                         <img src={"/pagHome/icon-mario.png.png"} width={40} height={40} />
                     </div>
-                    <NavFooter className={styles.linksNavPages} rota={'/'} texto={'Cadastro'} />
+                    <NavFooter className={styles.linksNavPages} rota={'/mapasMK/cadastro'} texto={'Cadastro'} />
                 </div>
 
                 <div className={styles.linksContainer}>
                     <div className={styles.mario}>
                         <img src={"/pagHome/icon-mario.png.png"} width={40} height={40} />
                     </div>
-                    <NavFooter className={styles.linksNavPages} rota={'/'} texto={'Sobre Nós'} />
+                    <NavFooter className={styles.linksNavPages} rota={'/sobrenos'} texto={'Sobre Nós'} />
+                </div>
+
+                <div className={styles.linksContainer}>
+                    <div className={styles.mario}>
+                        <img src={"/pagHome/icon-mario.png.png"} width={40} height={40} />
+                    </div>
+                    <NavFooter className={styles.linksNavPages} rota={'/contato'} texto={'Contato'} />
                 </div>
 
             </div>
