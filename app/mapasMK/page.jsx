@@ -17,7 +17,6 @@ export default function Home() {
     //Criando estados para nossas conts
     const [dados, setDados] = useState([]);
     const [mapas, setMapas] = useState([]);
-    const [copa, setCopa] = useState('');
     const [filtrados, setFiltrados] = useState([]);
     const [nomeInput, setNomeInput] = useState('');
     const [copaInput, setCopaInput] = useState('');
@@ -71,15 +70,19 @@ export default function Home() {
         setCopaInput(copa)
         setExibirDados(true);
         setCopaSelecionada(copa)
+        console.log(exibirDados);
+        console.log(dados.length);
     };
 
-//Function de filtrar mapa por nome
+
+    //Function de filtrar mapa por nome
     const mapFilter = (e) => {
         setNomeInput(e.target.value)
         setCopaInput('')
         setExibirDados(true);
         setCopaSelecionada('')
     }
+
 
     //UseEffect para coletar dados da API
     useEffect(() => {
@@ -88,7 +91,7 @@ export default function Home() {
             try {
 
                 let queryParams = '';
-                
+
                 if (nomeInput) {
                     queryParams = `nome=${nomeInput}`;
                 }
@@ -113,6 +116,7 @@ export default function Home() {
         fetchMaps();
     }, [nomeInput, copaInput, trofeusInput]);
 
+
     //UseEffect de auxílio para fltragem de nome
     useEffect(() => {
         async function fetchMaps() {
@@ -129,10 +133,12 @@ export default function Home() {
     }, [nomeInput]);
 
 
-//Criando HTML
+    //Criando HTML
     return (
 
         <main className={styles.main}>
+
+            <TrocarTela caminho={'/mapasMK/cadastro'} texto={'Cadastrar Novo Mapa'} />
 
             <select className={styles.inputsss} name="nome" id="nome" value={nomeInput} onChange={mapFilter}>
                 {optionList.map((mapa) => (
@@ -140,7 +146,6 @@ export default function Home() {
                 ))}
             </select>
 
-            <TrocarTela caminho={'/mapasMK/cadastro'} texto={'Cadastrar Novo Mapa'} />
 
             <div className={styles.containerCups}>
 
@@ -171,7 +176,34 @@ export default function Home() {
             </div>
 
             <div className={styles.results}>
-                { dados.length ? (
+                    {
+                        dados.length !== 0 ? (
+                            dados.length > 0 && exibirDados === true ? (
+                                dados.map((mapa) => (
+                                    <div key={mapa.id}>
+                                        <div className={styles.cardContainer}>
+                                            <div className={styles.titulo}>
+                                                <div onClick={() => openModal(mapa.id)}>
+                                                    <img className={styles.img} src={mapa.imagem} alt={mapa.nome} />
+                                                    <h1 className={styles.mapaname}>{mapa.nome}</h1>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                ))
+                            ) : (
+                                <div className={styles.load}>
+                                    <h1>{dados.length !== 0 ? "Selecione Uma Copa" : 'Copa Vazia'}</h1>
+                                </div>
+                            )
+                        ) : (
+                            <div className={styles.load}>
+                                <img src={"/pagHome/marioGifCarregar.gif"} width={100} height={100} alt="Loading" />
+                            </div>
+                        )
+                    }
+    
+                {/* {dados.length > 0  && exibirDados == true ? (
                     dados.map((mapa) => (
                         <div key={mapa.id}>
                             <div className={styles.cardContainer}>
@@ -184,11 +216,11 @@ export default function Home() {
                             </div>
                         </div>
                     ))) : (
-                        <div className={styles.load}>
-                        <img src={"/pagHome/marioGifCarregar.gif"} width={100} height={100}/>
-                        </div>
-                    )
-                }
+                    <div className={styles.load}>
+                        <h1>{dados.length != 0 ? "Selecione Uma Copa" : 'Copa Vazia'  }</h1>
+                    </div>
+                )
+                } */}
 
             </div>
 
