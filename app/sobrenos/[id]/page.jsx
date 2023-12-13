@@ -259,7 +259,7 @@ try {
                 tipo
               </label>
               <select type="text" id="tipo" value={tipo} onChange={handleTypeUser} className={styles.select}>
-                <option value="Aluno"> Selecione... </option>
+                <option value=""> Selecione... </option>
                 <option value="Aluno"> Aluno </option>
                 <option value="Instrutor"> Instrutor </option>
                 <option value="Vistante"> Visitante </option>
