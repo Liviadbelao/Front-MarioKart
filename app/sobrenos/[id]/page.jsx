@@ -19,6 +19,8 @@ export default function AtualizarUsuario({ params }) {
   const [erroIdade, setErroIdade] = useState("");
   const [erroDescricao, setErroDescricao] = useState("");
   const [erroImagem, setErroImagem] = useState("");
+  const [erroAvatar, setErroAvatar] = useState("");
+  const [erroTipo, setErroTipo] = useState("");
   const router = useRouter();
   const { id } = params;
   let erros = [];
@@ -105,6 +107,20 @@ const handleSubmit = async (e) => {
 } else {
   console.log('Limpou');
   setErroImagem('');
+}
+
+if (!avatar) {
+  setErroAvatar('Preencha o campo do seu avatar')
+
+} else {
+  setErroAvatar('');
+}
+
+if (!tipo) {
+  setErroTipo('Preencha o campo ')
+
+} else {
+  setErroTipo('');
 }
 
 try {
@@ -206,7 +222,7 @@ try {
                   height={50}
                   style={{ marginLeft: '10px' }}
                 />
-              )}
+              )}<p>{erroAvatar}</p>
             </div>
 
             <div className={styles.formGroup}>
@@ -248,6 +264,7 @@ try {
                 <option value="Instrutor"> Instrutor </option>
                 <option value="Vistante"> Visitante </option>
               </select>
+              <p>{erroTipo}</p>
             </div>
             
             <div>

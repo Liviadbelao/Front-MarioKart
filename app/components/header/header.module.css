@@ -69,7 +69,36 @@ width: 100rem;
     margin-right: 1rem;
 }
 
+.caixinha{
+display: none;
+}
+
 @media (max-width: 680px) {
 
+   .header{
+display: none;   }
+
+       .caixinha{
+        display: flex;
+        align-items: center;
+        margin: 1rem;
+        width: 4rem;
+        overflow: hidden;
+        transition: 0.5s;
+        background-color: #ede0e0;
+        padding: 0.7rem;
+        border-radius: 8px;
+        border: 1px solid black;
+       }
+       .caixinha:hover {
+        width: 10rem;
+        transition: 0.5s;
+        background-color: #efbbbb;
+        height: 100%;
     
+    }
+
+       .linksContainer{
+        
+       }
 }

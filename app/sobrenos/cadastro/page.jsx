@@ -22,6 +22,8 @@ export default function Cadastro() {
   const [tipo, setTipo] = useState("");
   const [imagem, setImagem] = useState("");
   const [erroImagem, setErroImagem] = useState("");
+  const [erroAvatar, setErroAvatar] = useState("");
+  const [erroTipo, setErroTipo] = useState("");
   const [avatar, setAvatar] = useState("");
   const [usuarios, setUsuarios] = useState([]);
 
@@ -68,10 +70,26 @@ export default function Cadastro() {
 
     if (!idade) {
       setErroIdade('Preencha o campo idade')
-    } else if (idade < 13) {
+    } else if (idade < 13 ) {
       setErroIdade('O usuário deve ser maior de 13 anos.')
+    } else if (idade > 110 ) {
+      setErroIdade('O usuário deve conter uma idade que não seja da época da rainha Elizabeth')
     } else {
       setErroIdade('');
+    }
+
+    if (!avatar) {
+      setErroAvatar('Preencha o campo do seu avatar')
+  
+    } else {
+      setErroAvatar('');
+    }
+
+    if (!tipo) {
+      setErroTipo('Preencha o campo ')
+  
+    } else {
+      setErroTipo('');
     }
 
     try {
@@ -195,6 +213,8 @@ export default function Cadastro() {
                 style={{ marginLeft: '10px' }}
               />
             )}
+
+            <p>{erroAvatar}</p>
           </div>
 
           <div>
@@ -217,6 +237,8 @@ export default function Cadastro() {
               <option value="Instrutor"> Instrutor </option>
               <option value="Vistante"> Visitante </option>
             </select>
+
+            <p>{erroTipo}</p>
           </div>
 
           <div>

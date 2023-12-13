@@ -3,6 +3,11 @@ import NavFooter from '../navfooter/NavFooter';
 
 const Header = () => {
     return (
+
+        <div>
+        <img src={"/membros/c03790eb-7c50-4196-9b8e-20fccae209af.jpg"}  height={60} className={styles.caixinha} />
+
+
         <div className={styles.header}>
 
             <div className={styles.links}>
@@ -37,6 +42,7 @@ const Header = () => {
                 </div>
 
             </div>
+        </div>
         </div>
     );
 }
