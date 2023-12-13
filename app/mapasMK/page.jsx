@@ -20,7 +20,6 @@ export default function Home() {
     const [filtrados, setFiltrados] = useState([]);
     const [nomeInput, setNomeInput] = useState('');
     const [copaInput, setCopaInput] = useState('');
-    const [trofeusInput, setTrofeusInput] = useState('');
     const [abrirModal, setAbrirModal] = useState(null);
     const [copaSelecionada, setCopaSelecionada] = useState('');
     const router = useRouter();
@@ -100,10 +99,6 @@ export default function Home() {
                     queryParams = `copa=${copaInput}&`;
                 }
 
-                if (trofeusInput) {
-                    queryParams = `trofeus=${trofeusInput}&`;
-                }
-
                 const response = await axios.get(`/api/mapas?${queryParams}`);
 
                 setDados(response.data.listaMapas);
@@ -114,7 +109,7 @@ export default function Home() {
         }
 
         fetchMaps();
-    }, [nomeInput, copaInput, trofeusInput]);
+    }, [nomeInput, copaInput]);
 
 
     //UseEffect de auxílio para fltragem de nome
