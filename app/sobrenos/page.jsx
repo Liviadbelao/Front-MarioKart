@@ -70,6 +70,8 @@ export default function SobreNos() {
 
     <main className={style.divMain}>
 
+
+
       <div className={style.container}>
 
         <div>
@@ -115,7 +117,17 @@ export default function SobreNos() {
           </Link>
         </div>
 
+   
       </div>
+      <div className={style.cardLado}>
+        <h1 className={style.h1So}>Conheça nossa Equipe</h1>
+   <p>Conheça nosso site ,formado por um grupo de seis entusiastas do desenvolvimento que criaram uma plataforma única. 
+    Ao se cadastrar em nosso site, você não só tem acesso exclusivo, mas também se torna parte ativa da nossa comunidade.
+     Receba atualizações regulares, colabore em projetos emocionantes e faça do aprendizado uma jornada coletiva.
+     Junte-se a nós n, onde cada cadastro é uma porta para a expansão do conhecimento e conexões valiosas.</p>
+        </div>
+
+   
 
       {
         //Modal

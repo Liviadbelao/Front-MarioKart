@@ -9,6 +9,7 @@
    width: 100%;
    padding-top: 13%;
 min-height: 100vh;
+display: flex;
 
 
 }
@@ -26,6 +27,27 @@ min-height: 100vh;
     
 }
 
+.cardLado {
+    width:43%;
+    margin-left: 4%;
+    margin-bottom: 7%;
+ background-color: rgba(223, 223, 223, 0.37);
+ border: 5px double rgba(21, 3, 3, 0.3191);
+    padding: 2%;
+ border-radius: 6px 6px 6px 6px;
+    -webkit-box-shadow: 12px 14px 50px 3px rgba(97,97,230,1);
+-moz-box-shadow: 12px 14px 50px 3px rgba(97,97,230,1);
+box-shadow: 12px 14px 50px 3px rgba(97,97,230,1);
+
+}
+.h1So{
+    margin: 2%;
+    font-size: 18px;
+    color:  black;
+    font-family: sans-serif;
+font-size: 30px;
+    text-align: center; 
+}
 .p {
     font-size: 18px;
     color:  #ece5e5;
@@ -233,6 +255,7 @@ margin-bottom: 6%;
                 .containerEd{
                     width: 80%;
                     margin-top: 30%;
+                  
                 }
 
                 .container{
@@ -243,7 +266,11 @@ margin-bottom: 6%;
                 .divMain{
                     min-height: 100vh;
                 }
-
+.cardLado{
+    display: inline;
+    margin: auto;
+}
+                
 
 
             }
