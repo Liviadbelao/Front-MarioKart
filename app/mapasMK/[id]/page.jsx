@@ -50,6 +50,7 @@ export default function UpdateMapa({ params }) {
                 setCopa(mapa.copa);
                 setTrofeus(mapa.trofeus);
                 setPlataforma(mapa.plataforma);
+                console.log(plataforma, trofeus);
             } catch (error) {
                 console.error("Error fetching mapa details:", error);
             }
@@ -98,16 +99,16 @@ export default function UpdateMapa({ params }) {
 
         if (!descricao) {
             setErroDescricao('Preencha o campo Descrição')
-        } else if (descricao.length < 10 || descricao.length > 100) {
-            setErroDescricao('O tamanho da descrição deve ser entre 10 a 100 caracteres')
+        } else if (descricao.length < 10 || descricao.length > 700) {
+            setErroDescricao('O tamanho da descrição deve ser entre 10 a 700 caracteres')
         } else {
             setErroDescricao('');
         }
 
         if (!inspiracao) {
             setErroInspiracao('Preencha o campo Inspiração')
-        } else if (inspiracao.length < 10 || inspiracao.length > 100) {
-            setErroInspiracao('O tamanho da inspiração deve ser entre 10 a 100 caracter')
+        } else if (inspiracao.length < 10 || inspiracao.length > 700) {
+            setErroInspiracao('O tamanho da inspiração deve ser entre 10 a 700 caracter')
         } else {
             setErroInspiracao('');
         }
@@ -140,9 +141,8 @@ export default function UpdateMapa({ params }) {
         try {
             await axios.put(`/api/mapas/${id}`, { nome, imagem, descricao, inspiracao, copa, trofeus, plataforma });
             router.push(`/mapasMK/`);
-
         } catch (error) {
-            console.error("Error updating mapa:", error);
+            console.error("Error updating mapa:", error.response.data); 
         }
 
     };
@@ -151,12 +151,11 @@ export default function UpdateMapa({ params }) {
   return (
     <main className={styles.main}>
         
-        {id?( 
-            <div className={styles.container}>
+      
+           
              <h1>Cadastrar Usuário</h1>
-//Criand HTMl
-    return (
-        <main>
+ 
+      
 
             <Link href="/mapasMK">
                 <button >
@@ -165,7 +164,7 @@ export default function UpdateMapa({ params }) {
             </Link>
 
             {id ? (
-                <form onSubmit={handleSubmit}>
+                <form onSubmit={handleSubmit} className={styles.container}>
               <Label htmlFor={"nome"} texto={"Nome"}/>
               <Inputs tipo={'text'} valor={nome}  oc={(e) => setNome(e.target.value)} />
                 <p>{erroNome}</p>
@@ -201,13 +200,13 @@ export default function UpdateMapa({ params }) {
                 <p>{erroCopa}</p>
 
                 <Label htmlFor={"trofeus"} texto={"Troféus"}/>
-                <Inputs type="number" value={trofeus} onChange={(e) => setTrofeus(e.target.value)}  />
+                <Inputs tipo="number" valor={trofeus} oc={(e) => setTrofeus(e.target.value)}  />
                 <p>{erroTrofeus}</p>
 
                 <Label htmlFor={"plataforma"} texto={"Plataforma"}/>
-                <Inputs type="text" value={plataforma} onChange={(e) => setPlataforma(e.target.value)}  />
+                <Inputs tipo="text" valor={plataforma} oc={(e) => setPlataforma(e.target.value)}  />
                 <p>{erroPlataforma}</p>
-                <ButtonAmarelo type={"submit"} texto={"Atualizar"} />
+                <ButtonAmarelo type={"submit"} texto={"Atualizar"} /> 
 
         
 
@@ -218,4 +217,4 @@ export default function UpdateMapa({ params }) {
     </main>
 )
 
-}
+        }
