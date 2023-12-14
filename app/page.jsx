@@ -64,34 +64,20 @@ export default function Home() {
         <Image className={styles.img2} src={"/pagHome/Mario.png"} width={400} height={400} />
       </div>
       <div className={styles.container4}>
-        <h2 className={styles.titulo}>Personagens Mario Kart</h2>
+
+        <h2 className={styles.titulo2} >Personagens Mario Kart</h2>
 
         <div className={styles.personagens}>
-          {dados.length ? (
-            <div >
-              {personagens.map((personagem) => (
-                <div  className={styles.card}>
-
-                  <div  key={personagem.id} className={styles.content} >
-<button onClick={()=> openModal(personagem.id)}>saber mais</button>
-                    <div className={styles.nome}> 
-                    <p className={styles.p}>{personagem.nome} </p>
-
-                    </div>
-
-                  </div>
-
-                  <div >
-
-                  </div>
-                </div>
-
-              ))}
-            </div>
-          ) : (
-           <img src={"/pagHome/marioGifCarregar.gif"} width={100}height={100}/>
-
-          )}
+     <Image src={"/pagHome/donkeyKong.png"} width={200} height={200}/>
+     <Image src={"/pagHome/luigi.png"} width={200} height={200}/>
+     <Image src={"/pagHome/marioPersonagem.png"} width={200} height={200}/>
+     <Image src={"/pagHome/princesaPeach.png"} width={200} height={200}/>
+     <Image src={"/pagHome/prinesaStar.png"} width={250} height={200}/>
+     <Image src={"/pagHome/rosalina.png"} width={200} height={200}/>
+     <Image src={"/pagHome/toad.png"} width={200} height={200}/>
+     <Image src={"/pagHome/download__1_-removebg-preview.png"} width={200} height={200}/>
+     <Image src={"/pagHome/yoshi.png"} width={200} height={200}/>
+     <Image src={"/pagHome/Waluigi_-_Mario_Part_Waluigi_-_Mario_Party__Star_Rush-removebg-preview.png"} width={210} height={210}/>
 
         </div>
        

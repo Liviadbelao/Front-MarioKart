@@ -70,7 +70,7 @@
 
 }
 
-.titulo {
+.titulo, .titulo2 {
     color: black;
     width: 40%;
     margin-bottom: 1%;
@@ -124,10 +124,24 @@
       flex-direction: column;
       align-items: center;
     }
-
+  
+  .container4{
+    text-align: center;
+    margin-top: 100%;
+    margin-left: 25%;
+  }
+  .titulo{
+    width: 90%;
+    
+  } 
+  .titulo2{
+    width: 90%;
+    margin-left: -10%;
+  }
     .main{
    margin-top: -2%;
-     width: 110%;
+    
+   
     }
     .titulo1 {
       font-size: 36px;
@@ -147,6 +161,7 @@
   }
   .container3{
     margin-top: 90%;
+margin-left: 5%;
   }
    
 
