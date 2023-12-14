@@ -6,12 +6,15 @@ import { useRouter } from "next/navigation";
 import style from "./cadastro.module.css";
 
 import Link from "next/link";
+import TrocarTela from "@/app/components/trocartela/TrocarTela";
+import Inputs from "@/app/components/inputs/Inputs";
+import Label from "@/app/components/label/label";
 
 export default function Register() {
     const [nome, setNome] = useState("");
     const [email, setEmail] = useState("");
     const [telefone, setTelefone] = useState("");
-    const [mensagem , setMensagem] = useState("");
+    const [mensagem, setMensagem] = useState("");
     const [contato, setContato] = useState([]);
     const router = useRouter();
 
@@ -51,37 +54,36 @@ export default function Register() {
                 <div className={style.container2}>
 
                     <div >
-                        <Link href="/contato">
-                            <button className={style.button}>Ir para tentativas de contato.</button>
-                        </Link>
+                        <TrocarTela caminho={"/contato"} texto={'Ver Contatos'} />
                     </div>
 
-                    <div >
+                    <div className={style.inputsContainer} >
                         <h1 className={style.cadastrar}>Entre em contato!</h1>
 
                         <form onSubmit={handleSubmit}>
                             <div>
+                                <Label htmlFor={'nome'} />
                                 <label className={style.label} htmlFor="name">Nome:</label>
-
-                                <input className={style.input} type="text"  value={nome} onChange={(e) => setNome(e.target.value)} required /></div>
+                                <Inputs tipo={'text'} valor={nome} oc={(e) => setNome(e.target.value)} />
+                            </div>
                             <div>
                                 <label className={style.label} htmlFor="name">E-mail:</label>
-
-                                <input className={style.input} type="text" value={email} onChange={(e) => setEmail(e.target.value)} required /></div>
+                                <Inputs tipo={'text'} valor={email} oc={(e) => setEmail(e.target.value)} />
+                            </div>
                             <div>
                                 <label className={style.label} htmlFor="name">Telefone:</label>
-
-                                <input className={style.input} type="text" value={telefone} onChange={(e) => setTelefone(e.target.value)} required /></div>
+                                <Inputs tipo={'text'} valor={telefone} oc={(e) => setTelefone(e.target.value)} />
+                            </div>
                             <div>
                                 <label className={style.label} htmlFor="name">Mensagem:</label>
-
-                                <input className={style.input} type="text" value={mensagem} onChange={(e) => setMensagem(e.target.value)} required /></div>
-
-                            <button className={style.button2} type="submit">Cadastrar</button>
-                        </form>
+                            <Inputs tipo={'text'} valor={mensagem} oc={(e) => setMensagem(e.target.value)} />
                     </div>
-                </div>
+
+                    <button className={style.button2} type="submit">Cadastrar</button>
+                </form>
             </div>
         </div>
+            </div >
+        </div >
     );
 }

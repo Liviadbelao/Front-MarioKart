@@ -89,10 +89,7 @@ export default function UpdateMapa({ params }) {
         if (!imagem) {
             console.log('Preencha o campo imagem')
             setErroImagem('Preencha o campo Imagem')
-        } else if (!urlValida(imagem)) {
-            console.log('A imagem precisa ser valida')
-            setErroImagem('A imagem precisa ter um formato válido: .jpeg/.jpg/.gif/.png')
-        } else {
+        }else {
             console.log('Limpou');
             setErroImagem('');
         }
