@@ -132,7 +132,7 @@ export default function Home() {
     return (
 
         <main className={styles.main}>
-
+          
             <TrocarTela caminho={'/mapasMK/cadastro'} texto={'Cadastrar Novo Mapa'} />
 
             <select className={styles.inputsss} name="nome" id="nome" value={nomeInput} onChange={mapFilter}>

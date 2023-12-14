@@ -5,13 +5,14 @@
     border-width: 0px;
     margin-bottom: 2%;
     cursor: pointer;
+    text-decoration: none;
 
 }
 
 .texto:hover{
     border-bottom: 2px solid rgb(255, 0, 0);
     border-width: 4px;
-
+border-radius: 4px;
 
 
 }
