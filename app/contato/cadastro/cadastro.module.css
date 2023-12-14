@@ -54,7 +54,7 @@
     height: 20px;
 }
 
-.name{
+.name {
     text-align: center;
 }
 
@@ -70,4 +70,10 @@
     .parallax {
         background-image: url(../../../public/fundocontatoresp.png);
     }
+
+    .container2 {
+        width: 90%;
+        margin-left: 5%;
+    }
+
 }

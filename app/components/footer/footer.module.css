@@ -1,15 +1,16 @@
 @import url('https://fonts.cdnfonts.com/css/new-super-mario-font-u');
 
 .container {
-    background-color: #ede0e0;
+    background-color: #ed6e6e;
     display: flex;
     width: 100%;
     justify-content: space-between;
     align-items: center;
     font-family: 'New Super Mario Font U', sans-serif;
     padding: 1rem;
-    margin-top: 5%;
-    bottom: 0%;
+   
+    margin-top: 12%;
+    bottom: -10%;
 }
 
 .direitos {

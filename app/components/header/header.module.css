@@ -134,7 +134,7 @@ display: none;   }
 .linksContainer{
     display: flex;
     justify-content: center;
-    margin-top: -0.5rem;
+    margin-top: 0.4rem;
 }
 
 .linkagem{
