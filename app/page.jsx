@@ -1,47 +1,11 @@
-"use client"
-import { useState, useEffect } from "react"
+/* impotações */
 import Image from "next/image"
-import axios from "axios"
-import { useRouter } from "next/navigation"
 import styles from "./page.module.css"
 import Footer from "./components/footer/Footer"
 import Header from "./components/header/Header"
-import Modal from "./components/modal/Modal"
+
 export default function Home() {
-  const [personagens, setPersonagens] = useState([]);
-  const [dados, setDados] = useState([]);
-  const router = useRouter();
-  const [abriModal, setAbrirModal] = useState(null);
 
-  const openModal = (id) => {
-    setAbrirModal(id);
-  };
-
-  //fechar modal
-  const closeModal = () => {
-    setAbrirModal(null);
-  };
-
-
-
-
-
-
-  useEffect(() => {
-    async function fetchPersonagens() {
-      try {
-        const response = await axios.get("/api/personagens");
-        setPersonagens(response.data);
-        setDados(response.data)
-
-      } catch (error) {
-        console.error("Error fetching data:", error);
-      }
-    }
-
-    fetchPersonagens();
-  }, [personagens]);
-  console.log(personagens);
   return (
     <main className={styles.main}>
       <Header />
@@ -58,6 +22,7 @@ export default function Home() {
           <p>Além disso, há uma variedade de modos de jogo, desde corridas simples até batalhas onde o objetivo é derrotar outros jogadores usando os itens. O Mario Kart é conhecido por sua jogabilidade divertida e acessível para jogadores de todas as idades, tornando-o um dos jogos de corrida mais populares e duradouros.</p>
         </div>
       </div>
+      {/* detalhe do site vermelho */}
       <div className={styles.imgContainer}>
         <Image className={styles.img1} src={"/pagHome/marioHome (1).png"} width={100} height={300} />
 
@@ -66,21 +31,21 @@ export default function Home() {
       <div className={styles.container4}>
 
         <h2 className={styles.titulo2} >Personagens Mario Kart</h2>
-
+        {/* imagens dos personagens */}
         <div className={styles.personagens}>
-     <Image src={"/pagHome/donkeyKong.png"} width={200} height={200}/>
-     <Image src={"/pagHome/luigi.png"} width={200} height={200}/>
-     <Image src={"/pagHome/marioPersonagem.png"} width={200} height={200}/>
-     <Image src={"/pagHome/princesaPeach.png"} width={200} height={200}/>
-     <Image src={"/pagHome/prinesaStar.png"} width={250} height={200}/>
-     <Image src={"/pagHome/rosalina.png"} width={200} height={200}/>
-     <Image src={"/pagHome/toad.png"} width={200} height={200}/>
-     <Image src={"/pagHome/download__1_-removebg-preview.png"} width={200} height={200}/>
-     <Image src={"/pagHome/yoshi.png"} width={200} height={200}/>
-     <Image src={"/pagHome/Waluigi_-_Mario_Part_Waluigi_-_Mario_Party__Star_Rush-removebg-preview.png"} width={210} height={210}/>
+          <Image src={"/pagHome/donkeyKong.png"} width={200} height={200} />
+          <Image src={"/pagHome/luigi.png"} width={200} height={200} />
+          <Image src={"/pagHome/marioPersonagem.png"} width={200} height={200} />
+          <Image src={"/pagHome/princesaPeach.png"} width={200} height={200} />
+          <Image src={"/pagHome/prinesaStar.png"} width={250} height={200} />
+          <Image src={"/pagHome/rosalina.png"} width={200} height={200} />
+          <Image src={"/pagHome/toad.png"} width={200} height={200} />
+          <Image src={"/pagHome/download__1_-removebg-preview.png"} width={200} height={200} />
+          <Image src={"/pagHome/yoshi.png"} width={200} height={200} />
+          <Image src={"/pagHome/Waluigi_-_Mario_Part_Waluigi_-_Mario_Party__Star_Rush-removebg-preview.png"} width={210} height={210} />
 
         </div>
-       
+
       </div>
       <div className={styles.imgContainer}>
         <Image className={styles.img1} src={"/pagHome/marioHome (1).png"} width={100} height={300} />
@@ -92,20 +57,10 @@ export default function Home() {
         <div className={styles.container3}>
           <h2 className={styles.titulo}>O que são os mapas do Mario Kart?</h2>
           <p>Os "mapas" em Mario Kart, também chamados de "circuitos" ou "pistas", são os percursos pelos quais os jogadores competem em corridas. Eles variam em termos de design, desafios e temática, oferecendo desde trajetos simples até ambientes complexos com obstáculos, atalhos e elementos interativos. Cada jogo da série Mario Kart possui uma coleção única de mapas, ampliando a diversidade e a experiência de jogo para os jogadores.</p>
-</div>
+        </div>
       </div>
       <div>
-      {
- abriModal ? (
-  personagens.map((personagem) => (
-    personagem.id == abriModal && (
-        <div key={personagem.id}>
 
-            <h1>{personagem.nome}</h1>
-
-        </div>)))
-) : null
-}
       </div>
       <Footer />
     </main>

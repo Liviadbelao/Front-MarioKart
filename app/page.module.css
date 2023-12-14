@@ -5,24 +5,26 @@
     width: 100%;
 
 }
-.personagens{
-    display: flex;
-}
 
-.gif {
- margin-left: 10%;
-}
 
 .miniMain {
     display: flex;
 }
-
+/* estilos dos titulos */
 .titulo1 {
     font-family: 'New Super Mario Font U', sans-serif;
     margin-left: 10%;
     font-size: 50px;
 
 }
+.titulo, .titulo2 {
+    color: black;
+    width: 40%;
+    margin-bottom: 1%;
+    background-color: rgb(255, 221, 0);
+    padding: 1%;
+}
+/* ajustes caixas de textos */
 .content{
     background-color: brown;
     padding: 2%;
@@ -61,7 +63,11 @@
     margin-bottom: 5%;
 
 }
-
+.containerAjuste {
+    display: flex;
+    margin-top: 30%;
+}
+/* ajuste personagens */
 .personagens {
     display: flex;
     flex-wrap: wrap;
@@ -69,14 +75,8 @@
 
 }
 
-.titulo, .titulo2 {
-    color: black;
-    width: 40%;
-    margin-bottom: 1%;
-    background-color: rgb(255, 221, 0);
-    padding: 1%;
-}
 
+/* ajuste imagens */
 .imgContainer {
     position: relative;
 }
@@ -88,17 +88,17 @@
     top: 0;
     left: 0;
 }
-
+.gif {
+    margin-left: 10%;
+   }
 .img2 {
     z-index: 1;
-    /* Ajuste o valor de z-index conforme necessário para a ordem desejada */
     margin-left: 70%;
     margin-top: -3%;
 }
 
 .img4 {
     z-index: 1;
-    /* Ajuste o valor de z-index conforme necessário para a ordem desejada */
     margin-left: 5%;
     margin-top: -5%;
 }
@@ -112,10 +112,7 @@
     margin-top: -20%;
 }
 
-.containerAjuste {
-    display: flex;
-    margin-top: 30%;
-}
+
 
 @media only screen and (max-width: 768px) {
    
