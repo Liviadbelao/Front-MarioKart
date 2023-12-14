@@ -52,12 +52,12 @@ export default function Register() {
 
                     <div >
                         <Link href="/contato">
-                            <button className={style.button}>Voltar para Alunos</button>
+                            <button className={style.button}>Ir para tentativas de contato.</button>
                         </Link>
                     </div>
 
                     <div >
-                        <h1 className={style.cadastrar}>Cadastrar Aluno</h1>
+                        <h1 className={style.cadastrar}>Entre em contato!</h1>
 
                         <form onSubmit={handleSubmit}>
                             <div>

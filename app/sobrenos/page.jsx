@@ -108,7 +108,7 @@ export default function SobreNos() {
 
           ) : (
 
-            <p>{dados.message ? dados.message : "Carregando..."}</p>
+            <img src={"/pagHome/marioGifCarregar.gif"} width={100} height={100}/>
 
           )}
 
