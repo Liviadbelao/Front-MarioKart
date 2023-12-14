@@ -1,7 +1,7 @@
 import axios from "axios";
 import { NextResponse } from "next/server";
 
-const url = process.env.BASE_URL + "contato";
+const url = process.env.BASE_URL + "contatos";
 
 
 export async function GET (request, { params }){

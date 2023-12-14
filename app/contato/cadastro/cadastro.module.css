@@ -1,10 +1,14 @@
 .parallax {
-    background-image: url(../../../public/todos\ os\ direiros\ reservados.png);
+    background-image: url(../../../public/fundocontatos.png);
     background-attachment: fixed;
     background-size: cover;
     width: 100%;
     min-height: 100vh;
     padding-bottom: 10rem;
+}
+
+.inputsContainer {
+    margin: 1rem 2rem;
 }
 
 .container2 {
@@ -50,7 +54,7 @@
     height: 20px;
 }
 
-.name{
+.name {
     text-align: center;
 }
 
@@ -60,4 +64,16 @@
 
 .container {
     margin-top: 34px;
+}
+
+@media (max-width: 680px) {
+    .parallax {
+        background-image: url(../../../public/fundocontatoresp.png);
+    }
+
+    .container2 {
+        width: 90%;
+        margin-left: 5%;
+    }
+
 }

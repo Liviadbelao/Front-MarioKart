@@ -7,11 +7,15 @@
    background-repeat: no-repeat;
    background-size: cover;
    width: 100%;
-   padding-top: 13%;
+
 min-height: 100vh;
-display: flex;
 
 
+
+}
+.containerCards{
+    display: flex;
+    margin-top: 5%;
 }
 
 .container {
@@ -264,8 +268,13 @@ margin-bottom: 6%;
                 
                 }
 
-                .divMain{
-                    min-height: 100vh;
+                .containerCards{
+                 
+                    display: inline;
+                }
+                .cardLado{
+                    width: 90%;
+                    margin-top: 2%;
                 }
        
 

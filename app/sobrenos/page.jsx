@@ -10,6 +10,8 @@ import { TbUserPlus } from "react-icons/tb";
 import { TiUserDelete } from "react-icons/ti";
 import { FaUserEdit } from "react-icons/fa";
 import ModalSobre from "../components/modalSobre/ModalSobre";
+import Header from "../components/header/Header";
+import Footer from "../components/footer/Footer";
 
 //Criando página
 export default function SobreNos() {
@@ -69,7 +71,8 @@ export default function SobreNos() {
   return (
 
     <main className={style.divMain}>
-
+      <Header/>
+<div className={style.containerCards}>
 
 
       <div className={style.container}>
@@ -147,7 +150,8 @@ export default function SobreNos() {
               </div>)))
         ) : null
       }
-
+</div>
+<Footer/>
     </main>
   )
 

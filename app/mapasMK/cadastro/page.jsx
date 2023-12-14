@@ -9,6 +9,7 @@ import Inputs from "@/app/components/inputs/Inputs";
 import styles from './cadastro.module.css'
 import Footer from "@/app/components/footer/Footer";
 import Label from "@/app/components/label/label";
+import Header from "@/app/components/header/Header";
 
 //Criando Páginas
 export default function Register() {
@@ -53,12 +54,8 @@ export default function Register() {
         }
 
         if (!imagem) {
-            console.log('Preencha o campo imagem')
             setErroImagem('Preencha o campo Imagem')
-        } else if (!urlValida(imagem)) {
-            console.log('A imagem precisa ser valida')
-            setErroImagem('A imagem precisa ter um formato válido: .jpeg/.jpg/.gif/.png')
-        } else {
+        }else {
             console.log('Limpou');
             setErroImagem('');
         }
@@ -140,7 +137,7 @@ export default function Register() {
     return (
 
         <main className={styles.main}>
-
+<Header/>
             <TrocarTela caminho={'/mapasMK'} texto={'Mapas Cadastrados'} />
 
             <div className={styles.mainContainer}>

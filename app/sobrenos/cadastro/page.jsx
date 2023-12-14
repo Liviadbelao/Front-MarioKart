@@ -8,6 +8,8 @@ import Image from "next/image";
 import Inputs from "@/app/components/inputs/Inputs";
 import styles from "./cadastro.module.css"
 import TrocarTela from "@/app/components/trocartela/TrocarTela";
+import Header from "@/app/components/header/Header";
+import Footer from "@/app/components/footer/Footer";
 
 //Criação da página
 export default function Cadastro() {
@@ -140,7 +142,7 @@ export default function Cadastro() {
   //Criando HTML
   return (
     <div className={styles.main}>
-      
+      <Header/>
       <div>
         <TrocarTela caminho={'/sobrenos'} texto={'Usuários Cadastrados'}/>
       </div>
@@ -252,7 +254,7 @@ export default function Cadastro() {
         </form>
 
       </div>
-
+<Footer/>
     </div>
 
   );

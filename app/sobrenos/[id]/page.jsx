@@ -6,6 +6,8 @@ import styles from "../page.module.css";
 import Link from "next/link";
 import Image from "next/image";
 import TrocarTela from "@/app/components/trocartela/TrocarTela";
+import Header from "@/app/components/header/Header";
+import Footer from "@/app/components/footer/Footer";
 
 export default function AtualizarUsuario({ params }) {
   const [nome, setNome] = useState("");
@@ -133,6 +135,7 @@ try {
  
   return (
     <div className={styles.main}>
+      <Header/>
       <div >
       <TrocarTela caminho={'/sobrenos'} texto={'Usuários cadastrados'} />
       </div>
@@ -289,6 +292,7 @@ try {
           <p>Carregando...</p>
         )}
       </div>
+      <Footer/>
     </div >
   )
         

@@ -38,6 +38,11 @@ const Header = () => {
                             <NavFooter className={styles.linksNavPages} rota={'/contato'} texto={'Contato'} />
 
                         </div>
+                        <div className={styles.linkagem}>
+
+                            <NavFooter className={styles.linksNavPages} rota={'/'} texto={'Home'} />
+
+                        </div>
 
                     </div>
                 </div>
