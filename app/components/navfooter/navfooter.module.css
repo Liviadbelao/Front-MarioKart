@@ -11,4 +11,15 @@
 .texto:hover{
     border-bottom: 2px solid rgb(255, 0, 0);
     border-width: 4px;
+
+
+
 }
+
+
+
+@media screen and (max-width: 768px) {
+
+    .texto{
+        font-size: 15px;
+    }}

@@ -140,3 +140,20 @@ display: none;   }
 .linkagem{
     margin: 0 1rem;
 }
+
+
+@media screen and (max-width: 768px) {
+
+    .links{
+        height: 5.5em;
+    }
+
+    .img{
+
+        margin-top: -4%;
+    }
+
+    .linksContainer{
+        margin-top: 3%;
+    }
+}
