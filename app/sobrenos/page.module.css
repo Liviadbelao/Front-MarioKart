@@ -255,6 +255,7 @@ margin-bottom: 6%;
                 .containerEd{
                     width: 80%;
                     margin-top: 30%;
+                   
                   
                 }
 
@@ -266,11 +267,7 @@ margin-bottom: 6%;
                 .divMain{
                     min-height: 100vh;
                 }
-.cardLado{
-    display: inline;
-    margin: auto;
-}
-                
+       
 
 
             }

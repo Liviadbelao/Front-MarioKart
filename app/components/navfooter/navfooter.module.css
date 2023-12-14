@@ -1,4 +1,14 @@
 .texto {
     color: black;
-    font-size: 14px;
+    transition: 0.5s;
+    transition: border-width 0.3s;
+    border-width: 0px;
+    margin-bottom: 2%;
+    cursor: pointer;
+
+}
+
+.texto:hover{
+    border-bottom: 2px solid rgb(255, 0, 0);
+    border-width: 4px;
 }

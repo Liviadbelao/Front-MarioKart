@@ -32,7 +32,7 @@ width: 100rem;
     margin-left: 20%;
 } */
 
-.header {
+/* .header {
     position: fixed;
     top: 0;
     left: 0;
@@ -101,4 +101,42 @@ display: none;   }
        .linksContainer{
         
        }
+} */
+
+
+.header{
+    margin-top: -1%;
+}
+
+.links{
+    padding: 3.5%;
+    height: 0.2rem;
+    width: 100%;
+    overflow: hidden;
+    transition: 1s;
+    background-color: #ed6e6e;
+}
+
+
+.links:hover{
+   
+        height: 9rem;
+        transition: 1s;
+
+}
+
+.img {
+    margin-top: -3%;
+    display: flex;
+    justify-content: center;
+}
+
+.linksContainer{
+    display: flex;
+    justify-content: center;
+    margin-top: -0.5rem;
+}
+
+.linkagem{
+    margin: 0 1rem;
 }
