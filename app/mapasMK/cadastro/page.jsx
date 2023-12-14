@@ -9,6 +9,7 @@ import Inputs from "@/app/components/inputs/Inputs";
 import styles from './cadastro.module.css'
 import Footer from "@/app/components/footer/Footer";
 import Label from "@/app/components/label/label";
+import Header from "@/app/components/header/Header";
 
 //Criando Páginas
 export default function Register() {
@@ -140,7 +141,7 @@ export default function Register() {
     return (
 
         <main className={styles.main}>
-
+<Header/>
             <TrocarTela caminho={'/mapasMK'} texto={'Mapas Cadastrados'} />
 
             <div className={styles.mainContainer}>

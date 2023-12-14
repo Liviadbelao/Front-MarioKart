@@ -9,6 +9,7 @@ import Modal from "../components/modal/Modal";
 import BotoesCopas from "../components/botoescopas/BotoesCopas";
 import TrocarTela from "../components/trocartela/TrocarTela";
 import Footer from "../components/footer/Footer";
+import Header from "../components/header/Header";
 
 
 //Criando página
@@ -132,7 +133,7 @@ export default function Home() {
     return (
 
         <main className={styles.main}>
-          
+          <Header/>
             <TrocarTela caminho={'/mapasMK/cadastro'} texto={'Cadastrar Novo Mapa'} />
 
             <select className={styles.inputsss} name="nome" id="nome" value={nomeInput} onChange={mapFilter}>

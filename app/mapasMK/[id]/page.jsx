@@ -11,6 +11,7 @@ import Footer from "@/app/components/footer/Footer";
 import styles from "../mapas.module.css"
 import TrocarTela from "@/app/components/trocartela/TrocarTela";
 import Label from "@/app/components/label/label";
+import Header from "@/app/components/header/Header";
 
 
 export default function UpdateMapa({ params }) {
@@ -152,16 +153,11 @@ export default function UpdateMapa({ params }) {
     <main className={styles.main}>
         
       
-           
-             <h1>Cadastrar Usuário</h1>
+           <Header/>
+             <h1>Editar Mapa</h1>
  
       
-
-            <Link href="/mapasMK">
-                <button >
-                    Ver cadastrados
-                </button>
-            </Link>
+<TrocarTela caminho={"/mapasMK"} texto={"Mapas Cadastrados"}/>
 
             {id ? (
                 <form onSubmit={handleSubmit} className={styles.container}>
