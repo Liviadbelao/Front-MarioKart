@@ -148,19 +148,19 @@ export default function Register() {
                 <form onSubmit={Adicionar} className={styles.container}>
                     <Label htmlFor={"nome"} texto={"Nome"}/>
                     <Inputs tipo={'text'} valor={nome} oc={(e) => setNome(e.target.value)} />
-                    <p>{erroNome}</p>
+                    <p className={styles.erro}>{erroNome}</p>
 
                     <label  htmlFor="imagem" className={styles.label}>Imagem</label>
                     <Inputs tipo={'text'} valor={imagem} oc={(e) => setImagem(e.target.value)} />
-                    <p>{erroImagem}</p>
+                    <p className={styles.erro}>{erroImagem}</p>
 
                     <label  htmlFor="descricao" className={styles.label}>Descrição</label>
                     <Inputs tipo={'text'} valor={descricao} oc={(e) => setDescricao(e.target.value)} />
-                    <p>{erroDescricao}</p>
+                    <p className={styles.erro}>{erroDescricao}</p>
 
                     <label  htmlFor="inspiracao" className={styles.label}>Inspiração</label>
                     <Inputs tipo={'text'} valor={inspiracao} oc={(e) => setInspiracao(e.target.value)} />
-                    <p>{erroInspiracao}</p>
+                    <p className={styles.erro}>{erroInspiracao}</p>
 
                     <label  htmlFor="Copa" className={styles.label}>Selecione uma copa</label>
                     <select name="copa" id="copa" value={copa} onChange={(e) => setCopa(e.target.value)} className={styles.select} >
@@ -178,15 +178,15 @@ export default function Register() {
                     <option value="Copa Triforce">Copa Triforce</option>
                     <option value="Copa Sino">Copa Sino</option>
                     </select>
-                    <p>{erroCopa}</p>
+                    <p className={styles.erro}>{erroCopa}</p>
 
                     <label  htmlFor="trofeus" className={styles.label}>Trofeus</label>
                     <Inputs tipo={'number'} valor={trofeus} oc={(e) => setTrofeus(e.target.value)} />
-                    <p>{erroTrofeus}</p>
+                    <p className={styles.erro}>{erroTrofeus}</p>
 
                     <label  htmlFor="plataforma" className={styles.label}>Plataforma</label>
                     <Inputs tipo={'text'} valor={plataforma} oc={(e) => setPlataforma(e.target.value)} />
-                    <p>{erroPlataforma}</p>
+                    <p className={styles.erro}>{erroPlataforma}</p>
 
                     <button type="submit"className={styles.button} >Cadastrar</button>
 
