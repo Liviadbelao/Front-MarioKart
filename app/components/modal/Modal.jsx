@@ -20,8 +20,8 @@ const Modal = ({   nome, imagem, descricao,inspiracao, copa, trofeus, plataforma
               <p className={styles.pg}><strong>Trofeus:</strong> {trofeus}</p>
               <p className={styles.pg}><strong>Plataforma:</strong> {plataforma}</p>
               </div>
-              <button  onClick={edt}>editar</button>
-              <button  onClick={dlt}>excuir</button>
+              <button  className={styles.bt}  onClick={edt}>🖋️</button>
+              <button  className={styles.bt} onClick={dlt}>🗑️</button>
           </div>
          
         </div>)}
