@@ -10,6 +10,8 @@ import styles from "../contato.module.css"
 import Image from "next/image";
 import Link from "next/link";
 import TrocarTela from "@/app/components/trocartela/TrocarTela";
+import Footer from "@/app/components/footer/Footer";
+import Header from "@/app/components/header/Header";
 
 
 export default function Page() {
@@ -30,7 +32,17 @@ export default function Page() {
     }
   };
 
-
+  function maskPhoneNumber(phoneNumber) {
+ 
+    let celularArray = phoneNumber.split("");
+    let celularFormatado = "(" + celularArray[0] + celularArray[1] + ")"
+        + " " + celularArray[2] + celularArray[3] + celularArray[4]
+        + celularArray[5] + celularArray[6] + "-"
+        + celularArray[7] + celularArray[8]
+        + celularArray[9] + celularArray[10];
+    return celularFormatado;
+  }
+  
 
   useEffect(() => {
     async function fetchContatos() {
@@ -45,11 +57,11 @@ export default function Page() {
 
     fetchContatos();
   }, []);
-console.log(contatos);
+
   return (
     <div className={styles.main} >
       
-
+<Header/>
       <div>
        <TrocarTela caminho={"/contato"} texto={"Entre em contato!"}/>
       </div>
@@ -67,7 +79,7 @@ console.log(contatos);
                     <strong>Nome:</strong> {contato.nome}
                   </p>
                   <p>
-                    <strong>Telefone:</strong> {contato.telefone}
+                    <strong>Telefone:</strong>{maskPhoneNumber(contato.telefone)}
                   </p>
                   <p>
                     <strong>Emai:</strong> {contato.email}
@@ -79,7 +91,7 @@ console.log(contatos);
 
                 <div >
                   <button
-                   
+                   className={styles.button2}
                     onClick={() => deletar(contato.id)}
                   >
                    Deletar
@@ -92,6 +104,9 @@ console.log(contatos);
         ) : (
           <Image src={"/pagHome/marioGifCarregar.gif"} width={100} height={100}/>
         )}
+      </div>
+      <div className={styles.footer}>
+      <Footer/>
       </div>
     </div>
   );

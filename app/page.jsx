@@ -24,7 +24,7 @@ export default function Home() {
       </div>
       {/* detalhe do site vermelho */}
       <div className={styles.imgContainer}>
-        <Image className={styles.img1} src={"/pagHome/marioHome (1).png"} width={100} height={300} />
+        <Image className={styles.img1} src={"/pagHome/marioHome1.png"} width={100} height={300} />
 
         <Image className={styles.img2} src={"/pagHome/Mario.png"} width={400} height={400} />
       </div>
@@ -48,7 +48,7 @@ export default function Home() {
 
       </div>
       <div className={styles.imgContainer}>
-        <Image className={styles.img1} src={"/pagHome/marioHome (1).png"} width={100} height={300} />
+        <Image className={styles.img1} src={"/pagHome/marioHome1.png"} width={100} height={300} />
 
         <Image className={styles.img4} src={"/pagHome/princesaPeachHome.png"} width={400} height={450} />
       </div>
