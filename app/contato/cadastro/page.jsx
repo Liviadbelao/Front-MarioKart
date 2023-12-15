@@ -30,7 +30,17 @@ export default function Page() {
     }
   };
 
-
+  function maskPhoneNumber(phoneNumber) {
+ 
+    let celularArray = phoneNumber.split("");
+    let celularFormatado = "(" + celularArray[0] + celularArray[1] + ")"
+        + " " + celularArray[2] + celularArray[3] + celularArray[4]
+        + celularArray[5] + celularArray[6] + "-"
+        + celularArray[7] + celularArray[8]
+        + celularArray[9] + celularArray[10];
+    return celularFormatado;
+  }
+  
 
   useEffect(() => {
     async function fetchContatos() {
@@ -45,7 +55,7 @@ export default function Page() {
 
     fetchContatos();
   }, []);
-console.log(contatos);
+
   return (
     <div className={styles.main} >
       
@@ -67,7 +77,7 @@ console.log(contatos);
                     <strong>Nome:</strong> {contato.nome}
                   </p>
                   <p>
-                    <strong>Telefone:</strong> {contato.telefone}
+                    <strong>Telefone:</strong>{maskPhoneNumber(contato.telefone)}
                   </p>
                   <p>
                     <strong>Emai:</strong> {contato.email}
