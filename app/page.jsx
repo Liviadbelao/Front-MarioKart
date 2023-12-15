@@ -37,7 +37,7 @@ export default function Home() {
           <Image src={"/pagHome/luigi.png"} width={200} height={200} />
           <Image src={"/pagHome/marioPersonagem.png"} width={200} height={200} />
           <Image src={"/pagHome/princesaPeach.png"} width={200} height={200} />
-          <Image src={"/pagHome/prinesaStar.png"} width={250} height={200} />
+          <Image className={styles.princess} src={"/pagHome/prinesaStar.png"} width={250} height={200} />
           <Image src={"/pagHome/rosalina.png"} width={200} height={200} />
           <Image src={"/pagHome/toad.png"} width={200} height={200} />
           <Image src={"/pagHome/download__1_-removebg-preview.png"} width={200} height={200} />
