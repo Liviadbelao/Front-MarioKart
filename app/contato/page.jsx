@@ -60,10 +60,6 @@ export default function Register() {
             setMensagemErro('')
           }
 
-          setSucesso(true)
-          setTimeout(() => {
-            setSucesso(false)
-        }, 3000)
 
         try {
             await axios.post("/api/contato", { nome, email, telefone, mensagem });
@@ -72,6 +68,10 @@ export default function Register() {
             setTelefone("")
             setMensagem("")
 
+            setSucesso(true)
+            setTimeout(() => {
+              setSucesso(false)
+          }, 3000)
             router.push(`/contato/cadastro`);
         } catch (error) {
             console.error("Error submitting data:", error);
@@ -133,7 +133,7 @@ export default function Register() {
                     </div>
 
                     <button className={style.button2} type="submit">Cadastrar</button>
-          { sucesso ? <p className={style.sucesso}>Contato Adicionado Com Sucesso</p> : null}
+          { sucesso ? (<p className={style.sucesso}>Contato Adicionado Com Sucesso</p>) : null}
 
                 </form>
             </div>

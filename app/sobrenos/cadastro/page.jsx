@@ -94,10 +94,7 @@ export default function Cadastro() {
       setErroTipo('');
     }
 
-    setSucesso(true)
-    setTimeout(() => {
-      setSucesso(false)
-  }, 3000)
+
 
     try {
       await axios.post("/api/usuarios", { nome, avatar, idade, descricao, tipo, imagem });
@@ -107,7 +104,10 @@ export default function Cadastro() {
       setDescricao("");
       setTipo("");
       setImagem("");
-
+      setSucesso(true)
+      setTimeout(() => {
+        setSucesso(false)
+    }, 3000)
       router.push(`/contato/cadastro`);
     } catch (error) {
       console.error("Error submitting data:", error);

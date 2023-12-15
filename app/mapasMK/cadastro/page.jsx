@@ -103,10 +103,7 @@ export default function Register() {
             setErroPlataforma('');
         }
 
-        setSucesso(true)
-        setTimeout(() => {
-          setSucesso(false)
-      }, 3000)
+     
 
         try {
             await axios.post("/api/mapas", { nome, imagem, descricao, inspiracao, copa, trofeus, plataforma });
@@ -117,7 +114,11 @@ export default function Register() {
             setCopa("");
             setTrofeus("");
             setPlataforma("");
-            console.log('copa');
+            setSucesso(true)
+            setTimeout(() => {
+              setSucesso(false)
+          }, 3000)
+           
             router.push(`/mapasMK/`);
         } catch (error) {
             console.error("Error submitting data:", error);
