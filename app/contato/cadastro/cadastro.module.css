@@ -4,7 +4,8 @@
     background-size: cover;
     width: 100%;
     min-height: 100vh;
-    padding-bottom: 10rem;
+    padding-top: 5rem;
+
 }
 
 .inputsContainer {
@@ -20,7 +21,7 @@
     margin-left: 35%;
     padding-bottom: 5%;
     padding-top: 5%;
-    border: 3px solid rgb(240, 227, 54);
+    border: 3px solid #03799153;
 }
 
 .button {
