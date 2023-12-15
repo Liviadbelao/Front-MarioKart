@@ -1,71 +1,89 @@
-'use client'
-import axios from "axios"
-import styles from "./contato.module.css"
+"use client";
+
+import axios from "axios";
 import { useEffect, useState } from "react";
-import Link from "next/link";
 import { useRouter } from "next/navigation";
-export default function Contato() {
-  const [contatos, setContatos] = useState([]);
-  const router = useRouter();
+import style from "./cadastro/cadastro.module.css";
 
-  const deletar = async (id) => {
-    const url = `/api/contato/${id}`;
-    try {
-      await axios.delete(url);
-      setContatos(contatos.filter((contato) => contato.id !== id)); // Corrigindo a atualização do estado
-    } catch (error) {
-      console.error("Error deleting data:", error);
-    }
-  };
+import Link from "next/link";
+import TrocarTela from "@/app/components/trocartela/TrocarTela";
+import Inputs from "@/app/components/inputs/Inputs";
+import Label from "@/app/components/label/label";
 
-  const update = async (id) => {
-    router.push(`/contato/${id}`);
-  };
+export default function Register() {
+    const [nome, setNome] = useState("");
+    const [email, setEmail] = useState("");
+    const [telefone, setTelefone] = useState("");
+    const [mensagem, setMensagem] = useState("");
+    const [contato, setContato] = useState([]);
+    const router = useRouter();
 
-  useEffect(() => {
-    async function fetchContato() {
-      try {
-        const response = await axios.get("/api/contato");
-        setContatos(response.data);
-      } catch (error) {
-        console.error("Error fetching data:", error);
-      }
-    }
+    const handleSubmit = async (e) => {
+        e.preventDefault();
 
-    fetchContato();
-  }, []);
+        try {
+            await axios.post("/api/contato", { nome, email, telefone, mensagem });
+            setNome("");
+            setEmail("")
+            setTelefone("")
+            setMensagem("")
 
-  console.log("Contatos", contatos);
+            router.push(`/contato/`);
+        } catch (error) {
+            console.error("Error submitting data:", error);
+        }
+    };
 
-  return (
-    <main>
-      <Link href="/contato/cadastro">
-        <button>Cadastrar Aluno</button>
-      </Link>
-      <h1>Contatos feitos</h1>
-      {contatos.length ? (
-        contatos.map((contato) => (
-          <div className={styles.container} key={contato.id}>
-            <h1>{contato.nome}</h1>
-            <p>
-              <strong>Email:</strong>
-              {contato.email}
-            </p>
-            <p>
-              <strong>Telefone:</strong>
-              {contato.telefone}
-            </p>
-            <p>
-              <strong>Mensagem deixada pelo usuário:</strong>
-              {contato.mensagem}
-            </p>
-            <button onClick={() => deletar(contato.id)}>apagar</button>
-            <button onClick={() => update(contato.id)}>editar</button>
-          </div>
-        ))
-      ) : (
-        <h1>Esperando Dados</h1>
-      )}
-    </main>
-  );
+    useEffect(() => {
+        async function fetchContato() {
+            try {
+                const response = await axios.get("/api/contato");
+                setContato(response.data);
+            } catch (error) {
+                console.error("Error fetching data:", error);
+            }
+        }
+
+        fetchContato();
+    }, []);
+    return (
+        <div className={style.container}>
+
+            <div className={style.parallax}>
+
+                <div className={style.container2}>
+
+                    <div >
+                        <TrocarTela caminho={"/contato/cadastro"} texto={'Ver Contatos'} />
+                    </div>
+
+                    <div className={style.inputsContainer} >
+                        <h1 className={style.cadastrar}>Entre em contato!</h1>
+
+                        <form onSubmit={handleSubmit}>
+                            <div>
+                                <Label htmlFor={'nome'} />
+                                <label className={style.label} htmlFor="name">Nome:</label>
+                                <Inputs tipo={'text'} valor={nome} oc={(e) => setNome(e.target.value)} />
+                            </div>
+                            <div>
+                                <label className={style.label} htmlFor="name">E-mail:</label>
+                                <Inputs tipo={'text'} valor={email} oc={(e) => setEmail(e.target.value)} />
+                            </div>
+                            <div>
+                                <label className={style.label} htmlFor="name">Telefone:</label>
+                                <Inputs tipo={'text'} valor={telefone} oc={(e) => setTelefone(e.target.value)} />
+                            </div>
+                            <div>
+                                <label className={style.label} htmlFor="name">Mensagem:</label>
+                            <Inputs tipo={'text'} valor={mensagem} oc={(e) => setMensagem(e.target.value)} />
+                    </div>
+
+                    <button className={style.button2} type="submit">Cadastrar</button>
+                </form>
+            </div>
+        </div>
+            </div >
+        </div >
+    );
 }
