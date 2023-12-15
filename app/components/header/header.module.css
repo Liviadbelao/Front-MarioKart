@@ -1,108 +1,4 @@
-/* .header {
-    height: 100%;
-    background-color: #ede0e000;
-    color: black;
-    position: fixed;
-    top: 0;
-    left: 0;
-    overflow-y: auto;
-}
-
-.header::-webkit-scrollbar {
-   display: none;
-  }
-
-.links {
-    margin-top: 1rem;
-}
-
-.linksContainer{
-display: flex;
-padding: 1rem 0.5rem;
-align-items: center;
-width: 50%;
-overflow: hidden;
-
-}
-.linksContainer:hover{
-width: 100rem;
-}
-
-.mario {
-    margin-left: 20%;
-} */
-
-/* .header {
-    position: fixed;
-    top: 0;
-    left: 0;
-    background-color: #efbbbb;
-    height: 100vh;
-    z-index: 999;
-}
-
-.linksContainer {
-    display: flex;
-    align-items: center;
-    margin: 1rem;
-    width: 4rem;
-    overflow: hidden;
-    transition: 0.5s;
-    background-color: #ede0e0;
-    padding: 0.7rem;
-    border-radius: 8px;
-    border: 1px solid black;
-}
-
-.linksContainer:hover {
-    width: 10rem;
-    transition: 0.5s;
-
-}
-
-.text {
-    border-radius: 4px;
-    padding: 0.1rem 1rem;
-}
-
-.mario {
-    margin-right: 1rem;
-}
-
-.caixinha{
-display: none;
-}
-
-@media (max-width: 680px) {
-
-   .header{
-display: none;   }
-
-       .caixinha{
-        display: flex;
-        align-items: center;
-        margin: 1rem;
-        width: 4rem;
-        overflow: hidden;
-        transition: 0.5s;
-        background-color: #ede0e0;
-        padding: 0.7rem;
-        border-radius: 8px;
-        border: 1px solid black;
-       }
-       .caixinha:hover {
-        width: 10rem;
-        transition: 0.5s;
-        background-color: #efbbbb;
-        height: 100%;
-    
-    }
-
-       .linksContainer{
-        
-       }
-} */
-
+@import url('https://fonts.cdnfonts.com/css/new-super-mario-font-u');
 
 .header{
     margin-top: -1%;
@@ -110,7 +6,7 @@ display: none;   }
 
 .links{
     padding: 3.5%;
-    height: 0.2rem;
+    height: 0.5rem;
     width: 100%;
     overflow: hidden;
     transition: 1s;
@@ -140,7 +36,6 @@ display: none;   }
 .linkagem{
     margin: 0 1rem;
 }
-
 
 @media screen and (max-width: 768px) {
 

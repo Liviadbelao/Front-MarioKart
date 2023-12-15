@@ -1,17 +1,13 @@
 
 
 .divMain{
-   background-image:url(/cadastroSobreNos/background.jpg) ;
+   background-image:url(../../public/fundosobrenos.png) ;
    background-attachment: fixed;
    background-position: center;
    background-repeat: no-repeat;
    background-size: cover;
    width: 100%;
-
 min-height: 100vh;
-
-
-
 }
 .containerCards{
     display: flex;
@@ -39,9 +35,6 @@ min-height: 100vh;
  border: 5px double rgba(21, 3, 3, 0.3191);
     padding: 2%;
  border-radius: 6px 6px 6px 6px;
-    -webkit-box-shadow: 12px 14px 50px 3px rgba(97,97,230,1);
--moz-box-shadow: 12px 14px 50px 3px rgba(97,97,230,1);
-box-shadow: 12px 14px 50px 3px rgba(97,97,230,1);
 
 }
 .h1So{
@@ -54,7 +47,7 @@ font-size: 30px;
 }
 .p {
     font-size: 18px;
-    color:  #ece5e5;
+    color:  #111111;
     font-family: sans-serif;
     font-weight: bold;
     text-align: center;
@@ -277,8 +270,9 @@ margin-bottom: 6%;
                     margin-top: 2%;
                 }
        
-
-
+                .divMain{
+                    background-position: unset;
+                 }
             }
                 
             

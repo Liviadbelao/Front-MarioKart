@@ -1,10 +1,12 @@
 .texto {
-    color: black;
+    color: #efefef;
     transition: 0.5s;
     transition: border-width 0.3s;
     border-width: 0px;
     margin-bottom: 2%;
     cursor: pointer;
+    font-family: 'New Super Mario Font U', sans-serif;
+    font-size: 20px;
     text-decoration: none;
 
 }
