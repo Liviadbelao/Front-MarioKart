@@ -1,11 +1,10 @@
-.parallax {
+.container {
     background-image: url(../../../public/fundocontatos.png);
-    background-attachment: fixed;
-    background-size: cover;
+
     width: 100%;
     min-height: 100vh;
 
-    padding-top: 5rem;
+  
     overflow: hidden;
 }
 
@@ -22,6 +21,7 @@
     text-align: center;
     margin-left: 35%;
     padding-bottom: 5%;
+    margin-top: 5%;
     padding-top: 5%;
     border: 3px solid #03799153;
 }

@@ -8,6 +8,7 @@ import TrocarTela from "@/app/components/trocartela/TrocarTela";
 import Inputs from "@/app/components/inputs/Inputs";
 import Label from "@/app/components/label/label";
 import Header from "../components/header/Header";
+import Footer from "../components/footer/Footer";
 
 export default function Register() {
     const [nome, setNome] = useState("");
@@ -130,6 +131,9 @@ export default function Register() {
             </div>
         </div>
             </div >
+            <div className={style.footer}>
+      <Footer/>
+      </div>
         </div >
     );
 }
