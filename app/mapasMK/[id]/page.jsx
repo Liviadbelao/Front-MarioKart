@@ -139,6 +139,7 @@ export default function UpdateMapa({ params }) {
         try {
             await axios.put(`/api/mapas/${id}`, { nome, imagem, descricao, inspiracao, copa, trofeus, plataforma });
             router.push(`/mapasMK/`);
+            
         } catch (error) {
             console.error("Error updating mapa:", error.response.data); 
         }

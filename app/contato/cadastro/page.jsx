@@ -6,9 +6,10 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
-
-
+import styles from "../contato.module.css"
+import Image from "next/image";
 import Link from "next/link";
+import TrocarTela from "@/app/components/trocartela/TrocarTela";
 
 
 export default function Page() {
@@ -46,24 +47,20 @@ export default function Page() {
   }, []);
 console.log(contatos);
   return (
-    <div >
+    <div className={styles.main} >
       
 
       <div>
-        <Link href="/contato">
-          <button >
-            Cadastrar Aluno
-          </button>
-        </Link>
+       <TrocarTela caminho={"/contato"} texto={"Entre em contato!"}/>
       </div>
 
       <div >
-        <h1 >Tentativas de contato:</h1>
+        <h1 className={styles.titulo} >Tentativas de contato:</h1>
 
         {contatos.length ? (
-          <div >
+          <div className={styles.containerCard} >
             {contatos.map((contato) => (
-              <div key={contato.id} >
+              <div className={styles.container} key={contato.id} >
                 <div>
                
                   <p>
@@ -93,7 +90,7 @@ console.log(contatos);
             ))}
           </div>
         ) : (
-          <p> "Carregando..."</p>
+          <Image src={"/pagHome/marioGifCarregar.gif"} width={100} height={100}/>
         )}
       </div>
     </div>

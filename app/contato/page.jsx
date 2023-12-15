@@ -65,7 +65,7 @@ export default function Register() {
             setTelefone("")
             setMensagem("")
 
-            router.push(`/contato/`);
+            router.push(`/contato/cadastro`);
         } catch (error) {
             console.error("Error submitting data:", error);
         }
