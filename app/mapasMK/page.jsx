@@ -173,6 +173,7 @@ export default function Home() {
 
             <div className={styles.results}>
                     {
+                        /* renderizando os mapas */
                         dados.length !== 0 ? (
                             dados.length > 0 && exibirDados === true ? (
                                 dados.map((mapa) => (

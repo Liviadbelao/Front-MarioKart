@@ -55,7 +55,7 @@ export default function Register() {
 
         if (!imagem) {
             setErroImagem('Preencha o campo Imagem')
-        }else {
+        } else {
             console.log('Limpou');
             setErroImagem('');
         }
@@ -133,59 +133,59 @@ export default function Register() {
         fetchMapas();
     }, []);
 
-//Criando HTML
+    //Criando HTML
     return (
 
         <main className={styles.main}>
-<Header/>
+            <Header />
             <TrocarTela caminho={'/mapasMK'} texto={'Mapas Cadastrados'} />
 
             <div className={styles.mainContainer}>
 
                 <form onSubmit={Adicionar} className={styles.container}>
-                    <Label htmlFor={"nome"} texto={"Nome"}/>
+                    <Label htmlFor={"nome"} texto={"Nome"} />
                     <Inputs tipo={'text'} valor={nome} oc={(e) => setNome(e.target.value)} />
                     <p className={styles.erro}>{erroNome}</p>
 
-                    <label  htmlFor="imagem" className={styles.label}>Imagem</label>
+                    <label htmlFor="imagem" className={styles.label}>Imagem</label>
                     <Inputs tipo={'text'} valor={imagem} oc={(e) => setImagem(e.target.value)} />
                     <p className={styles.erro}>{erroImagem}</p>
 
-                    <label  htmlFor="descricao" className={styles.label}>Descrição</label>
+                    <label htmlFor="descricao" className={styles.label}>Descrição</label>
                     <Inputs tipo={'text'} valor={descricao} oc={(e) => setDescricao(e.target.value)} />
                     <p className={styles.erro}>{erroDescricao}</p>
 
-                    <label  htmlFor="inspiracao" className={styles.label}>Inspiração</label>
+                    <label htmlFor="inspiracao" className={styles.label}>Inspiração</label>
                     <Inputs tipo={'text'} valor={inspiracao} oc={(e) => setInspiracao(e.target.value)} />
                     <p className={styles.erro}>{erroInspiracao}</p>
 
-                    <label  htmlFor="Copa" className={styles.label}>Selecione uma copa</label>
+                    <label htmlFor="Copa" className={styles.label}>Selecione uma copa</label>
                     <select name="copa" id="copa" value={copa} onChange={(e) => setCopa(e.target.value)} className={styles.select} >
-                    <option value="">Selecione....</option>
-                    <option value="Copa Cogumelo">Copa Cogumelo</option>
-                    <option value="Copa FLor">Copa Flor</option>
-                    <option value="Copa Estrela">Copa Estrela</option>
-                    <option value="Copa Especial">Copa Especial</option>
-                    <option value="Copa Ovo">Copa Ovo</option>
-                    <option value="Copa Crossover">Copa Crossover</option>
-                    <option value="Copa Casco">Copa Casco</option>
-                    <option value="Copa Banana">Copa Banana</option>
-                    <option value="Copa Folha">Copa Folha</option>
-                    <option value="Copa Relâmpago">Copa Relâmpago</option>
-                    <option value="Copa Triforce">Copa Triforce</option>
-                    <option value="Copa Sino">Copa Sino</option>
+                        <option value="">Selecione....</option>
+                        <option value="Copa Cogumelo">Copa Cogumelo</option>
+                        <option value="Copa FLor">Copa Flor</option>
+                        <option value="Copa Estrela">Copa Estrela</option>
+                        <option value="Copa Especial">Copa Especial</option>
+                        <option value="Copa Ovo">Copa Ovo</option>
+                        <option value="Copa Crossover">Copa Crossover</option>
+                        <option value="Copa Casco">Copa Casco</option>
+                        <option value="Copa Banana">Copa Banana</option>
+                        <option value="Copa Folha">Copa Folha</option>
+                        <option value="Copa Relâmpago">Copa Relâmpago</option>
+                        <option value="Copa Triforce">Copa Triforce</option>
+                        <option value="Copa Sino">Copa Sino</option>
                     </select>
                     <p className={styles.erro}>{erroCopa}</p>
 
-                    <label  htmlFor="trofeus" className={styles.label}>Trofeus</label>
+                    <label htmlFor="trofeus" className={styles.label}>Trofeus</label>
                     <Inputs tipo={'number'} valor={trofeus} oc={(e) => setTrofeus(e.target.value)} />
                     <p className={styles.erro}>{erroTrofeus}</p>
 
-                    <label  htmlFor="plataforma" className={styles.label}>Plataforma</label>
+                    <label htmlFor="plataforma" className={styles.label}>Plataforma</label>
                     <Inputs tipo={'text'} valor={plataforma} oc={(e) => setPlataforma(e.target.value)} />
                     <p className={styles.erro}>{erroPlataforma}</p>
 
-                    <button type="submit"className={styles.button} >Cadastrar</button>
+                    <button type="submit" className={styles.button} >Cadastrar</button>
 
                 </form>
 
