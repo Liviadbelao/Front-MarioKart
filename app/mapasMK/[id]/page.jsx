@@ -68,7 +68,7 @@ export default function UpdateMapa({ params }) {
     //Function de verificação de imagem
     const urlValida = (imagem) => {
 
-        if (imagem.match(/\.(jpeg|jpg|gif|png)$/) != null) {
+        if (imagem.match(/\.(jpeg|jpg|gif|png|webp)$/) != null) {
             return true;
         } else {
             return false;
@@ -90,7 +90,10 @@ export default function UpdateMapa({ params }) {
         if (!imagem) {
             console.log('Preencha o campo imagem')
             setErroImagem('Preencha o campo Imagem')
-        }else {
+        }else if(!urlValida(imagem)) {
+            setErroImagem('Url inválida! Insira uma Url com extensão .jpg/.png/.webp')
+        }
+        else {
             console.log('Limpou');
             setErroImagem('');
         }

@@ -56,8 +56,9 @@ export default function Register() {
 
         if (!imagem) {
             setErroImagem('Preencha o campo Imagem')
+        }else if(!urlValida(imagem)) {
+            setErroImagem('Formato da imagem inválido! Utilize .png, .jpg ou .webp');
         } else {
-            console.log('Limpou');
             setErroImagem('');
         }
 
