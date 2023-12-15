@@ -1,14 +1,10 @@
 
-
-
-
 "use client";
 import axios from "axios";
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import styles from "../contato.module.css"
 import Image from "next/image";
-import Link from "next/link";
 import TrocarTela from "@/app/components/trocartela/TrocarTela";
 import Footer from "@/app/components/footer/Footer";
 import Header from "@/app/components/header/Header";

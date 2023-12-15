@@ -7,6 +7,11 @@
     text-align: center;
 }
 
+.sucesso {
+    color: green; 
+        margin: 1rem;
+}
+
 
 /* Estilo para o container principal */
 .container {

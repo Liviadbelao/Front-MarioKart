@@ -29,11 +29,12 @@ export default function Register() {
     const [plataforma, setPlataforma] = useState("");
     const [erroPlataforma, setErroPlataforma] = useState("");
     const [mapas, setMapas] = useState([]);
-    let erros = [];
+  const [sucesso, setSucesso] = useState('')
+
 
     //Verificação de imagem
     const urlValida = (imagem) => {
-        if (imagem.match(/\.(jpeg|jpg|gif|png)$/) != null) {
+        if (imagem.match(/\.(jpeg|jpg|gif|png|webp)$/) != null) {
             return true;
         } else {
             return false;
@@ -101,6 +102,11 @@ export default function Register() {
         } else {
             setErroPlataforma('');
         }
+
+        setSucesso(true)
+        setTimeout(() => {
+          setSucesso(false)
+      }, 3000)
 
         try {
             await axios.post("/api/mapas", { nome, imagem, descricao, inspiracao, copa, trofeus, plataforma });
@@ -186,6 +192,7 @@ export default function Register() {
                     <p className={styles.erro}>{erroPlataforma}</p>
 
                     <button type="submit" className={styles.button} >Cadastrar</button>
+                    { sucesso ? <p className={styles.sucesso}>Mapa Adicionado Com Sucesso</p> : null}
 
                 </form>
 

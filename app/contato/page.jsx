@@ -21,6 +21,7 @@ export default function Register() {
     const [mensagemErro, setMensagemErro] = useState("");
     const [contato, setContato] = useState([]);
     const router = useRouter();
+    const [sucesso, setSucesso] = useState('')
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -58,6 +59,11 @@ export default function Register() {
           }else {
             setMensagemErro('')
           }
+
+          setSucesso(true)
+          setTimeout(() => {
+            setSucesso(false)
+        }, 3000)
 
         try {
             await axios.post("/api/contato", { nome, email, telefone, mensagem });
@@ -117,7 +123,7 @@ export default function Register() {
                             </div>
                             <div>
                             <Label htmlFor={'telefone'} texto={'Telefone:'} />
-                                <Inputs tipo={'text'} valor={telefone} oc={(e) => setTelefone(e.target.value)} />
+                                <Inputs tipo={'tell'} max={11} valor={telefone} oc={(e) => setTelefone(e.target.value)} />
                                 <p className={style.erro}> {telefoneErro}</p>
                             </div>
                             <div>
@@ -127,6 +133,8 @@ export default function Register() {
                     </div>
 
                     <button className={style.button2} type="submit">Cadastrar</button>
+          { sucesso ? <p className={style.sucesso}>Contato Adicionado Com Sucesso</p> : null}
+
                 </form>
             </div>
         </div>

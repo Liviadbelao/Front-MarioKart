@@ -3,7 +3,6 @@
 //Importações
 import axios from "axios";
 import { useEffect, useState } from "react";
-import Link from "next/link";
 import Image from "next/image";
 import Inputs from "@/app/components/inputs/Inputs";
 import styles from "./cadastro.module.css"
@@ -28,6 +27,7 @@ export default function Cadastro() {
   const [erroTipo, setErroTipo] = useState("");
   const [avatar, setAvatar] = useState("");
   const [usuarios, setUsuarios] = useState([]);
+  const [sucesso, setSucesso] = useState('')
 
   //Imagem válida
   const urlValida = (imagem) => {
@@ -94,6 +94,11 @@ export default function Cadastro() {
       setErroTipo('');
     }
 
+    setSucesso(true)
+    setTimeout(() => {
+      setSucesso(false)
+  }, 3000)
+
     try {
       await axios.post("/api/usuarios", { nome, avatar, idade, descricao, tipo, imagem });
       setNome("");
@@ -103,6 +108,7 @@ export default function Cadastro() {
       setTipo("");
       setImagem("");
 
+      router.push(`/contato/cadastro`);
     } catch (error) {
       console.error("Error submitting data:", error);
     }
@@ -250,6 +256,7 @@ export default function Cadastro() {
           </div>
 
           <button type="submit" className={styles.button}>cadastrar</button>
+          { sucesso ? <p className={styles.sucesso}>Usuário Adicionado Com Sucesso</p> : null}
           
         </form>
 

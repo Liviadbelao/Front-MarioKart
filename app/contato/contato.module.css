@@ -5,6 +5,11 @@
     min-height: 100vh;
 }
 
+.sucesso {
+    color: green;
+    margin: 1rem;
+}
+
 .titulo {
 
     margin-top: 2%;
