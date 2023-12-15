@@ -175,7 +175,7 @@ export default function Home() {
                     {
                         /* renderizando os mapas */
                         dados.length !== 0 ? (
-                            dados.length > 0 && exibirDados === true ? (
+                           
                                 dados.map((mapa) => (
                                     <div key={mapa.id}>
                                         <div className={styles.cardContainer}>
@@ -188,11 +188,7 @@ export default function Home() {
                                         </div>
                                     </div>
                                 ))
-                            ) : (
-                                <div className={styles.load}>
-                                    <h1>{dados.length !== 0 ? "Selecione Uma Copa" : 'Copa Vazia'}</h1>
-                                </div>
-                            )
+                            
                         ) : (
                             <div className={styles.load}>
                                 <img src={"/pagHome/marioGifCarregar.gif"} width={100} height={100} alt="Loading" />
