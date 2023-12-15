@@ -37,7 +37,9 @@
     width: 40%;
     margin-top: 25px;
 }
-
+.footer{
+    margin-top: 25%;
+}
 .button2:hover {
     cursor: pointer;
 }
@@ -53,5 +55,7 @@
     .containerCard {
         display: inline;
     }
-
+    .footer{
+       margin-top: 110%
+    }
 }
