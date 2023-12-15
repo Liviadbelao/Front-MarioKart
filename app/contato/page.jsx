@@ -107,22 +107,22 @@ export default function Register() {
                             <div>
                                 <Label htmlFor={'nome'} texto={'Nome:'} />
                                 <Inputs tipo={'text'} valor={nome} oc={(e) => setNome(e.target.value)} />
-                                {nomeErro}
+                                <p className={style.erro}>  {nomeErro}</p>
                             </div>
                             <div>
                             <Label htmlFor={'email'} texto={'Email:'} />
                                 <Inputs tipo={'text'} valor={email} oc={(e) => setEmail(e.target.value)} />
-                                {emailErro}
+                                <p className={style.erro}> {emailErro}</p>
                             </div>
                             <div>
                             <Label htmlFor={'telefone'} texto={'Telefone:'} />
                                 <Inputs tipo={'text'} valor={telefone} oc={(e) => setTelefone(e.target.value)} />
-                                {telefoneErro}
+                                <p className={style.erro}> {telefoneErro}</p>
                             </div>
                             <div>
                             <Label htmlFor={'mensagem'} texto={'Mensagem:'} />
                             <Inputs tipo={'text'} valor={mensagem} oc={(e) => setMensagem(e.target.value)} />
-                            {mensagemErro}
+                            <p className={style.erro}>{mensagemErro}</p>
                     </div>
 
                     <button className={style.button2} type="submit">Cadastrar</button>

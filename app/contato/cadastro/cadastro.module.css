@@ -1,13 +1,14 @@
 .parallax {
     background-image: url(../../../public/fundocontatos.png);
-    background-attachment: fixed; 
+    background-attachment: fixed;
     background-size: cover;
     width: 100%;
     min-height: 100vh;
- 
-  padding-top: 5rem;
- overflow: hidden;
+
+    padding-top: 5rem;
+    overflow: hidden;
 }
+
 
 .inputsContainer {
     margin: 1rem 2rem;
@@ -34,6 +35,10 @@
     margin-bottom: 30px;
 }
 
+.erro {
+    color: red;
+}
+
 .button2 {
     background-color: red;
     color: white;
@@ -43,7 +48,8 @@
     width: 40%;
     margin-top: 25px;
 }
-.button2:hover{
+
+.button2:hover {
     cursor: pointer;
 }
 
@@ -67,9 +73,7 @@
     margin-right: 20px;
 }
 
-.container {
-    margin-top: 34px;
-}
+
 
 @media (max-width: 680px) {
     .parallax {
