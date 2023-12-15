@@ -10,6 +10,7 @@
 .miniMain {
     display: flex;
 }
+
 /* estilos dos titulos */
 .titulo1 {
     font-family: 'New Super Mario Font U', sans-serif;
@@ -17,19 +18,23 @@
     font-size: 50px;
 
 }
-.titulo, .titulo2 {
+
+.titulo,
+.titulo2 {
     color: black;
     width: 40%;
     margin-bottom: 1%;
     background-color: rgb(255, 221, 0);
     padding: 1%;
 }
+
 /* ajustes caixas de textos */
-.content{
+.content {
     background-color: brown;
     padding: 2%;
     margin-top: 1%;
 }
+
 .container {
     width: 60%;
 
@@ -63,10 +68,12 @@
     margin-bottom: 5%;
 
 }
+
 .containerAjuste {
     display: flex;
     margin-top: 30%;
 }
+
 /* ajuste personagens */
 .personagens {
     display: flex;
@@ -88,9 +95,11 @@
     top: 0;
     left: 0;
 }
+
 .gif {
     margin-left: 10%;
-   }
+}
+
 .img2 {
     z-index: 1;
     margin-left: 70%;
@@ -115,50 +124,62 @@
 
 
 @media only screen and (max-width: 768px) {
-   
+
     .miniMain {
-      flex-direction: column;
-      align-items: center;
+        flex-direction: column;
+        align-items: center;
     }
-  
-  .container4{
-    text-align: center;
-    margin-top: 100%;
-    margin-left: 25%;
-  }
-  .titulo{
-    width: 90%;
-    
-  } 
-  .titulo2{
-    width: 90%;
-    margin-left: -10%;
-  }
-    .main{
-   margin-top: -2%;
-    
-   
+
+    .container4 {
+        text-align: center;
+        margin-top: 100%;
+        margin-left: 25%;
     }
+
+    .titulo {
+        width: 90%;
+
+    }
+
+    .titulo2 {
+        width: 90%;
+        margin-left: -10%;
+    }
+
+    .main {
+        overflow-x: hidden;
+    }
+
+    .princess {
+        margin-left: -10%;
+    }
+
     .titulo1 {
-      font-size: 36px;
-     
-      text-align: center;
+        font-size: 36px;
+
+        text-align: center;
     }
-    .img2, .img4{
+
+    .img2,
+    .img4 {
         width: 90%;
         margin: auto;
     }
-    .img3{
+
+    .img3 {
         display: none;
     }
-  .container, .container3{
-    width: 90%;
-    margin-left: 0%;
-  }
-  .container3{
-    margin-top: 90%;
-margin-left: 5%;
-  }
-   
 
-  }
+    .container,
+    .container3 {
+        width: 90%;
+        margin-left: 0%;
+    }
+
+    .container3 {
+        margin-top: 90%;
+        margin-left: 5%;
+    }
+
+
+}
