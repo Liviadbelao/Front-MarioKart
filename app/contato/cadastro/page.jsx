@@ -89,7 +89,7 @@ export default function Page() {
 
                 <div >
                   <button
-                   
+                   className={styles.button2}
                     onClick={() => deletar(contato.id)}
                   >
                    Deletar

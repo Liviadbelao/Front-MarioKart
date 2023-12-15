@@ -28,7 +28,19 @@
     flex-wrap: wrap;
     gap: 2rem;
 }
+.button2 {
+    background-color: red;
+    color: white;
+    border-radius: 50px;
+    border: none;
+    height: 30px;
+    width: 40%;
+    margin-top: 25px;
+}
 
+.button2:hover {
+    cursor: pointer;
+}
 
 @media (max-width: 680px) {
 
