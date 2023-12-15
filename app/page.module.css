@@ -135,8 +135,8 @@
     margin-left: -10%;
   }
     .main{
-   margin-top: -2%;
-    
+  
+    overflow-x: hidden;
    
     }
     .titulo1 {
