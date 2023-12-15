@@ -198,25 +198,6 @@ export default function Home() {
                             </div>
                         )
                     }
-    
-                {/* {dados.length > 0  && exibirDados == true ? (
-                    dados.map((mapa) => (
-                        <div key={mapa.id}>
-                            <div className={styles.cardContainer}>
-                                <div className={styles.titulo}>
-                                    <div onClick={() => openModal(mapa.id)}>
-                                        <img className={styles.img} src={mapa.imagem} />
-                                        <h1 className={styles.mapaname}>{mapa.nome}</h1>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    ))) : (
-                    <div className={styles.load}>
-                        <h1>{dados.length != 0 ? "Selecione Uma Copa" : 'Copa Vazia'  }</h1>
-                    </div>
-                )
-                } */}
 
             </div>
 
