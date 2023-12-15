@@ -43,6 +43,9 @@
     width: 40%;
     margin-top: 25px;
 }
+.button2:hover{
+    cursor: pointer;
+}
 
 .cadastrar {
     margin-bottom: 25px;
