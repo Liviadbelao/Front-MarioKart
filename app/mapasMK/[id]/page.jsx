@@ -160,19 +160,19 @@ export default function UpdateMapa({ params }) {
                 <form onSubmit={handleSubmit} className={styles.container}>
               <Label htmlFor={"nome"} texto={"Nome"}/>
               <Inputs tipo={'text'} valor={nome}  oc={(e) => setNome(e.target.value)} />
-                <p>{erroNome}</p>
+                <p className={styles.erro}>{erroNome}</p>
 
                 <Label htmlFor={"imagem"} texto={"Imagem"}/>
                 <Inputs tipo={'text'} valor={imagem}  oc={(e) => setImagem(e.target.value)} />
-                <p>{erroImagem}</p>
+                <p className={styles.erro}>{erroImagem}</p>
 
                 <Label htmlFor={"descricao"} texto={"Descrição"}/>
                 <Inputs tipo={'text'} valor={descricao}  oc={(e) => setDescricao(e.target.value)} />
-                <p>{erroDescricao}</p>
+                <p className={styles.erro}>{erroDescricao}</p>
 
                 <Label htmlFor={"inspiracao"} texto={"Inspiraçâo"}/>
                 <Inputs tipo={'text'} valor={inspiracao}  oc={(e) => setInspiracao(e.target.value)} />
-                <p>{erroInspiracao}</p>
+                <p className={styles.erro}>{erroInspiracao}</p>
 
                 <Label htmlFor={"copa"} texto={"Selecione uma copa"}/>
                 <select name="copa" id="copa" value={copa} onChange={(e) => setCopa(e.target.value)} className={styles.select}>
@@ -190,15 +190,15 @@ export default function UpdateMapa({ params }) {
                     <option value="Copa Triforce">Copa Triforce</option>
                     <option value="Copa Sino">Copa Sino</option>
                 </select>
-                <p>{erroCopa}</p>
+                <p className={styles.erro}>{erroCopa}</p>
 
                 <Label htmlFor={"trofeus"} texto={"Troféus"}/>
                 <Inputs tipo="number" valor={trofeus} oc={(e) => setTrofeus(e.target.value)}  />
-                <p>{erroTrofeus}</p>
+                <p className={styles.erro}>{erroTrofeus}</p>
 
                 <Label htmlFor={"plataforma"} texto={"Plataforma"}/>
                 <Inputs tipo="text" valor={plataforma} oc={(e) => setPlataforma(e.target.value)}  />
-                <p>{erroPlataforma}</p>
+                <p className={styles.erro}>{erroPlataforma}</p>
                 <ButtonAmarelo type={"submit"} texto={"Atualizar"} /> 
 
         

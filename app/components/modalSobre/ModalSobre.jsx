@@ -20,6 +20,7 @@ const ModalSobre = ({ nome, avatar, idade, descricao, tipo, imagem, fechar }) =>
                 <p >Tipo:  {tipo}</p>
                 <div className={styles.divAvatar}>
                 <p >Avatar: <img src={avatar} width={60} height={60}/></p>
+                
                 </div>
                 </div>
               
