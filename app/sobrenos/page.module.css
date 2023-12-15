@@ -24,6 +24,8 @@ min-height: 100vh;
     padding-bottom: 2%;
     border: 5px double rgba(21, 3, 3, 0.3191);
     border-radius: 6px 6px 6px 6px;
+    min-height: 20rem;
+
     
 }
 
